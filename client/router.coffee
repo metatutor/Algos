@@ -2,9 +2,13 @@ Router.map ->
   @route 'home',{
     path: '/'
   }
-  @route 'test',{
-    path: '/test'
-    template: 'test'
+  @route 'agency',{
+    path: '/agency/dashboard'
+    template: 'agency'
+  }
+  @route 'rider',{
+    path: '/rider/mobile-display'
+    template: 'rider'
   }
 
 Router.configure {
