@@ -1,8 +1,8 @@
 Meteor.methods {
   getETA: (stop,route,direction)->
-    check opts.stop,String
-    check opts.route,String
-    check opts.direction,String
+    check stop,String
+    check route,String
+    check direction,String
 
     # Get data from backend
     #HTTP.get 'http://localhost:
