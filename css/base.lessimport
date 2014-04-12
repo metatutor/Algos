@@ -49,7 +49,9 @@ body, div, nav, span, ul, li, a, table, th, td {
 	}
 	.footer .brand { text-align: center; width: 100%; margin-top: -5px; }
 .copy { color: @midwhite; font-style: italic; font-size: 12px; text-align: right; float: right; width: 100%; display: block; }
+.right { float: right; }
 .hide { display: none; }  
+
 
 //GRID COLUMNS
 
