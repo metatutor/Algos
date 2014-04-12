@@ -9,10 +9,10 @@ Meteor.methods {
 
     # For now, we just produce dummy data
     return {
-      eta: do -> Random [0,1,2,3,4,5,6,7,8,9,10]
+      eta: do -> Random.choice [0..10]
       next: [
-        do -> 15 + Random [0,1,2,3,4,5,6,7,8,9,10]
-        do -> 30 + Random [0,1,2,3,4,5,6,7,8,9,10]
+        do -> 15 + Random.choice [0..10]
+        do -> 30 + Random.choice [0..10]
       ]
     }
 }
