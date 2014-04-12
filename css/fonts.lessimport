@@ -7,7 +7,7 @@
 	line-height: 24px;
 }
 
-a { 
+a, .brand { 
 	font-family: Verdana, Arial, sans-serif;
 	font-weight: bold;
 }
