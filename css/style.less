@@ -1,0 +1,97 @@
+@import 'grid.lessimport';
+@import 'color.lessimport';
+@import 'fonts.lessimport';
+@import 'rules.lessimport';
+@import 'anim.lessimport';
+
+
+@import 'base.lessimport';
+@import 'forms.lessimport';
+@import 'tables.lessimport';
+
+@import 'printcss.lessimport';
+@import 'media.lessimport';
+
+//STRUCTURE
+
+#wrapper { 
+	.unit; 
+	padding: 50px; 
+	border: 1px solid @darkestgrey;
+}
+//NAV
+
+nav {
+	height: 40px;
+	width: 100%;
+	.background-linear-gradient(@lightblack, @midblack);
+}
+	.nav.back { 
+		height: 40px;
+		position: absolute;
+			top: 0; left: 0;
+		width: 100%;
+		z-index: -1;
+		margin: 0; padding: 0;
+		background: white;
+	}
+	nav ul { width: 100%; }
+		#gohome { padding-top: 0; }
+		#gologin { float: right; }
+		#gosettings { float: right; padding-top: 0; }
+	nav li { 
+		margin: 0 10px; 
+		padding-top: 5px;
+	}
+
+	nav a, nav i {
+		font-weight: normal;
+		color: white;
+	}
+		nav a:hover, nav a:active, nav i:hover, nav i:active {
+			color: @lightlightblue;
+		}
+
+//ICONS
+
+i {
+
+}
+
+//UNITS
+
+.dash, .add {
+	.contentunit;
+	padding: 0;
+}
+.dash { 
+	min-width: 29%;
+}
+	.dash h1 {
+		font-size: 1.5em;
+		width: 100%;
+		margin: 0 auto;
+		padding: 7px 0 5px 0;
+		text-align: center;
+		.background-linear-gradient(@lightergrey, @grey);
+		border-bottom: 1px solid @darkgrey;
+		.border-radius(10px 10px 0 0);
+	}
+
+
+//BUTTONS
+
+
+button {
+//        .unit;
+	margin: 2px 5px;
+	.border-radius(50px);
+	border: 2px transparent;
+	background: transparent;
+	.slowtrans;
+
+}
+        button:hover, button:active {
+        	border-color: @darkergrey;
+		.fasttrans;
+	}

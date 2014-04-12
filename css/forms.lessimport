@@ -1,0 +1,57 @@
+
+
+//INSET FLOATING LABELS
+
+.input-text {
+                display: block;
+                position:relative;
+                border: 1px dotted #666666;
+                border-top: none;
+                width: 300px;
+            }
+
+            .input-text:first-child {
+                border-top: 1px dotted #666666;
+            }
+
+            label span {
+                position: absolute;
+                display: block;
+                font-size: .6em;
+                margin-left: 4px;
+                font-weight: bold;
+                color: #666;
+                top: .7em;
+                opacity: 0;
+                transition: color .5s ease, top .25s ease, opacity .25s ease;
+            }
+
+            label input {
+                margin-top: 1em;
+                padding: 2px;
+                border: 1px solid #777;
+                color: #000;
+                border: 1px solid transparent;
+                outline: none;
+            }
+
+            input:focus {
+                box-shadow: none;
+                -webkit-box-shadow: none;
+            }
+
+            input:focus + span {
+                color: #0091F2;
+            }
+
+            input:not(.empty) + span {
+                opacity: 1;
+                top: 2;
+            }
+
+		//EXAMPLE
+		//<label.input-text>
+		//	<input.empty>
+		//	<span>(label)
+		//</label>
+
