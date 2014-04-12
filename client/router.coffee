@@ -10,6 +10,9 @@ Router.map ->
     path: '/rider/mobile-display'
     template: 'rider'
   }
+  @route 'eta',{
+    path: '/rider/eta'
+  }
 
 Router.configure {
   layoutTemplate: 'layout_main'
