@@ -38,7 +38,7 @@ body, div, nav, span, ul, li, a, table, th, td {
 	position: fixed;
 		bottom: 0;
 	height: 35px;	
-	.background-linear-gradient(@transblack, @darkestgrey);
+	.background-linear-gradient(@lightblack, @darkestgrey);
 	}
 	.brand { 
 		line-height: 40px; 
@@ -94,77 +94,7 @@ body, div, nav, span, ul, li, a, table, th, td {
 	.box-shadow(none);
 }
 
-#wrapper { 
-	.unit; 
-	padding: 50px; 
-	border: 1px solid @darkestgrey;
-}
 
-//NAV
-
-nav {
-	height: 40px;
-	width: 100%;
-	.background-linear-gradient(@grey, @transblack);
-}
-	nav ul { width: 100%; }
-	
-	nav li { 
-		margin: 0 10px; 
-		padding-top: 5px;
-	}
-
-	nav a, nav i {
-		font-weight: normal;
-		color: white;
-	}
-		nav a:hover, nav a:active, nav i:hover, nav i:active {
-			color: @lightlightblue;
-		}
-
-//ICONS
-
-i {
-
-}
-
-//UNITS
-
-.dash {
-	.contentunit;
-	padding: 0;
-}
-.dash { 
-	min-width: 29%;
-}
-	.dash h1 {
-		font-size: 1.5em;
-		width: 100%;
-		margin: 0 auto;
-		padding: 7px 0 5px 0;
-		text-align: center;
-		.background-linear-gradient(@lightergrey, @grey);
-		border-bottom: 1px solid @darkgrey;
-		.border-radius(10px 10px 0 0);
-	}
-
-
-//BUTTONS
-
-
-button {
-//        .unit;
-	margin: 2px 5px;
-	.border-radius(50px);
-	border: 2px transparent;
-	background: transparent;
-	.slowtrans;
-
-}
-        button:hover, button:active {
-        	border-color: @darkergrey;
-		.fasttrans;
-	}
 
 
 
