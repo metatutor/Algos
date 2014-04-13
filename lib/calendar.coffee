@@ -55,8 +55,8 @@ if Meteor.isServer
       end_date: '20141218'
     }
   ]
-  _.each trips,(trip)->
-    Trips.insert trip
+  _.each calendar,(i)->
+    Calendar.insert i
     return
   return
 
