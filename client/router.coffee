@@ -3,11 +3,11 @@ Router.map ->
     path: '/'
   }
   @route 'agency',{
-    path: '/agency/dashboard'
+    path: '/for/agencies'
     template: 'agency'
   }
   @route 'rider',{
-    path: '/rider/mobile-display'
+    path: '/for/developers'
     template: 'rider'
   }
   @route 'eta',{
