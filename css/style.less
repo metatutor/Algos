@@ -123,7 +123,7 @@ button {
 		font-size: 150px; 
 		text-align: center;
 		text-shadow: 0px 0 23px black;
-		line-height: 150px;
+		line-height: 200px;
 		opacity: 0;
 
 		.transition(opacity, 15s, ease-in-out, 10s);
@@ -132,8 +132,8 @@ button {
 	#splash:hover h1#open { opacity: 1; .transition(opacity, 10s, ease-in-out, 0s); }
 
 	.texty {
-
-		margin: 0 150px;
+		width: 100%;
+		padding: 0 150px;
 		h1 { font-size: 70px; }
 		h2 { font-size: 50px; color: @grey; }
 
@@ -142,4 +142,11 @@ button {
 	.bio em { background: transparent; color: @lightlightblue; font-size: 1.2em; border: none; .box-shadow(none); }
 
 .room { display: block; padding-top: 700px;  }
+
+h3 { font-size: 30px; text-align: center; color: @grey; }
+
+#map {
+	background: transparent url('images/map.jpg') center center no-repeat;
+	height: 500px;
+}
 
