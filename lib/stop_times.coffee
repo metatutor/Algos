@@ -14,13 +14,13 @@ if Meteor.isServer
       stop_sequence: 1
     }
   ]
-  _.each stoptimes,(time)->
-    StopTimes.insert time
-    return
-  return
+  #_.each stoptimes,(time)->
+  #  StopTimes.insert time
+  #  return
+  #return
 
   # Re-add all data from service
-  res = HTTP.get 'http://api.navdash.com/stoptimes'
+  res = HTTP.get 'http://54.201.50.74:1337/api/getstoptime'
   if res.statusCode isnt 200
     throw new Meteor.Error(500, 'Failed to fetch stoptimes list')
   if not _.isArray res.data
