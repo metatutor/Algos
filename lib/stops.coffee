@@ -16,7 +16,7 @@ if Meteor.isServer
   #_.each stops,(stop)->
   #  Stops.insert stop
   #  return
-  #return
+  return
 
   # Re-add all stops from service
   res = HTTP.get 'http://54.201.50.74:1337/api/getstops'
