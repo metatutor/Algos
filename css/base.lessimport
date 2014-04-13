@@ -49,8 +49,8 @@ body, div, nav, span, ul, li, a, table, th, td {
 		background: transparent url('images/dash2.png') center right no-repeat;
 		padding-right: 20px;
 	}
-	.footer .brand { text-align: center; width: 100%; margin-top: -5px; padding-left: 20px; }
-.copy { color: @midwhite; font-style: italic; font-size: 12px; text-align: right; float: right; width: 100%; display: block; }
+	.footer .brand { text-align: center; width: 30%; margin-top: -5px; padding-left: 20px; margin-left: 35%;}
+.copy, .legal { color: @midwhite; font-style: italic; font-size: 12px; text-align: right; float: right; width: 30%; display: block;  }
 .right { float: right; }
 .hide { display: none; }  
 
