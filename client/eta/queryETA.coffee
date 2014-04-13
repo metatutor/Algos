@@ -8,4 +8,4 @@ Template.queryETA.events {
 }
 
 Template.queryETA.stops = ->
-  return Stops.find()
+  return Stations.find()

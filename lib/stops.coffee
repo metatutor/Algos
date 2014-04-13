@@ -19,7 +19,7 @@ if Meteor.isServer
   #return
 
   # Re-add all stops from service
-  res = HTTP.get 'http://54.201.50.74:1337/api/getstop'
+  res = HTTP.get 'http://54.201.50.74:1337/api/getstops'
   if res.statusCode isnt 200
     throw new Meteor.Error(500, 'Failed to fetch stops list')
   if not _.isArray res.data
