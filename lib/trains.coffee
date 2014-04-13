@@ -1,30 +1,38 @@
-@Trains = new Meteor.Collection 'trains'
+@Arrivals = new Meteor.Collection 'arrivals'
 
 if Meteor.isServer
   trainsInterval = null
   Meteor.startup ->
-    updateTrains()
-    trainsInterval = Meteor.setInterval updateTrains,10000
+    updateArrivals()
+    trainsInterval = Meteor.setInterval updateArrivals,10000
 
-updateTrains = ->
+updateArrivals = ->
+  console.log "Updating arrivals"
   res = HTTP.get 'http://developer.itsmarta.com/RealtimeTrain/RestServiceNextTrain/GetRealtimeArrivals?apikey=fbb6c5f7-89f2-4c60-9f97-23aa379914b8'
   if res.statusCode isnt 200
     return console.error "Failed to get train data",res
   if not _.isArray res.data
     return console.error "Got invalid train data",res
   _.each res.data,(i)->
-    Trains.update {
-      id: i.TRAIN_ID
+    event_time = moment(i.EVENT_TIME).unix()
+    next_arr = moment(i.NEXT_ARR,'hh:mm:ss A').unix()
+    Arrivals.update {
+      train_id: i.TRAIN_ID
+      station: i.STATION
     },{
       $set:
-        id: i.TRAIN_ID
+        train_id: i.TRAIN_ID
         destination: i.DESTINATION
         direction: i.DIRECTION
-        event_time: i.EVENT_TIME
+        event_time: event_time
         line: i.LINE
-        next_arr: i.NEXT_ARR
+        next_arr: next_arr
         station: i.STATION
         waiting_seconds: i.WAITING_SECONDS
         waiting_time: i.WAITING_TIME
     },{ upsert: true }
-  console.log "Updated train data"
+  # Empty out old data
+  Arrivals.remove {
+    next_arr: { $lt: moment().unix() }
+  }
+  console.log "Updated arrivals data"

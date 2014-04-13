@@ -1,6 +1,7 @@
 {
   "packages": {
     "iron-router": {},
-    "font-awesome": {}
+    "font-awesome": {},
+    "moment": {}
   }
 }
