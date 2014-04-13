@@ -82,6 +82,16 @@ i {
 		height: 450px;
 	}
 
+		#mobile-1 {
+			position: relative;
+			background: transparent url('images/mobile.png') center center no-repeat;
+
+			i { position: absolute; }
+
+
+		}
+
+
 //BUTTONS
 
 
@@ -98,3 +108,38 @@ button {
         	border-color: @darkergrey;
 		.fasttrans;
 	}
+
+//HOME / PRES
+
+#splash { 
+	background: transparent url('images/splash3.jpg') center top no-repeat;
+	width: 100%;
+	min-height: 500px;
+	margin-top: -42px;
+	z-index: 100;
+		
+	h1#open { 
+		color: white; 
+		font-size: 150px; 
+		text-align: center;
+		text-shadow: 0px 0 23px black;
+		line-height: 150px;
+		opacity: 0;
+
+		.transition(opacity, 15s, ease-in-out, 10s);
+		}
+}
+	#splash:hover h1#open { opacity: 1; .transition(opacity, 10s, ease-in-out, 0s); }
+
+	.texty {
+
+		margin: 0 150px;
+		h1 { font-size: 70px; }
+		h2 { font-size: 50px; color: @grey; }
+
+	}
+	.bio { height: 300px; width: 300px; border: 8px solid @grey; margin: 20px; padding: 20px; text-align: center; }
+	.bio em { background: transparent; color: @lightlightblue; font-size: 1.2em; border: none; .box-shadow(none); }
+
+.room { display: block; padding-top: 700px;  }
+

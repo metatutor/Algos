@@ -72,7 +72,6 @@ body, div, nav, span, ul, li, a, table, th, td {
 	height: 100%;
 	min-height: 500px;
 	background: white;
-	margin: 0 40px;
 }
 
 .unit {
