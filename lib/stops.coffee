@@ -25,6 +25,12 @@ if Meteor.isServer
   if not _.isArray res.data
     throw new Meteor.Error(500, 'Bad data received for stops list')
   _.each res.data,(stop)->
-    Stops.insert stop
+    Stops.insert {
+      id: stop.stop_id
+      code: stop.stop_code
+      name: stop.stop_name
+      lat: stop.stop_lat
+      lon: stop.stop_lon
+    }
     return
   

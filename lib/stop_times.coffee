@@ -14,10 +14,10 @@ if Meteor.isServer
       stop_sequence: 1
     }
   ]
-  #_.each stoptimes,(time)->
-  #  StopTimes.insert time
-  #  return
-  #return
+  _.each stoptimes,(time)->
+    StopTimes.insert time
+    return
+  return
 
   # Re-add all data from service
   res = HTTP.get 'http://54.201.50.74:1337/api/getstoptime'

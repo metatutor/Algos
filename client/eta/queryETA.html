@@ -2,14 +2,14 @@
 	<form>
 		<select name="stop">
 			{{#each stops}}
-				<option value="{{value}}">{{name}}</option>
+				<option value="{{id}}">{{name}}</option>
 			{{/each}}
 		</select>
 
 		{{#if stop}}
 		<select name="route">
 			{{#each routes}}
-				<option value="{{value}}">{{name}}</option>
+				<option value="{{id}}">{{short_name}}</option>
 			{{/each}}
 		</select>
 		{{/if}}
