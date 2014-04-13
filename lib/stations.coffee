@@ -9,7 +9,7 @@ if Meteor.isServer
     if not _.isArray res.data
       return console.log "Failed to get meaningful realtime train information",res
     stations = _.uniq(_.pluck(res.data,'STATION')).sort()
-    _.each res.data,(i)->
+    _.each stations,(i)->
       Stations.upsert {
         id: i
       }
