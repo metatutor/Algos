@@ -2,7 +2,7 @@ Meteor.methods {
   getETA: (stop,route,direction)->
     check stop,String # This should be the stop_id
     check route,String # This should be the route_id
-    check direction,String # This should be the direction, as specified in the feed
+    check direction,String # This should be the direction_id, as specified in the trips feed
 
     # Get data from backend (check http://docs.meteor.com/#http for usage)
     #HTTP.get 'http://localhost/get...'
