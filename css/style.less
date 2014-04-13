@@ -142,8 +142,10 @@ button {
 		h2 a { font-size: 50px; color: @grey; display: block; width: 100%; margin: 0px 0px 20px -10px;;}
 
 	}
-	.bio { height: 300px; width: 300px; border: 8px solid @grey; margin: 20px; padding: 20px; text-align: center; }
+	.bio { background: white; display: block; height: 300px; width: 320px; border: 8px solid @grey; margin: 20px; padding: 20px; text-align: center; .transition(background, 1s, ease, 0s); }
 	.bio em { background: transparent; color: @lightlightblue; font-size: 1.2em; border: none; .box-shadow(none); }
+	.bio:hover { background: #ffbbfe; .transition(background, 1s, ease, 0s); }
+	.bio * { pointer-events: none;  }
 
 .room { display: block; padding-top: 700px;  }
 
