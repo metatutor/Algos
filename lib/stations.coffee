@@ -7,7 +7,6 @@ refreshFromMARTA = ->
   if not _.isArray res.data
     return console.log "Failed to get meaningful realtime train information",res
   stations = _.uniq(_.pluck(res.data,'STATION')).sort()
-  console.log "Got stations:",stations
   _.each stations,(i)->
     Stations.update {
       name: i
