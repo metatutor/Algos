@@ -1,25 +1,10 @@
 <template name="queryETA">
 	<form>
 		<select name="stop">
+			<option>Select station</option>
 			{{#each stops}}
-				<option value="{{name}}">{{name}}</option>
+				<option value="{{name}}" {{selectedStation name}}>{{name}}</option>
 			{{/each}}
 		</select>
-
-		{{#if stop}}
-		<select name="route">
-			{{#each routes}}
-				<option value="{{this}}">{{this}}</option>
-			{{/each}}
-		</select>
-		{{/if}}
-
-		{{#if route}}
-		<select name="direction">
-			{{#each directions}}
-				<option value="{{this}}">{{this}}</option>
-			{{/each}}
-		</select>
-		{{/if}}
 	</form>
 </template>

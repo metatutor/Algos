@@ -1,7 +1,26 @@
 <template name="displayETA">
-<ul>
-{{#each etas}}
-	<li>{{waiting_time}}</li>
+<ul direction="north">
+{{#each arrivals 'N'}}
+	<li>{{> etaTime this}}</li>
+{{/each}}
+</ul>
+
+<ul direction="south">
+{{#each arrivals 'S'}}
+	<li>{{> etaTime this}}</li>
+{{/each}}
+</ul>
+
+<ul direction="east">
+{{#each arrivals 'E'}}
+	<li>{{> etaTime this}}</li>
+{{/each}}
+</ul>
+
+<ul direction="west">
+{{#each arrivals 'W'}}
+	<li>{{> etaTime this}}</li>
 {{/each}}
 </ul>
 </template>
+
