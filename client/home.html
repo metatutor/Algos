@@ -1,45 +1,15 @@
 <template name="home">
 
-<div class="section" id="splash">
-<h1 id="open">Transit Data</h1>
-</div>
+
+
 <div class="texty">
-<h1>The Problem</h1>
 
-<p>Accurate data collection and analysis is necessary for transit agencies to provide good service. Each different mode of transit presents unique challenges in collecting and collating data.</p>
+<h2>Real-Time MARTA Train Departures</h2>
 
-<h2>Our Concept</h2>
 
-<p>Our initial goal was to collect data from multiple transit modes, clean and translate it into a common format, and make it available to agencies and developers for easy analysis and rapid application development.</p>
-
-<h2>Pivot!</h2>
-
-<p>While we found a plethora of static data (e.g. routes, schedules, locations) we discovered that the data we needed - usage data - was the exact kind of data that was not available to us. Usage data seems to what agencies want to acquire as well. For example, if we could access the number of total MARTA cards used per day and where each MARTA card was swiped, we could show concentration patterns during busy times, display the busiest stop locations, etc.<br>
-
-However, the best way to provide improved services without significant infrastructure investment is for agencies and technologists to work together to make data on services and usage openly available, so we elected to continue in order to demonstrate a few potential applications.</p>
-
-<h1>Our Team</h1>
-<div class="bio"><em>Kartapreet Singh: Policy</em> Born and raised in Atlanta, Kartapreet is working on his Masters at Georgia State with a concentration in Policy Analysis and Evaluation. His hobbies include increasing connectivity without increasing congestion, cycling, and volunteering.   
+<div class="lists">
+{{> eta}}
 </div>
-<div class="bio"><em>Chris Chan: Business Analyst</em> has worked with teams in the political, non-profit, and startup sectors. Trained as an attorney, he enjoys supporting cross-functional teams in ideation, design, and development to creatively solve problems. Interest: rock climbing, tennis.
-</div>
-<div class="bio"><em>Edward Lee: Coding</em> is a CS student at GSU and interested in nearly everything. He is dedicated to public service and the widespread application of technology in cities, and looks forward to a better Atlanta.
-</div>
-<div class="bio"><em>Sean McCord: Developer</em> and founder of CyCore Systems. His interests include consulting, custom development, telephony, and leveraging embedded systems to produce elegant and efficient applications; also backpacking and contemporary urbanism.
-</div>
-<div class="bio"><em>Laurel Lawson: UI</em> designer and frontend developer with CyCore Systems. She is a working artist, a permaculturist, and an advocate for human rights and common sense. 
-</div>
-<div class="bio"><em>John Kim: Developer</em> is a rockstar backend developer currently working at Turner.
-</div>
-
-
-<h1 class="room">Our Backend</h1>
-
-<h2><a href="{{pathFor 'agency'}}">For Transit Agencies</a></h2>
-
-<h2><a href="{{pathFor 'rider'}}">For Developers</a></h2>
-
-<h2>For Riders</h2>
 
 </div>
 

@@ -2,6 +2,10 @@ Router.map ->
   @route 'home',{
     path: '/'
   }
+  @route 'govathon',{
+    path: '/govathon'
+    template: 'govathon'
+  }
   @route 'agency',{
     path: '/for/agencies'
     template: 'agency'
