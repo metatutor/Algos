@@ -14,7 +14,7 @@ Template.etaTime.liveETA = ->
   liveETA = @waiting_seconds - offset
   duration = moment.duration(liveETA,"seconds")
   if liveETA > 599
-    return duration.humanize()
+    return "#{Math.floor(duration.asMinutes())} min"
   # For short times, display seconds
   secs = duration.seconds()
   if secs < 0
