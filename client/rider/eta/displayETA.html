@@ -1,6 +1,7 @@
 <template name="displayETA">
 	{{#if hasDirection 'N'}}
 		<ul direction="north">
+			<li>Northbound</li>
 		{{#each arrivals 'N'}}
 			<li>{{> etaTime this}}</li>
 		{{/each}}
@@ -9,6 +10,7 @@
 
 	{{#if hasDirection 'S'}}
 		<ul direction="south">
+			<li>Southbound</li>
 		{{#each arrivals 'S'}}
 			<li>{{> etaTime this}}</li>
 		{{/each}}
@@ -17,6 +19,7 @@
 
 	{{#if hasDirection 'W'}}
 		<ul direction="west">
+			<li>Westbound</li>
 		{{#each arrivals 'W'}}
 			<li>{{> etaTime this}}</li>
 		{{/each}}
@@ -25,6 +28,7 @@
 
 	{{#if hasDirection 'E'}}
 		<ul direction="east">
+			<li>Eastbound</li>
 		{{#each arrivals 'E'}}
 			<li>{{> etaTime this}}</li>
 		{{/each}}

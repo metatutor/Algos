@@ -163,8 +163,13 @@ h3 { font-size: 30px; text-align: center; color: @grey; }
 .RED { color: @red; } .GOLD { color: @orange; } .BLUE { color: @blue; } .GREEN { color: @green; }
 
 .lists {
-	select { font-size: 1.5em; font-weight: bold; }
-	ul { width: 200px; }
-	li { width: 100%; font-weight: bold; font-size: 24px; }
+	select { font-size: 1.5em; font-weight: bold; 
+		background: @lightestgrey; .border-radius(5px);
+		color: @darkergrey; padding: 10px 30px;
+		margin-bottom: 20px; 
+	}
+	ul { width: 220px; }
+	li, li * { width: 100%; font-weight: bold; font-size: 1.1em; text-align: center; margin: 1px;}
+	li:first-child { color: @darkgrey; }	
 }
 
