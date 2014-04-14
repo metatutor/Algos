@@ -1,26 +1,34 @@
 <template name="displayETA">
-<ul direction="north">
-{{#each arrivals 'N'}}
-	<li>{{> etaTime this}}</li>
-{{/each}}
-</ul>
+	{{#if hasDirection 'N'}}
+		<ul direction="north">
+		{{#each arrivals 'N'}}
+			<li>{{> etaTime this}}</li>
+		{{/each}}
+		</ul>
+	{{/if}}
 
-<ul direction="south">
-{{#each arrivals 'S'}}
-	<li>{{> etaTime this}}</li>
-{{/each}}
-</ul>
+	{{#if hasDirection 'S'}}
+		<ul direction="south">
+		{{#each arrivals 'S'}}
+			<li>{{> etaTime this}}</li>
+		{{/each}}
+		</ul>
+	{{/if}}
 
-<ul direction="east">
-{{#each arrivals 'E'}}
-	<li>{{> etaTime this}}</li>
-{{/each}}
-</ul>
+	{{#if hasDirection 'W'}}
+		<ul direction="west">
+		{{#each arrivals 'W'}}
+			<li>{{> etaTime this}}</li>
+		{{/each}}
+		</ul>
+	{{/if}}
 
-<ul direction="west">
-{{#each arrivals 'W'}}
-	<li>{{> etaTime this}}</li>
-{{/each}}
-</ul>
+	{{#if hasDirection 'E'}}
+		<ul direction="east">
+		{{#each arrivals 'E'}}
+			<li>{{> etaTime this}}</li>
+		{{/each}}
+		</ul>
+	{{/if}}
 </template>
 
