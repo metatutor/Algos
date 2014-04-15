@@ -15,4 +15,4 @@ Template.displayETA.isTerminal = ->
   stop = Session.get 'etaStop'
   if not stop
     return false
-  return -1 isnt _.indexOf ['AIRPORT STATION','HAMILTON E HOLMES','DORAVILLE STATION','NORTH SPRINGS STATION','INDIAN CREEK STATION'],stop
+  return -1 isnt _.indexOf ['AIRPORT STATION','BANKHEAD STATION','HAMILTON E HOLMES','DORAVILLE STATION','NORTH SPRINGS STATION','INDIAN CREEK STATION'],stop
