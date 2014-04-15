@@ -3,6 +3,7 @@
     "iron-router": {},
     "font-awesome": {},
     "moment": {},
-    "postgresql": {}
+    "postgresql": {},
+    "external-file-loader": {}
   }
 }

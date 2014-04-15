@@ -5,7 +5,8 @@
       "iron-router": {},
       "font-awesome": {},
       "moment": {},
-      "postgresql": {}
+      "postgresql": {},
+      "external-file-loader": {}
     },
     "packages": {
       "iron-router": {
@@ -27,6 +28,11 @@
         "git": "https://github.com/austinrivas/meteor-postgresql",
         "tag": "v2.11.3",
         "commit": "f2d43b1a5b57c67ca1546c3a67535e89d791cb2b"
+      },
+      "external-file-loader": {
+        "git": "https://github.com/davidd8/meteor-external-file-loader.git",
+        "tag": "v0.1.4",
+        "commit": "352694a7cf906b8241161c2fd1435161c1d5409f"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

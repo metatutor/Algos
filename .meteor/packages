@@ -14,3 +14,4 @@ random
 http
 moment
 postgresql
+external-file-loader
