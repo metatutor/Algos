@@ -2,6 +2,7 @@
   "packages": {
     "iron-router": {},
     "font-awesome": {},
-    "moment": {}
+    "moment": {},
+    "postgresql": {}
   }
 }
