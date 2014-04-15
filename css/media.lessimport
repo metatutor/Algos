@@ -30,7 +30,10 @@
 	}
 }
 
-@media screen and (max-width: 625px), handheld {
+@media screen and (max-width: 625px), 
+(-webkit-min-device-pixel-ratio: 2), 
+(min-moz-device-pixel-ratio: 2),
+(min-resolution: 300dpi) {
 	nav {
 		display: none !important;
 	}
