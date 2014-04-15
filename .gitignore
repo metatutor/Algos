@@ -1,3 +1,4 @@
+deploy.sh
 .meteor/local
 .meteor/meteorite
 *.sw?
