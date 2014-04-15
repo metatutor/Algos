@@ -1,2 +1,58 @@
 
+@media screen and (max-width: 1200px) {
+	.texty { 
+		padding: 0 !important; 
+		h2 { 
+			font-size: 36px !important; 
+		}
+	}
+}
+
+@media screen and (max-width: 850px) {
+	.lists {
+		width: 80% !important;
+		margin-left: 10% !important;
+		
+	}
+	.legalmain { 
+		padding: 10px 10% !important;
+	}
+	.footer {
+		.brand { 
+			margin-left: 0 !important;
+			width: 25% !important; 
+			background: transparent none !important;
+		}
+		.legal { 
+			width: 70% !important;
+		}
+
+	}
+}
+
+@media screen and (max-width: 625px) {
+	nav {
+		display: none !important;
+	}
+	h2 {
+		font-size: 2em !important;
+		line-height: 1.5em !important;
+		margin-bottom: 10px !important;
+	}
+	select { padding: 0 !important; }
+	ul {
+		width: 100% !important;
+		.RED, .GOLD, .BLUE, .GREEN {
+			font-size: 3em !important;
+			line-height: 1.2em !important;
+		}
+		li:first-child {
+			font-size: 1.5em !important;
+		}
+	}
+
+
+
+}
+
 
