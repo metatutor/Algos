@@ -1,7 +1,7 @@
 <template name="queryETA">
 	<form>
 		<select name="stop">
-			<option>Select station</option>
+			<option>Select departure station</option>
 			{{#each stops}}
 				<option value="{{name}}" {{selectedStation name}}>{{name}}</option>
 			{{/each}}
