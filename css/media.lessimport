@@ -74,8 +74,8 @@
 			font-size: 6em !important;
 		}
 	}
-	ul li:nth-child(2n) {
-		font-size: 10em !important;
+	ul li:second-child {
+		font-size: 8em !important;
 	}
 
 
