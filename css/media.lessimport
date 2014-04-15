@@ -1,5 +1,8 @@
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px), 
+(-webkit-min-device-pixel-ratio: 2),
+(min-moz-device-pixel-ratio: 2),
+(min-resolution: 300dpi) {
 	.texty { 
 		padding: 0 !important; 
 		h2 { 
@@ -8,7 +11,10 @@
 	}
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 850px),
+(-webkit-min-device-pixel-ratio: 2),
+(min-moz-device-pixel-ratio: 2),
+(min-resolution: 300dpi) {
 	.lists {
 		width: 80% !important;
 		margin-left: 10% !important;
@@ -54,8 +60,31 @@
 		}
 	}
 
-
-
 }
+@media (-webkit-min-device-pixel-ratio: 2), 
+(min-moz-device-pixel-ratio: 2), 
+(min-resolution: 300dpi) {
+
+	h2, select, ul li:first-child { 
+		font-size: 4em !important;
+	}
+	ul li {
+		.RED, .GOLD, .BLUE, .GREEN {
+			font-size: 6em !important;
+		}
+	}
+
+
+
+} 
+
+
+
+
+
+
+
+
+
 
 
