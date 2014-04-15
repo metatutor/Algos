@@ -67,7 +67,7 @@
 
 	h2, select, ul li:first-child { 
 		font-size: 4em !important;
-		line-height: 2em !important;
+		line-height: 1em !important;
 	}
 	ul li {
 		.RED, .GOLD, .BLUE, .GREEN {
