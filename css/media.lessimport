@@ -30,7 +30,7 @@
 	}
 }
 
-@media screen and (max-width: 625px) {
+@media screen and (max-width: 625px) OR handheld {
 	nav {
 		display: none !important;
 	}
