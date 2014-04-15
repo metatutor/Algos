@@ -67,15 +67,12 @@
 
 	h2, select, ul li:first-child { 
 		font-size: 4em !important;
-		line-height: 3em !important;
+		line-height: 2em !important;
 	}
 	ul li {
 		.RED, .GOLD, .BLUE, .GREEN {
-			font-size: 6em !important;
+			font-size: 8em !important;
 		}
-	}
-	ul li:second-child {
-		font-size: 8em !important;
 	}
 
 
