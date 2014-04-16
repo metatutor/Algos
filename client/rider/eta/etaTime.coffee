@@ -13,7 +13,7 @@ Template.etaTime.liveETA = ->
   # Subtract the offset from the data's ETA
   liveETA = @waiting_seconds - offset
   duration = moment.duration(liveETA,"seconds")
-  if liveETA > 599
+  if liveETA > 299
     return "#{Math.floor(duration.asMinutes())} min"
   # For short times, display seconds
   secs = duration.seconds()
