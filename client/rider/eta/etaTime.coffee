@@ -18,7 +18,7 @@ Template.etaTime.liveETA = ->
   # For short times, display seconds
   secs = duration.seconds()
   if secs < 0
-    return "0:00"
+    return "now"
   if secs < 10
-    return "#{duration.minutes()}:0#{secs}"
-  return "#{duration.minutes()}:#{secs}"
+    return "#{duration.minutes()}m 0#{secs}s"
+  return "#{duration.minutes()}m #{secs}s"
