@@ -3,7 +3,7 @@
 		<select name="stop">
 			<option>Select departure station</option>
 			{{#each stops}}
-				<option value="{{name}}" {{selectedStation name}}>{{name}}</option>
+				<option value="{{name}}" {{selectedStation name}}>{{displayName}}</option>
 			{{/each}}
 		</select>
 	</form>

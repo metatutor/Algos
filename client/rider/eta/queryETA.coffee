@@ -7,7 +7,7 @@ Template.queryETA.stop = ->
   return Session.get 'etaStop'
 
 Template.queryETA.stops = ->
-  return Stations.find({},{ sort: ['name'] })
+  return Stations.find({},{ sort: ['displayName'] })
 
 Template.queryETA.selectedStation = (name)->
   if Session.equals 'etaStop',name
