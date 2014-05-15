@@ -5,8 +5,11 @@ refreshFromMARTA = ->
   if res.statusCode isnt 200
     return console.log "Failed to get realtime train information",res
   if not _.isArray res.data
-    return console.log "Failed to get meaningful realtime train information",res
+    return console.log "Failed to get meaningful realtime train information",res	
   stations = _.uniq(_.pluck(res.data,'STATION')).sort()
+  stations.push("HIGHTOWER STATION")
+  stations.push("WESTLAKE STATION")
+  stations.sort()
   _.each stations,(i)->
    Stations.update {
       name: i
@@ -18,6 +21,9 @@ if Meteor.isServer
   Meteor.startup ->
     refreshFromMARTA()
     stationInterval = Meteor.setInterval refreshFromMARTA,60000
+
+geoSort = ->
+	
 
 stationNameMap =
 	"AIRPORT STATION": "Airport"
@@ -36,9 +42,10 @@ stationNameMap =
 	"EAST LAKE STATION": "East Lake"
 	"EAST POINT STATION": "East Point"
 	"EDGEWOOD CANDLER PARK STATION": "Edgewood/Candler Park"
-	"FIVE POINTS STATION": "Five Point"
+	"FIVE POINTS STATION": "Five Points"
 	"GARNETT STATION": "Garnett"
 	"GEORGIA STATE STATION": "Georgia State University"
+	"HIGHTOWER STATION": "Hamilton Holmes"
 	"INDIAN CREEK STATION": "Indian Creek"
 	"INMAN PARK STATION": "Inman Park"
 	"KENSINGTON STATION": "Kensington"
@@ -51,8 +58,9 @@ stationNameMap =
 	"NORTH AVE STATION": "North Avenue"
 	"NORTH SPRINGS STATION": "North Springs"
 	"OAKLAND CITY STATION": "Oakland City"
-	"OMNI DOME STATION": "Omni Dome"
+	"OMNI DOME STATION": "Dome/GWCC/Phillips/CNN"
 	"PEACHTREE CENTER STATION": "Peachtree Center"
 	"SANDY SPRINGS STATION": "Sandy Springs"
 	"VINE CITY STATION": "Vine City"
 	"WEST END STATION": "West End"
+	"WESTLAKE STATION": "West Lake"
