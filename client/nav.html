@@ -7,9 +7,9 @@
 		<a class="right" href="{{pathFor 'forum'}}">Forum</a>
 		<a class="right" href="{{pathFor 'algo'}}">AlgoPedia</a>
 		{{#if currentUser}}
-		{{#if notRegistered}}
-		<a class="right" href="{{pathFor 'regEnd'}}">Verify Email</a>
-		{{/if }}
+			{{#if notRegistered}}
+			<button name="verify">Verify Email</button>
+			{{/if }}
 		{{/if }}
 	</ul>
 </nav>

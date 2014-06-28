@@ -4,5 +4,11 @@ Accounts.ui.config(
 
 Template.nav.notRegistered = function(){
 	var currentUser = Meteor.user();
-	return !currentUser.emails["verified"];
+	return !(currentUser.emails[0]["verified"]);
+}
+
+Template.nav.events = {
+	'click button[name=verify]': function(){
+		Meteor.call("sendEmail",Meteor.userId());
+	}
 }
