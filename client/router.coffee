@@ -10,6 +10,10 @@ Router.map ->
     path: '/forum'
 	 template: 'forum'
   }
+  @route 'regEnd',{
+    path: '/finishRegistration'
+	 template: 'completeRegistration'
+  }
 
 Router.configure {
   layoutTemplate: 'layout_main'

@@ -4,6 +4,11 @@
 	<ul>
 		<a class="brand" href="{{pathFor 'home'}}">Algos</a>
 		<a class="right">{{> loginButtons align="right"}}</a>
+		<a class="right" href="{{pathFor 'forum'}}">Forum</a>
+		<a class="right" href="{{pathFor 'algo'}}">AlgoPedia</a>
+		{{#if notRegistered}}
+		<a class="right" href="{{pathFor 'regEnd'}}">Complete Registration</a>
+		{{/if }}
 	</ul>
 </nav>
 
