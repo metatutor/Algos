@@ -1,14 +1,16 @@
 Router.map ->
   @route 'home',{
     path: '/'
-  }
-  @route 'algo',{
-    path: '/algopedia'
-	 template: 'algopedia'
+	 template: 'home'
   }
   @route 'forum',{
     path: '/forum'
 	 template: 'forum'
+  }
+
+  @route 'algo',{
+    path: '/algopedia'
+	 template: 'algopedia'
   }
 
 Router.configure {
