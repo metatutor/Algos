@@ -2,20 +2,13 @@ Router.map ->
   @route 'home',{
     path: '/'
   }
-  @route 'govathon',{
-    path: '/govathon'
-    template: 'govathon'
+  @route 'algo',{
+    path: '/algopedia'
+	 template: 'algopedia'
   }
-  @route 'agency',{
-    path: '/for/agencies'
-    template: 'agency'
-  }
-  @route 'rider',{
-    path: '/for/developers'
-    template: 'rider'
-  }
-  @route 'eta',{
-    path: '/rider/eta'
+  @route 'forum',{
+    path: '/forum'
+	 template: 'forum'
   }
 
 Router.configure {
