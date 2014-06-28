@@ -16,3 +16,5 @@ moment
 postgresql
 external-file-loader
 bootstrap-3
+accounts-password
+accounts-ui
