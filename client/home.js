@@ -1,6 +1,7 @@
 Meteor.startup(function(){
 	Session.set("showMore",false);
 	Session.set("userSearch",null);
+	Session.set("showAmount",5);
 });
 
 Template.home.events = {
@@ -12,6 +13,12 @@ Template.home.events = {
 	},
 	'click button[name=showLess]': function(){
 		Session.set("userSearch",null);
+	},
+	'click button[name=show5]': function(){
+		Session.set("showAmount",5);
+	},
+	'click button[name=show10]': function(){
+		Session.set("showAmount",10);
 	}
 }
 
@@ -46,5 +53,6 @@ var getInfoByName = function(docs,uname){
 }
 
 Template.home.newAlgos = function(){
-	return AlgoPedia.find( {}, {sort: { When: -1},limit:5});
+	var amount = Session.get("showAmount");
+	return AlgoPedia.find( {}, {sort: { When: -1},limit:amount});
 }
