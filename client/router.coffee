@@ -12,6 +12,10 @@ Router.map ->
     path: '/algopedia'
 	 template: 'algopedia'
   }
+  @route 'profile',{
+    path: '/profile'
+	 template: 'profile'
+  }
 
 Router.configure {
   layoutTemplate: 'layout_main'
