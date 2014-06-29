@@ -2,6 +2,10 @@
 <h1>You!</h1>
 <button name="changeInfo">Update Profile</button>
 {{#if isEditing}}
-<p>Editing info!</p>
+<form id="infoEdit">
+	<input type="text" name="firstname"/>
+	<input type="text" name="lastname"/>
+	<input type="submit" id="submit"/>
+</form>
 {{/if}}
 </template>
