@@ -37,8 +37,6 @@ Template.home.getUserInfo = function(){
 var getInfoByName = function(docs,uname){
 	var i =0;
 	while(i<docs.length){
-		console.log(docs[i]["username"]);
-		console.log(uname);
 		if(docs[i]["username"]===uname){
 			return docs[i];
 		}
