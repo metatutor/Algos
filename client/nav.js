@@ -4,6 +4,9 @@ Accounts.ui.config(
 
 Template.nav.notRegistered = function(){
 	var currentUser = Meteor.user();
+	if(currentUser.emails.length<0){
+		return false;
+	}
 	return !(currentUser.emails[0]["verified"]);
 }
 
