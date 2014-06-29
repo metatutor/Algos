@@ -41,7 +41,9 @@ table {
 			text-align: right;
 			padding-right: 15px;
 		}
+table { margin: 10px -25%; width: 150%; }
 
+td { border-right: 1px solid @grey; }
 
 
 
