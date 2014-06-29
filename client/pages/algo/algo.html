@@ -1,4 +1,16 @@
 <template name="algopedia">
-<h1 class="left">Search the database!</h1>
-<h1 class="right">Contribute an Algorithm!</h1>
+<div class="left">
+<h1>Search the database!</h1>
+</div>
+<div class="right">
+	<h1>Contribute an Algorithm!</h1>
+	<form id="docSubmit">
+		<input type="text" name="algoName"/>
+		<input type="text" name="algoID"/>
+		<input type="submit" name="submitDoc"/>
+	</form>
+	<textarea rows="6" cols="60" name="description" form="docSubmit">Description</textarea>
+	<br/>
+	<textarea rows="6" cols="60" name="pseudocode" form="docSubmit">Pseudo-Code</textarea>
+</div>
 </template>
