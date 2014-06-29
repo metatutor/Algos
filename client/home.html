@@ -22,8 +22,16 @@
 		<input type="submit" name="submitQuery"/>
 	</form>
 	{{#if userLookedFor}}
-	<p>{{getUserName}}</p>
+	{{#if isValidName}}
+	{{#each getUserInfo}}
+	<p>username: {{username}}</p>
+	<p>first name: {{profile.firstname}}</p>
+	<p>last name: {{profile.lastname}}</p>
+	{{/each}}
 	<button name="showLess">Less</button>
+	{{else}}
+		<p>No users match that query :C</p>
+	{{/if}}
 	{{/if}}
 </div>
 </template>
