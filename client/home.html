@@ -8,13 +8,15 @@
 
 <div class="left">
 <h3>Recently Added</h3>
+	<ul>
+	{{#each newAlgos}}
+	<li>Name: {{Name}} ID: {{AiD}}</li>
+	{{/each}}
+	</ul>
 </div>
 <div class="right">
 	<h3>Recent Forums</h3>
 </div>
-<!--
-	TODO fix this hack of spacing
--->
 <div class="right">
 	<h3>Search for Users.....</h3>
 	<form>

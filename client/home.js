@@ -44,3 +44,7 @@ var getInfoByName = function(docs,uname){
 	}
 	return null;
 }
+
+Template.home.newAlgos = function(){
+	return AlgoPedia.find( {}, {sort: { When: -1},limit:5});
+}
