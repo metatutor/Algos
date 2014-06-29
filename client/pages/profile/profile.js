@@ -21,3 +21,13 @@ Template.profile.isEditing = function(){
 	var stat = Session.get("editingProfile");
 	return stat;
 }
+
+Template.profile.getName = function(){
+	return Meteor.user().profile.firstname+' '+Meteor.user().profile.lastname;
+}
+Template.profile.getEmail = function(){
+	return Meteor.user().emails[0].address;
+}
+Template.profile.getUserName = function(){
+	return Meteor.user().username;
+}

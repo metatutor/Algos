@@ -6,8 +6,8 @@
 		<a class="right">{{> loginButtons align="right"}}</a>
 		<a class="right" href="{{pathFor 'forum'}}">Forum</a>
 		<a class="right" href="{{pathFor 'algo'}}">AlgoPedia</a>
-		<a class="right" href="{{pathFor 'profile'}}">Profile</a>
 		{{#if currentUser}}
+		<a class="right" href="{{pathFor 'profile'}}">Profile</a>
 			{{#if notRegistered}}
 			<button name="verify">Verify Email</button>
 			{{/if }}
