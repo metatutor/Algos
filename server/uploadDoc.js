@@ -8,6 +8,13 @@ Meteor.methods({
 			Contributor: uname,
 			When: moment().unix()
 		});
-		//TODO update User with contribution list. $addtoset i think
+		docObject.When = moment().unix();
+		Meteor.users.update({
+			username:uname
+		},{
+			$push:{
+				"profile.algorithmContributions": docObject
+			}
+		});
 	}
 });

@@ -1,14 +1,26 @@
 <template name="profile">
-<h1>You!</h1>
-<p>Name: {{getName}}</p>
-<p>Email: {{getEmail}}</p>
-<p>Username: {{getUserName}}</p>
-<button name="changeInfo">Update Profile</button>
-{{#if isEditing}}
-<form id="infoEdit">
-	<input type="text" name="firstname" placeholder="first name"/>
-	<input type="text" name="lastname" placeholder="last name"/>
-	<input type="submit" id="submit"/>
-</form>
-{{/if}}
+<div class="left">
+	<h1>You!</h1>
+	<p>Name: {{getName}}</p>
+	<p>Email: {{getEmail}}</p>
+	<p>Username: {{getUserName}}</p>
+	<ul>
+		<li>Recent Contributions</li><br/>
+		{{#if noContributions}}
+		<li>None, yet :C</li><br/>
+		{{else}}
+		{{#each getContributions}}
+		<li>id: {{AiD}}, name: {{Name}}</li><br/>
+		{{/each}}
+		{{/if}}
+	</ul>
+	<button name="changeInfo">Update Profile</button>
+	{{#if isEditing}}
+	<form id="infoEdit">
+		<input type="text" name="firstname" placeholder="first name"/>
+		<input type="text" name="lastname" placeholder="last name"/>
+		<input type="submit" id="submit"/>
+	</form>
+	{{/if}}
+</div>
 </template>

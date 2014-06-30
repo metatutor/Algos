@@ -31,3 +31,15 @@ Template.profile.getEmail = function(){
 Template.profile.getUserName = function(){
 	return Meteor.user().username;
 }
+
+Template.profile.noContributions = function(){
+	var count = Meteor.user().profile.algorithmContributions.length;
+	if(count===0){
+		return true;
+	}
+	return false;
+}
+
+Template.profile.getContributions = function(){
+	return Meteor.user().profile.algorithmContributions;
+}
