@@ -1,5 +1,6 @@
 <template name="profile">
 <div class="left">
+	{{#if CurrentUser}}
 	<h1>You!</h1>
 	<p>Name: {{getName}}</p>
 	<p>Email: {{getEmail}}</p>
@@ -22,5 +23,10 @@
 		<input type="submit" id="submit"/>
 	</form>
 	{{/if}}
+	{{else}}
+	<p>What are you doing here?</p>
+	<p>You don't seem to be logged in.</p>
+	<p>Want to join the fun?</p>
+	<p>Sign up above! :)</p>
 </div>
 </template>
