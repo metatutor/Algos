@@ -5,6 +5,9 @@
 <div class="right">
 	<h1>Contribute an Algorithm!</h1>
 	{{#if currentUser}}
+	{{#if isDuplicationWarning}}
+	<p>{{getWarning}}</p>
+	{{/if}}
 	<form id="docSubmit">
 		<input type="text" name="algoName" placeholder="algorithm name"/>
 		<input type="text" name="algoID" placeholder="algorithm ID"/>
