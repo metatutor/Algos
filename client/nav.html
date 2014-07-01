@@ -12,6 +12,35 @@
 			<button name="verify">Verify Email</button>
 			{{/if }}
 		{{/if }}
+		<div class="right">
+			<form>
+				<input type="text" name="query" placeholder="Query:" />
+				<input type="submit" name="submitQuery"/>
+			</form>
+		</div>
+		<div class="right">
+		{{#if somethingLookedFor}}
+		{{#if isValidQuery}}
+		<ul>
+			{{#each getRelevantInfo}}
+			{{#if isAlgo this}}
+			<li>Name: {{Name}} ID: {{AiD}}</li><br/>
+			{{/if}}
+			{{#if isUser this}}
+			<li>Name: {{getName this}} username: {{username}}</li><br/>
+			{{/if}}
+			{{/each}}
+		</ul>
+		{{else}}
+		<p>Nothing matches that query :C</p>
+		{{/if}}
+		{{/if}}
+		</div>
+		{{#if isValidQuery}}
+		<div class="right">
+			<button name="showLessSearch">Hide</button>				
+		</div>
+		{{/if}}
 	</ul>
 </nav>
 
