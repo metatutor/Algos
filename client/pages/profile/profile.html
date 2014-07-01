@@ -1,33 +1,33 @@
 <template name="profile">
-<div class="left">
-	{{#if currentUser}}
-	<h1>You!</h1>
-	<p>Name: {{getName}}</p>
-	<p>Email: {{getEmail}}</p>
-	<p>Username: {{getUserName}}</p>
-	<ul>
-		<li>Recent Contributions</li><br/>
-		{{#if noContributions}}
-		<li>None, yet :C</li><br/>
-		{{else}}
-		{{#each getContributions}}
-		<li>id: {{AiD}}, name: {{Name}}</li><br/>
-		{{/each}}
+	<div class="left">
+		{{#if currentUser}}
+		<h1>You!</h1>
+		<p>Name: {{getName}}</p>
+		<p>Email: {{getEmail}}</p>
+		<p>Username: {{getUserName}}</p>
+		<ul>
+			<li>Recent Contributions</li><br/>
+			{{#if noContributions}}
+			<li>None, yet :C</li><br/>
+			{{else}}
+			{{#each getContributions}}
+			<li>id: {{AiD}}, name: {{Name}}</li><br/>
+			{{/each}}
+			{{/if}}
+		</ul>
+		<button name="changeInfo">Update Profile</button>
+		{{#if isEditing}}
+		<form id="infoEdit">
+			<input type="text" name="firstname" placeholder="first name"/>
+			<input type="text" name="lastname" placeholder="last name"/>
+			<input type="submit" id="submit"/>
+		</form>
 		{{/if}}
-	</ul>
-	<button name="changeInfo">Update Profile</button>
-	{{#if isEditing}}
-	<form id="infoEdit">
-		<input type="text" name="firstname" placeholder="first name"/>
-		<input type="text" name="lastname" placeholder="last name"/>
-		<input type="submit" id="submit"/>
-	</form>
-	{{/if}}
-	{{else}}
-	<p>What are you doing here?</p>
-	<p>You don't seem to be logged in.</p>
-	<p>Want to join the fun?</p>
-	<p>Sign up above! :)</p>
-	{{/if}}
-</div>
+		{{else}}
+		<p>What are you doing here?</p>
+		<p>You don't seem to be logged in.</p>
+		<p>Want to join the fun?</p>
+		<p>Sign up above! :)</p>
+		{{/if}}
+	</div>
 </template>

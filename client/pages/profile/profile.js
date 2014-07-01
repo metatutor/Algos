@@ -23,7 +23,10 @@ Template.profile.isEditing = function(){
 }
 
 Template.profile.getName = function(){
-	return Meteor.user().profile.firstname+' '+Meteor.user().profile.lastname;
+	if(Meteor.user().hasOwnProperty('profile')){
+		return Meteor.user().profile.firstname+' '+Meteor.user().profile.lastname;
+	}
+	return "not yet set";
 }
 Template.profile.getEmail = function(){
 	return Meteor.user().emails[0].address;
@@ -33,11 +36,14 @@ Template.profile.getUserName = function(){
 }
 
 Template.profile.noContributions = function(){
-	var count = Meteor.user().profile.algorithmContributions.length;
-	if(count===0){
-		return true;
+	if(Meteor.user().hasOwnProperty('profile')){
+		var count = Meteor.user().profile.algorithmContributions.length;
+		if(count===0){
+			return true;
+		}
+		return false;
 	}
-	return false;
+	return true;
 }
 
 Template.profile.getContributions = function(){
