@@ -4,7 +4,6 @@ Router.map ->
 	 template: 'home'
   }
   @route 'forum',{
-    path: '/forum'
 	 template: 'forum'
   }
 
@@ -13,7 +12,6 @@ Router.map ->
 	 template: 'algopedia'
   }
   @route 'profile',{
-    path: '/profile'
 	 template: 'profile'
   }
 
