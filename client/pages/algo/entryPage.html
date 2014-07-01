@@ -2,10 +2,12 @@
 	<div class="left">
 		{{#if algoExists}}
 		<h1>Algorithm Info</h1>
-		<p>Name: {{getName}}</p>
-		<p>AiD: {{getAid}}</p>
-		<p>Description: {{getDescription}}</p>
-		<p>Pseudo-Code: {{getPseudo}}</p>
+		{{#with getSessionAlgo}}
+		{{ > algoName this}}
+		{{ > algoID this}}
+		{{ > algoDesc this}}
+		{{ > algoPseudo this}}
+		{{/with}}
 		{{else}}
 		<p>No algorithm exists with that algorithm ID :C</p>
 		{{/if}}

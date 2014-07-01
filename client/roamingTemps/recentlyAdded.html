@@ -4,7 +4,7 @@
 	<button name="show10">Show 10</button><br/>
 	<ul>
 		{{#each newAlgos}}
-		<li>Name: {{Name}} ID: {{AiD}}</li><br/>
+		<li>{{ > algoName this}} {{ > algoID this}}</li><br/>
 		{{/each}}
 	</ul>
 </template>

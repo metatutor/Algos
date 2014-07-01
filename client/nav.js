@@ -6,7 +6,7 @@ Accounts.onCreateUser = function(options,user){
 	user.awards = [];
 	user.points = 1;
 	return user;
-});
+}
 
 Accounts.ui.config(
 		{ passwordSignupFields: 'USERNAME_AND_EMAIL' }
@@ -34,7 +34,6 @@ Template.nav.events = {
 	},
 	'submit': function(event, template){
 		event.preventDefault();
-		Session.set("showMore",true);
 		var usrField = template.find("input[name=query]");
 		Session.set("searchQuery",usrField.value);
 	}
@@ -55,11 +54,6 @@ Template.nav.getRelevantInfo = function(){
 	var aidArray = AlgoPedia.find({AiD:info}).fetch();
 	var algoArray = AlgoPedia.find({Name:info}).fetch();
 	return algoArray.concat(aidArray).concat(userArray);
-}
-
-Template.nav.newAlgos = function(){
-	var amount = Session.get("showAmount");
-	return AlgoPedia.find( {}, {sort: { When: -1},limit:amount});
 }
 
 var getAmountResults = function(){
