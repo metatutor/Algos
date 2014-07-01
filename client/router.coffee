@@ -13,23 +13,24 @@ Router.map ->
   }
   @route 'profile',{
 	 template: 'userPage'
-    action: ->
+	 action: ->
 		 Session.set 'lastUserSearch',Meteor.user()
-		 this.render()
+		 @render()
   }
   @route 'users',{
     path: '/users/:_id'
     template: 'userPage'
 	 action: ->
-		 Session.set 'lastUserSearch',this.params._id
-		 this.render()
+		 uname = Meteor.users.findOne({username:@params._id})
+		 Session.set 'lastUserSearch',uname
+		 @render()
   }
   @route 'pedia',{
     path:'/pedia/:_id'
 	 template: 'entryPage'
 	 action: ->
-		 Session.set 'lastAlgoSearch',this.params._id
-		 this.render()
+		 Session.set 'lastAlgoSearch',@params._id
+		 @render()
   }
 
 Router.configure {
