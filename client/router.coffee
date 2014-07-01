@@ -12,13 +12,17 @@ Router.map ->
 	 template: 'algopedia'
   }
   @route 'profile',{
-	 template: 'profile'
+	 template: 'userPage'
+    action: ->
+		 Session.set 'lastUserSearch',Meteor.user()
+		 this.render()
   }
   @route 'users',{
     path: '/users/:_id'
     template: 'userPage'
 	 action: ->
 		 Session.set 'lastUserSearch',this.params._id
+		 this.render()
   }
   @route 'pedia',{
     path:'/pedia/:_id'
