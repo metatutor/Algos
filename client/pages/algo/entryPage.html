@@ -1,5 +1,13 @@
 <template name="entryPage">
 	<div class="left">
-		<p>You chose the {{getParam}} algorithm</p>
+		{{#if algoExists}}
+		<h1>Algorithm Info</h1>
+		<p>Name: {{getName}}</p>
+		<p>AiD: {{getAid}}</p>
+		<p>Description: {{getDescription}}</p>
+		<p>Pseudo-Code: {{getPseudo}}</p>
+		{{else}}
+		<p>No algorithm exists with that algorithm ID :C</p>
+		{{/if}}
 	</div>
 </template>

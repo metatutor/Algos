@@ -27,9 +27,6 @@ Template.nav.events = {
 		Session.set("showMore",true);
 		var usrField = template.find("input[name=query]");
 		Session.set("searchQuery",usrField.value);
-	},
-	'click button[name=showLessSearch]': function(){
-		Session.set("searchQuery",null);
 	}
 }
 
@@ -77,4 +74,12 @@ Template.nav.getName = function(userDoc){
 		return userDoc.profile.firstname+' '+userDoc.profile.lastname;
 	}
 	return 'Not yet provided.'
+}
+
+Template.nav.goToUser = function(userDoc){
+	Router.go('users', {_id:userDoc.username});
+}
+
+Template.nav.goToAlgo = function(algoDoc){
+	Router.go('pedia', {_id:algoDoc.AiD});
 }

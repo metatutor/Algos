@@ -21,16 +21,17 @@ Router.map ->
     path: '/users/:_id'
     template: 'userPage'
 	 action: ->
-		 uname = Meteor.users.findOne({username:@params._id})
-		 Session.set 'lastUserSearch',uname
+		 uDoc = Meteor.users.findOne({username:@params._id})
+		 Session.set 'lastUserSearch',uDoc
 		 @render()
   }
   @route 'pedia',{
     path:'/pedia/:_id'
 	 template: 'entryPage'
 	 action: ->
-		 Session.set 'lastAlgoSearch',@params._id
-		 @render()
+      aDoc = AlgoPedia.findOne({AiD:@params._id})
+      Session.set 'lastAlgoSearch',aDoc
+      @render()
   }
 
 Router.configure {

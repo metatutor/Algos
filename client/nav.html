@@ -24,10 +24,10 @@
 		<ul>
 			{{#each getRelevantInfo}}
 			{{#if isAlgo this}}
-			<li>Name: {{Name}} ID: {{AiD}}</li><br/>
+			{{goToAlgo this}}
 			{{/if}}
 			{{#if isUser this}}
-			<li>Name: {{getName this}} username: {{username}}</li><br/>
+			{{goToUser this}}
 			{{/if}}
 			{{/each}}
 		</ul>
@@ -36,11 +36,6 @@
 		{{/if}}
 		{{/if}}
 		</div>
-		{{#if isValidQuery}}
-		<div class="right">
-			<button name="showLessSearch">Hide</button>				
-		</div>
-		{{/if}}
 	</ul>
 </nav>
 
