@@ -27,9 +27,16 @@
 	</form>
 	{{#if somethingLookedFor}}
 	{{#if isValidQuery}}
-	{{#each getRelevantInfo}}
-	<p>You've made a search!</p>
-	{{/each}}
+	<ul>
+		{{#each getRelevantInfo}}
+		{{#if isAlgo this}}
+		<li>Name: {{Name}} ID: {{AiD}}</li><br/>
+		{{/if}}
+		{{#if isUser this}}
+		<li>Name: {{getName this}} username: {{username}}</li><br/>
+		{{/if}}
+		{{/each}}
+	</ul>
 	<button name="showLessSearch">Less</button>
 	{{else}}
 		<p>Nothing matches that query :C</p>

@@ -29,7 +29,10 @@ Template.profile.getName = function(){
 	return "not yet set";
 }
 Template.profile.getEmail = function(){
-	return Meteor.user().emails[0].address;
+	if(Meteor.user().hasOwnProperty('emails')){
+		return Meteor.user().emails[0].address;
+	}
+	return 'email not found';
 }
 Template.profile.getUserName = function(){
 	return Meteor.user().username;

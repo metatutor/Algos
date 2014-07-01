@@ -52,3 +52,18 @@ var getAmountResults = function(){
 	var entries = userSearch+aidSearch+algoSearch;
 	return entries;
 }
+
+Template.home.isUser = function(obj){
+	return obj.hasOwnProperty('username');
+}
+
+Template.home.isAlgo = function(obj){
+	return obj.hasOwnProperty('AiD');
+}
+
+Template.home.getName = function(userDoc){
+	if(userDoc.hasOwnProperty('profile')){
+		return userDoc.profile.firstname+' '+userDoc.profile.lastname;
+	}
+	return 'Not yet provided.'
+}
