@@ -36,7 +36,7 @@ Template.profile.getUserName = function(){
 }
 
 Template.profile.noContributions = function(){
-	if(Meteor.user().hasOwnProperty('profile')){
+	if(Meteor.user().hasOwnProperty('profile.algorithmContributions')){
 		var count = Meteor.user().profile.algorithmContributions.length;
 		if(count===0){
 			return true;

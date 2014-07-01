@@ -11,7 +11,7 @@ Template.home.events = {
 		var usrField = template.find("input[name=query]");
 		Session.set("searchQuery",usrField.value);
 	},
-	'click button[name=showLessUser]': function(){
+	'click button[name=showLessSearch]': function(){
 		Session.set("searchQuery",null);
 	},
 	'click button[name=show5]': function(){
