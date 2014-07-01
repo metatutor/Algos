@@ -21,6 +21,12 @@ Template.algopedia.events = {
 			Pseudo: pseudo
 		}
 		Meteor.call('uploadDoc',algoObject,Meteor.user().username);
+	},
+	'click button[name=show5]': function(){
+		Session.set("showAmount",5);
+	},
+	'click button[name=show10]': function(){
+		Session.set("showAmount",10);
 	}
 }
 
@@ -56,4 +62,9 @@ var getDuplications = function(name,aid){
 		return 2;
 	}
 	return 0;
+}
+
+Template.algopedia.newAlgos = function(){
+	var amount = Session.get("showAmount");
+	return AlgoPedia.find( {}, {sort: { When: -1},limit:amount});
 }
