@@ -8,7 +8,7 @@ Template.nav.notRegistered = function(){
 		if(currentUser.emails.length<0){
 			return false;
 		}
-	return !(currentUser.emails[0]["verified"]);
+		return !(currentUser.emails[0]["verified"]);
 	}
 	return false;
 }
