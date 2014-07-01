@@ -1,3 +1,13 @@
+Accounts.onCreateUser = function(options,user){
+	if(options.profile){
+		user.profile=user.profile;
+	}
+	user.algorithmContributions = [];
+	user.awards = [];
+	user.points = 1;
+	return user;
+});
+
 Accounts.ui.config(
 		{ passwordSignupFields: 'USERNAME_AND_EMAIL' }
 );

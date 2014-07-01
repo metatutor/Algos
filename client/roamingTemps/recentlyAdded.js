@@ -2,7 +2,7 @@ Meteor.startup(function(){
 	Session.set("showAmount",5);
 });
 
-Template.home.events = {
+Template.rAdded.events = {
 	'click button[name=show5]': function(){
 		Session.set("showAmount",5);
 	},
@@ -11,7 +11,7 @@ Template.home.events = {
 	}
 }
 
-Template.home.newAlgos = function(){
+Template.rAdded.newAlgos = function(){
 	var amount = Session.get("showAmount");
 	return AlgoPedia.find( {}, {sort: { When: -1},limit:amount});
 }
