@@ -20,21 +20,19 @@
 	<h3>Recent Forums</h3>
 </div>
 <div class="right">
-	<h3>Search for Users.....</h3>
+	<h3>Search for Users and Algorithms.....</h3>
 	<form>
-		<input type="text" name="query" placeholder="enter username" />
+		<input type="text" name="query" placeholder="enter username/name, algorithm name/id" />
 		<input type="submit" name="submitQuery"/>
 	</form>
-	{{#if userLookedFor}}
-	{{#if isValidName}}
-	{{#each getUserInfo}}
-	<p>username: {{username}}</p>
-	<p>first name: {{profile.firstname}}</p>
-	<p>last name: {{profile.lastname}}</p>
+	{{#if somethingLookedFor}}
+	{{#if isValidQuery}}
+	{{#each getRelevantInfo}}
+	<p>You've made a search!</p>
 	{{/each}}
-	<button name="showLess">Less</button>
+	<button name="showLessSearch">Less</button>
 	{{else}}
-		<p>No users match that query :C</p>
+		<p>Nothing matches that query :C</p>
 	{{/if}}
 	{{/if}}
 </div>
