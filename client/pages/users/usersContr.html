@@ -1,0 +1,13 @@
+<template name="getUsersContributions">
+	<ul>
+		<li><button name="goTo">Recent Contributions</button></li><br/>
+		{{#if noContributions}}
+		<li>None, yet :C</li><br/>
+		{{else}}
+		{{#each getContributions}}
+		{{ > algoID this}}
+		{{ > algoName this}}
+		{{/each}}
+		{{/if}}
+	</ul>
+</template>

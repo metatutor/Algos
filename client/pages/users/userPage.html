@@ -3,20 +3,12 @@
 		{{#if userExists}}
 		{{#if currentUser}}
 		<h1>User Info</h1>
-		<p>Name: {{getName}}</p>
-		<p>Email: {{getEmail}}</p>
-		<p>Username: {{getUserName}}</p>
-		<ul>
-			<li>Recent Contributions</li><br/>
-			{{#if noContributions}}
-			<li>None, yet :C</li><br/>
-			{{else}}
-			{{#each getContributions}}
-			{{ > algoID this}}
-			{{ > algoName this}}
-			{{/each}}
-			{{/if}}
-		</ul>
+		{{#with whichUser}}
+		{{ > getUsersName this}}
+		{{ > getUsersEmail this}}
+		{{ > getUsersUsername this}}
+		{{ > getUsersContributions this}}
+		{{/with}}
 		{{#if isMyProfile}}
 		<button name="changeInfo">Update Profile</button>
 		{{#if isEditing}}

@@ -4,7 +4,8 @@ Meteor.methods({
 			_id:userID
 		},{
 			$set:{
-				"profile": profObj
+				"profile.firstname": profObj.firstname,
+				"profile.lastname": profObj.lastname
 			}
 		},{
 			upsert:true

@@ -1,10 +1,11 @@
 Accounts.onCreateUser = function(options,user){
 	if(options.profile){
-		user.profile=user.profile;
+		user.profile=options.profile;
 	}
 	user.algorithmContributions = [];
 	user.awards = [];
 	user.points = 1;
+	user.profile.algorithmContributions = [];
 	return user;
 }
 
