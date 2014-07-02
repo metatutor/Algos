@@ -18,5 +18,14 @@ Template.lsiPage.Algo = function(){
 Template.lsiPage.languageCode = function(){
 	var algo = Session.get('lastAlgoSearch');
 	var lang = Session.get('lastLangSearch');
+	console.log(algo[lang]);
 	return algo[lang];
+}
+
+Template.lsiPage.contributor = function(){
+	var algo = Session.get('lastAlgoSearch');
+	var lang = Session.get('lastLangSearch');
+	var user = algo[lang];
+	console.log(user);
+	return Meteor.users.findOne({username:user});
 }

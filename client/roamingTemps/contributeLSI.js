@@ -7,7 +7,11 @@ Template.contributeLSI.events = {
 		var aid = this.AiD;
 		var language = Session.get('submitLanguage');
 		var lobj = {};
-		lobj[language]=code;
+		var lsiObj = {
+			Code: code,
+			Contributor: Meteor.user().username
+		}
+		lobj[language]=lsiObj;
 		Meteor.call('uploadLSI',lobj,aid);
 	}
 }
