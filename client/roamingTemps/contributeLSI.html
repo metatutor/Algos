@@ -1,11 +1,13 @@
 <template name="contributeLSI">
 	<p>Contribute an LSI!</p>
-	<form>
+	<form id="lsiSubmit">
 		<select name="language">
 			<option>Implementation Language?</option>
 			{{#each language}}
 			<option value="{{name}}" {{selectedLanguage name}}>{{name}}</option>
 			{{/each}}
 		</select>
+		<input type="submit" name="submitLSI"/>
 	</form>
+	<textarea rows="6" cols="60" name="lsi" form="lsiSubmit" placeholder="Write code here!"></textarea>
 </template>
