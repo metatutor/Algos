@@ -40,6 +40,15 @@ Router.map ->
 		 Session.set 'lastSearch',@params._id
 		 @render()
   }
+  @route 'langs',{
+    path: '/pedia/:_id/:lang'
+    template: 'lsiPage'
+    action: ->
+      aDoc = AlgoPedia.findOne({AiD:@params._id})
+      Session.set 'lastAlgoSearch',aDoc
+      Session.set 'lastLangSearch',@params.lang
+      @render()
+  }
 
 Router.configure {
   layoutTemplate: 'layout_main'
