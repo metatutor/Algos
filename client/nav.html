@@ -1,31 +1,21 @@
 <template name="nav">
 
-<nav>
-	<ul>
-		<a class="brand" href="{{pathFor 'home'}}">Home</a>
-		<a class="right">{{> loginButtons align="right"}}</a>
-		<a class="right" href="{{pathFor 'forum'}}">Forum</a>
-		<a class="right" href="{{pathFor 'algo'}}">AlgoPedia</a>
-		{{#if currentUser}}
-		<a class="right" href="{{pathFor 'profile'}}">Profile</a>
-			{{#if notRegistered}}
-			<button name="verify">Verify Email</button>
-			{{/if }}
-		{{/if }}
-		<div class="right">
-			<form>
-				<input type="text" name="query" placeholder="Query:" />
-				<input type="submit" name="submitQuery"/>
-			</form>
-		</div>
-		<div class="right">
-		{{#if somethingLookedFor}}
-		{{#with getQuery}}
-		{{goToSearch this}}
-		{{/with}}
-		{{/if}}
-		</div>
-	</ul>
-</nav>
+<ul class="nav nav-tabs" role="tablist">
+	<li><a href="{{pathFor 'home'}}">Home</a></li>
+	<li><a href="{{pathFor 'forum'}}">Forum</a></li>
+	<li><a href="{{pathFor 'algo'}}">AlgoPedia</a></li>
+	{{#if currentUser}}
+	<li><a href="{{pathFor 'profile'}}">Profile</a></li>
+	{{#if notRegistered}}
+	<li><button name="verify">Verify Email</button></li>
+	{{/if }}
+	{{/if }}
+	<li>
+		<form>
+			<input type="text" name="query" placeholder="Query:" />
+			<input type="submit" name="submitQuery"/>
+		</form>
+	</li>
+</ul>
 
 </template>

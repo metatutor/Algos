@@ -24,64 +24,11 @@ Template.nav.events = {
 	},
 	'submit': function(event, template){
 		event.preventDefault();
-		var usrField = template.find("input[name=query]");
-		Session.set("searchQuery",usrField.value);
+		var queryField = template.find("input[name=query]");
+		goToSearch(queryField.value);
 	}
 }
 
-Template.nav.somethingLookedFor = function(){
-	var value = Session.get("searchQuery");
-	return !(value===null);
-}
-
-Template.nav.isValidQuery = function(){
-	return getAmountResults();
-}
-
-Template.nav.getRelevantInfo = function(){
-	var info = Session.get('searchQuery');
-	var userArray = Meteor.users.find({username:info}).fetch();
-	var aidArray = AlgoPedia.find({AiD:info}).fetch();
-	var algoArray = AlgoPedia.find({Name:info}).fetch();
-	return algoArray.concat(aidArray).concat(userArray);
-}
-
-var getAmountResults = function(){
-	var info = Session.get('searchQuery');
-	var userSearch = Meteor.users.find({username:info}).count();
-	var aidSearch = AlgoPedia.find({AiD:info}).count();
-	var algoSearch = AlgoPedia.find({Name:info}).count();
-	var entries = userSearch+aidSearch+algoSearch;
-	return entries;
-}
-
-Template.nav.isUser = function(obj){
-	return obj.hasOwnProperty('username');
-}
-
-Template.nav.isAlgo = function(obj){
-	return obj.hasOwnProperty('AiD');
-}
-
-Template.nav.getName = function(userDoc){
-	if(userDoc.hasOwnProperty('profile')){
-		return userDoc.profile.firstname+' '+userDoc.profile.lastname;
-	}
-	return 'Not yet provided.'
-}
-
-Template.nav.goToUser = function(userDoc){
-	Router.go('users', {_id:userDoc.username});
-}
-
-Template.nav.goToAlgo = function(algoDoc){
-	Router.go('pedia', {_id:algoDoc.AiD});
-}
-
-Template.nav.goToSearch = function(query){
+var goToSearch = function(query){
 	Router.go('search', {_id:query});
-}
-
-Template.nav.getQuery = function(){
-	return Session.get('searchQuery');
 }
