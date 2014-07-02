@@ -1,0 +1,8 @@
+<template name="lsiButtons">
+	{{setAlgo}}
+	{{#each language}}
+	{{#if hasLanguage}}
+	<button name="{{name}}">{{name}}</button>
+	{{/if}}
+	{{/each}}
+</template>
