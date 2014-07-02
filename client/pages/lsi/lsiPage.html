@@ -1,6 +1,8 @@
 <template name="lsiPage">
+	{{#if allDefined}}
 	<h3>Viewing {{algoName}} {{languageName}} implementations</h3>
 	{{#each languageCode}}
-	<code>hi</code>
+	<code>{{this}}</code>
 	{{/each}}
+	{{/if}}
 </template>

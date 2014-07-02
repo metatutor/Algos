@@ -14,3 +14,9 @@ Template.lsiButtons.hasLanguage = function(){
 	}
 	return false;
 }
+
+Template.lsiButtons.events = {
+	'click button': function(){
+		Router.go('langs', {_id: Session.get('lastAlgoSearch').AiD, lang: this.name});
+	}
+}

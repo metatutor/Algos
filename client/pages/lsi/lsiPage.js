@@ -1,5 +1,9 @@
+Template.lsiPage.allDefined = function(){
+	if(!(Session.equals('lastAlgoSearch',undefined))){
+		return true;
+	}
+}
 Template.lsiPage.algoName = function(){
-	console.log('uh');
 	return Session.get('lastAlgoSearch').Name;
 }
 
@@ -12,5 +16,7 @@ Template.lsiPage.Algo = function(){
 }
 
 Template.lsiPage.languageCode = function(){
-	return this[Session.get('lastLangSearch')];
+	var algo = Session.get('lastAlgoSearch');
+	var lang = Session.get('lastLangSearch');
+	return algo[lang];
 }
