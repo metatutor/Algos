@@ -1,0 +1,11 @@
+<template name="contributeLSI">
+	<p>Contribute an LSI!</p>
+	<form>
+		<select name="language">
+			<option>Implementation Language?</option>
+			{{#each language}}
+			<option value="{{name}}" {{selectedLanguage name}}>{{name}}</option>
+			{{/each}}
+		</select>
+	</form>
+</template>
