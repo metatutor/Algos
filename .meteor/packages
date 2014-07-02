@@ -17,10 +17,9 @@ postgresql
 external-file-loader
 bootstrap-3
 accounts-ui
-less-bootstrap-3
-font-awesome-4-less
 accounts-facebook
 accounts-github
 accounts-google
 accounts-twitter
 accounts-password
+bootstrap
