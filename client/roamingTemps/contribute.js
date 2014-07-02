@@ -2,7 +2,7 @@ Meteor.startup(function(){
 	Session.set("duplicationWarning",0);
 });
 
-Template.algopedia.events = {
+Template.contributeAlgo.events = {
 	'submit': function(event,template){
 		var name = template.find("input[name=algoName]").value;
 		var aid = template.find("input[name=algoID]").value;
@@ -24,12 +24,12 @@ Template.algopedia.events = {
 	}
 }
 
-Template.algopedia.isDuplicationWarning = function(){
+Template.contributeAlgo.isDuplicationWarning = function(){
 	var warning = Session.get('duplicationWarning');
 	return warning!=0;
 }
 
-Template.algopedia.getWarning = function(){
+Template.contributeAlgo.getWarning = function(){
 	var warning = Session.get('duplicationWarning');
 	switch(warning){
 		case 1:

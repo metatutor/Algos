@@ -1,0 +1,13 @@
+<template name="algopedia">
+<div class="left">
+	{{ > rAdded}}
+</div>
+<div class="right">
+	<h1>Contribute an Algorithm!</h1>
+	{{#if currentUser}}
+	{{ > contributeAlgo}}
+	{{else}}
+	<p>Please log-in to contribute!</p>
+	{{/if}}
+</div>
+</template>

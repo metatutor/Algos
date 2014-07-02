@@ -1,10 +1,4 @@
-<template name="algopedia">
-<div class="left">
-	{{ > rAdded}}
-</div>
-<div class="right">
-	<h1>Contribute an Algorithm!</h1>
-	{{#if currentUser}}
+<template name="contributeAlgo">
 	{{#if isDuplicationWarning}}
 	<p>{{getWarning}}</p>
 	{{/if}}
@@ -16,8 +10,4 @@
 	<textarea rows="6" cols="60" name="description" form="docSubmit" placeholder="algorithm description"></textarea>
 	<br/>
 	<textarea rows="6" cols="60" name="pseudocode" form="docSubmit" placeholder="pseudo-code"></textarea>
-	{{else}}
-	<p>Please log-in to contribute!</p>
-	{{/if}}
-</div>
 </template>
