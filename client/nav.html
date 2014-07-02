@@ -1,21 +1,44 @@
 <template name="nav">
 
-<ul class="nav nav-tabs" role="tablist">
-	<li><a href="{{pathFor 'home'}}">Home</a></li>
-	<li><a href="{{pathFor 'forum'}}">Forum</a></li>
-	<li><a href="{{pathFor 'algo'}}">AlgoPedia</a></li>
-	{{#if currentUser}}
-	<li><a href="{{pathFor 'profile'}}">Profile</a></li>
-	{{#if notRegistered}}
-	<li><button name="verify">Verify Email</button></li>
-	{{/if }}
-	{{/if }}
-	<li>
-		<form>
-			<input type="text" name="query" placeholder="Query:" />
-			<input type="submit" name="submitQuery"/>
-		</form>
-	</li>
-</ul>
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{{pathFor 'home'}}">Home</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="{{pathFor 'forum'}}">Forum</a></li>
+				<li><a href="{{pathFor 'algo'}}">AlgoPedia</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">You<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						{{#if currentUser}}
+						<li><a href="{{pathFor 'profile'}}">Profile</a></li>
+						<li class="divider"></li>
+						{{#if notRegistered}}
+						<li><button name="verify">Verify Email</button></li>
+						<li class="divider"></li>
+						{{/if }}
+						{{/if }}
+						<li>{{ > loginButtons}}</li>
+					</ul>
+				</li>
+				<form class="navbar-form navbar-right" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control" name="query" placeholder="Query:" />
+					</div>
+					<button type="submit" class="btn btn-default">Search</button>
+				</form>
+			</ul>
+		</div>
+	</div>
+</nav>
 
 </template>
