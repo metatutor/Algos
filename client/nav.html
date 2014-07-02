@@ -20,20 +20,9 @@
 		</div>
 		<div class="right">
 		{{#if somethingLookedFor}}
-		{{#if isValidQuery}}
-		<ul>
-			{{#each getRelevantInfo}}
-			{{#if isAlgo this}}
-			{{goToAlgo this}}
-			{{/if}}
-			{{#if isUser this}}
-			{{goToUser this}}
-			{{/if}}
-			{{/each}}
-		</ul>
-		{{else}}
-		<p>Nothing matches that query :C</p>
-		{{/if}}
+		{{#with getQuery}}
+		{{goToSearch this}}
+		{{/with}}
 		{{/if}}
 		</div>
 	</ul>

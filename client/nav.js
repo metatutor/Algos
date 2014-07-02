@@ -1,14 +1,3 @@
-Accounts.onCreateUser = function(options,user){
-	if(options.profile){
-		user.profile=options.profile;
-	}
-	user.algorithmContributions = [];
-	user.awards = [];
-	user.points = 1;
-	user.profile.algorithmContributions = [];
-	return user;
-}
-
 Accounts.ui.config(
 		{ passwordSignupFields: 'USERNAME_AND_EMAIL' }
 );
@@ -87,4 +76,12 @@ Template.nav.goToUser = function(userDoc){
 
 Template.nav.goToAlgo = function(algoDoc){
 	Router.go('pedia', {_id:algoDoc.AiD});
+}
+
+Template.nav.goToSearch = function(query){
+	Router.go('search', {_id:query});
+}
+
+Template.nav.getQuery = function(){
+	return Session.get('searchQuery');
 }

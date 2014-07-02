@@ -33,6 +33,13 @@ Router.map ->
       Session.set 'lastAlgoSearch',aDoc
       @render()
   }
+  @route 'search',{
+    path: '/search/:_id'
+	 template: 'searchList'
+	 action: ->
+		 Session.set 'lastSearch',@params._id
+		 @render()
+  }
 
 Router.configure {
   layoutTemplate: 'layout_main'

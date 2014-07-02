@@ -1,0 +1,18 @@
+<template name="searchList">
+	{{#if isValidQuery}}
+	<p>Search Results:</p>
+	{{#each getRelevantInfo}}
+	{{#if isAlgo this}}
+	{{ > algoName this}}
+	{{ > algoID this}}
+	{{ > algoContributor this}}
+	{{/if}}
+	{{#if isUser this}}
+	{{ > getUsersUsername this}}
+	{{ > getUsersName this}}
+	{{/if}}
+	{{/each}}
+	{{else}}
+	<p>Nothing matches that query :C</p>
+	{{/if}}
+</template>
