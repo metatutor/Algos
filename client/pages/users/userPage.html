@@ -12,7 +12,8 @@
 			<li>None, yet :C</li><br/>
 			{{else}}
 			{{#each getContributions}}
-			<li>id: {{AiD}}, name: {{Name}}</li><br/>
+			{{ > algoID this}}
+			{{ > algoName this}}
 			{{/each}}
 			{{/if}}
 		</ul>
