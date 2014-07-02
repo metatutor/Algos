@@ -14,11 +14,13 @@ Template.contributeAlgo.events = {
 		}
 		var desc = template.find("textarea[name=description]").value;
 		var pseudo = template.find("textarea[name=pseudocode]").value;
+		var keywords = getKWarray(template.find("input[name=keywords]").value);
 		var algoObject = {
 			AiD: aid,
 			Name: name,
 			Description: desc,
-			Pseudo: pseudo
+			Pseudo: pseudo,
+			KeyWords: keywords
 		}
 		Meteor.call('uploadDoc',algoObject,Meteor.user().username);
 	}
@@ -56,4 +58,8 @@ var getDuplications = function(name,aid){
 		return 2;
 	}
 	return 0;
+}
+
+var getKWarray = function(list){
+	return list.replace(/\s+/g, '').split(',');
 }

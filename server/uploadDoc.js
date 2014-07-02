@@ -6,6 +6,7 @@ Meteor.methods({
 			Description: docObject.Description,
 			Pseudo: docObject.Pseudo,
 			Contributor: uname,
+			KeyWords: docObject.KeyWords,
 			When: moment().unix()
 		});
 		docObject.When = moment().unix();
