@@ -10,12 +10,14 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
+				<ul class="list-unstyled">
 				{{#with whichUser}}
-				{{ > getUsersName this}}
-				{{ > getUsersUsername this}}
-				{{ > getUsersEmail this}}
-				{{ > getUsersContributions this}}
+				<li>Name: {{ > getUsersName this}}</li>
+				<li>Username: {{ > getUsersUsername this}}</li>
+				<li>Email: {{ > getUsersEmail this}}</li>
+				<li>{{ > getUsersContributions this}}</li>
 				{{/with}}
+				</ul>
 			</div>
 		</div>
 		<div class="row">
@@ -33,10 +35,7 @@
 			</div>
 		</div>
 		{{else}}
-		<p>What are you doing here?</p>
-		<p>You don't seem to be logged in.</p>
-		<p>Want to join the fun?</p>
-		<p>Sign up above! :)</p>
+		<div class="alert alert-warning"><p>You must be logged in to view user profiles.</p></div>
 		{{/if}}
 		{{else}}
 		<p>No user with that username exists :C</p>

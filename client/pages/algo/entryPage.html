@@ -1,20 +1,21 @@
 <template name="entryPage">
-	<div class="left">
-		{{#if algoExists}}
-		<h1>Algorithm Info</h1>
-		{{#with getSessionAlgo}}
-		{{ > algoName this}}
-		{{ > algoID this}}
-		{{ > algoDesc this}}
-		{{ > algoPseudo this}}
-		{{ > algoContributor this}}
-		{{ > algoKW this}}
-		{{ > contributeLSI this}}
-		<p>View code for specific languages</p>
-		{{ > lsiButtons this}}
-		{{/with}}
-		{{else}}
-		<p>No algorithm exists with that algorithm ID :C</p>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="{{firstClass}}"><a href="#" name="first">Wiki</a></li>
+					<li class="{{secondClass}}"><a href="#" name="second">Implementations</a></li>
+					<li class="{{thirdClass}}"><a href="#" name="third">Contribute Implementation</a></li>
+				</ul>
+			</div>
+		</div>
+		{{#if first}}
+		{{ > wikiPage}}
+		{{/if}}
+		{{#if second}}
+		{{ > lsiPage}}
+		{{/if}}
+		{{#if third}}
 		{{/if}}
 	</div>
 </template>

@@ -1,13 +1,14 @@
 <template name="getUsersContributions">
-	<p>Recent Contributions</p>
-	<ul>
-		{{#if noContributions}}
-		<li>None, yet :C</li><br/>
-		{{else}}
-		{{#each getContributions}}
-		{{ > algoID this}}
-		{{ > algoName this}}
-		{{/each}}
-		{{/if}}
-	</ul>
+	<span>
+		<h4>Recent Contributions</h4>
+		<ul class="list-unstyled">
+			{{#if noContributions}}
+			<li>None, yet :C</li>
+			{{else}}
+			{{#each getContributions}}
+			<li>{{ > algoID this}} {{ > algoName this}}</li>
+			{{/each}}
+			{{/if}}
+		</ul>
+	</span>
 </template>
