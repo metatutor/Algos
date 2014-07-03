@@ -1,0 +1,15 @@
+<template name="smallUserBlock">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="thumbnail">
+				<img data-src="holder.js/300x300" alt="...">
+				<div class="caption">
+					<h3>{{ > getUsersName this}}</h3>
+					<h5>{{ > getUsersUsername this}}</h5>
+					<h5>{{ > getUsersEmail this }}</h5>
+					{{ > getUsersContributions this}}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
