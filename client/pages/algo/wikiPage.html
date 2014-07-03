@@ -4,33 +4,15 @@
 		{{#if algoExists}}
 		{{#with getSessionAlgo}}
 			<div class="row">
-				<div class="col-md-12 page-header">
+				<div class="col-md-2">
+					{{ > blockAlgoLarge this}}
+				</div>
+				<div class="col-md-10 page-header">
 					<div class="col-md-offset-2">
 						<h3>{{ > algoName this}} <small>{{ > algoID this}}</small></h3>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<h4>Description</h4>
-					{{ > algoDesc this}}
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<h4>Pseudo Code</h4>
-					{{ > algoPseudo this}}
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<h4>Key Words</h4>
-					{{ > algoKW this}}
-				</div>
-			</div>
-			{{#with getUserByAlgo this}}
-			{{ > getUsersUsername this}}{{ > getUserLink this}}
-			{{/with}}
 			{{/with}}
 			{{else}}
 			<div class="row">

@@ -1,0 +1,14 @@
+<template name="blockAlgoLarge">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="thumbnail">
+				<h3>{{ > algoName this}}</h3>
+				<h5>{{ > algoShort this }}</h5>
+				<h5>{{ > algoKW this}}</h5>
+				{{#with getULink}}
+				<p>{{ > getUsersUsername this}} {{ > getUserLink this}}</p>
+				{{/with}}
+			</div>
+		</div>
+	</div>
+</template>
