@@ -1,7 +1,11 @@
 <template name="layout_main">
+<div class="container-fluid">
 	{{> nav}}
-	<div id="page">
+	<div class="row">
 		{{> yield}}
 	</div>
-	{{> footer}}
+	<div class="row">
+		{{> footer}}
+	</div>
+</div>
 </template>
