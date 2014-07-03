@@ -1,9 +1,17 @@
 <template name="home">
-	<div class="container page-header">
-	<h1>Algos <small>Solving uncoordinated algorithm implementations!</small></h1>
+	<div class="row">
+		<div class="col-md-12 page-header">
+			<div class="col-md-offset-2">
+				<h1>Algos <small>Solving uncoordinated algorithm implementations!</small></h1>
+			</div>
+		</div>
 	</div>
-	<div class="container-fluid">
-		<div class="col-md-4 col-md-offset-2">{{ > rAdded }}</div>
-		<div class="col-md-4"><h3>Recent Forums</h3></div>
+	<div class="row">
+		<div class="col-md-11 col-md-offset-1">
+			<div class="col-md-3">{{ > rAdded }}</div>
+			<div class="col-md-3"><h3>Recent Flags</h3></div>
+			<div class="col-md-3"><h3>Recent Forums</h3></div>
+			<div class="col-md-3"><h3>Algo of the Day</h3></div>
+		</div>
 	</div>
 </template>
