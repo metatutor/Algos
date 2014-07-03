@@ -6,11 +6,22 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<ul class="list-unstyled">
-				{{#each language}}
-				<li>{{Name}}</li>
-				{{/each}}
-			</ul>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each language}}
+					<tr>
+						<td>{{Name}}</td>
+						<td>{{ > getLangLink this}}</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
 		</div>
 	</div>
 </template>
