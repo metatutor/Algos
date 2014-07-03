@@ -30,6 +30,7 @@ Router.map ->
 	 template: 'entryPage'
 	 action: ->
       aDoc = AlgoPedia.findOne({AiD:@params._id})
+      Session.set 'tabSelect','first'
       Session.set 'lastAlgoSearch',aDoc
       @render()
   }
