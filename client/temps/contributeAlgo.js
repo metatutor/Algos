@@ -18,7 +18,7 @@ Template.contributeAlgo.events = {
 		var algoObject = {
 			AiD: aid,
 			Name: name,
-			Description: desc,
+			Short: desc,
 			Pseudo: pseudo,
 			KeyWords: keywords
 		}

@@ -8,6 +8,12 @@ Template.getUsersContributions.noContributions = function(){
 }
 
 Template.getUsersContributions.getContributions = function(){
-	var user = this;
-	return user.profile.algorithmContributions;
+	var i =0;
+	var cArray = [];
+	var uArray = this.profile.algorithmContributions;
+	while(i<uArray.length){
+		cArray.push(AlgoPedia.findOne({AiD:uArray[i]}));
+		i++;
+	}
+	return cArray;
 }

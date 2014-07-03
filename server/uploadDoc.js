@@ -3,18 +3,18 @@ Meteor.methods({
 		AlgoPedia.insert({
 			AiD: docObject.AiD,
 			Name: docObject.Name,
-			Description: docObject.Description,
+			Short: docObject.Description,
 			Pseudo: docObject.Pseudo,
 			Contributor: uname,
 			KeyWords: docObject.KeyWords,
-			When: moment().unix()
+			When: moment().unix(),
+			Description:""
 		});
-		docObject.When = moment().unix();
 		Meteor.users.update({
 			username:uname
 		},{
 			$push:{
-				"profile.algorithmContributions": docObject
+				"profile.algorithmContributions": docObject.AiD
 			}
 		});
 	}
