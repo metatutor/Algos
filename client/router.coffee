@@ -41,6 +41,15 @@ Router.map ->
 		 Session.set 'lastSearch',@params._id
 		 @render()
   }
+  @route 'langs',{
+    path: '/langs/:_id'
+    template: 'entryPageLang'
+    action: ->
+      Session.set 'tabSelect','first'
+      lDoc = Languages.findOne({Name:@params._id})
+      Session.set 'langSearch',lDoc
+      @render()
+  }
 
 Router.configure {
   layoutTemplate: 'layout_main'

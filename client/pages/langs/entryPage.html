@@ -1,0 +1,18 @@
+<template name="entryPageLang">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="{{firstClass}}"><a href="#" name="first">Wiki</a></li>
+					<li class="{{secondClass}}"><a href="#" name="second">Contribute Language</a></li>
+				</ul>
+			</div>
+		</div>
+		{{#if first}}
+		{{ > wikiPageLang}}
+		{{/if}}
+		{{#if second}}
+		{{ > languageContribute}}
+		{{/if}}
+	</div>
+</template>
