@@ -1,14 +1,57 @@
 <template name="contributeAlgo">
-	{{#if isDuplicationWarning}}
-	<p>{{getWarning}}</p>
-	{{/if}}
-	<form id="docSubmit">
-		<input type="text" name="algoName" placeholder="algorithm name"/>
-		<input type="text" name="algoID" placeholder="algorithm ID"/>
-		<input type="text" name="keywords" placeholder="keywords with commas"/>
-		<input type="submit" name="submitDoc"/>
-	</form>
-	<textarea rows="6" cols="60" name="description" form="docSubmit" placeholder="algorithm description"></textarea>
-	<br/>
-	<textarea rows="6" cols="60" name="pseudocode" form="docSubmit" placeholder="pseudo-code"></textarea>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Contribute an Algorithm!</h3>
+			</div>
+		</div>
+		{{#if currentUser}}
+		{{#if isDuplicationWarning}}
+		<div class="row">
+			<div class="col-md-12">
+				<p>{{getWarning}}</p>
+			</div>
+		</div>
+		{{/if}}
+		<div class="row form-group">
+			<div class="col-md-12">
+				<textarea rows="6" class="form-control" name="description" form="docSubmit" placeholder="algorithm description"></textarea>
+			</div>
+		</div>
+		<div class="row form-group">
+			<div class="col-md-12">
+				<textarea rows="6" class="form-control" name="pseudocode" form="docSubmit" placeholder="pseudo-code"></textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<form id="docSubmit">
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<input type="text" class="form-control" name="algoName" placeholder="Formal Name"/>
+						</div>
+						<div class="col-md-6">
+							<input type="text" class="form-control" name="algoID" placeholder="Unique ID"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6 form-group">
+							<input type="text" class="form-control" name="keywords" placeholder="Keyword List"/>
+						</div>
+						<div class="col-md-6">
+							<button type="submit" class="btn btn-success" name="submitDoc">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<span class="label label-warning">Read guidelines before submitting</span>
+			</div>
+		</div>
+		{{else}}
+		<div class="alert alert-warning"><p>You must be logged in to do this.</p></div>
+		{{/if}}
+	</div>
 </template>
