@@ -1,0 +1,6 @@
+<template name="randomAlgo">
+	<h3>Random Algorithm!</h3>
+	{{#with randomEntry}}
+	{{ > getAlgoVerbose this}}
+	{{/with}}
+</template>
