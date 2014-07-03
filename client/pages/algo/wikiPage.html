@@ -28,6 +28,9 @@
 					{{ > algoKW this}}
 				</div>
 			</div>
+			{{#with getUserByAlgo this}}
+			{{ > getUsersUsername this}}{{ > getUserLink this}}
+			{{/with}}
 			{{/with}}
 			{{else}}
 			<div class="row">
