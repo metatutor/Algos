@@ -1,24 +1,37 @@
 <template name="userPage">
-	<div class="left">
 		{{#if userExists}}
 		{{#if currentUser}}
-		<h1>User Info</h1>
-		{{#with whichUser}}
-		{{ > getUsersName this}}
-		{{ > getUsersEmail this}}
-		{{ > getUsersUsername this}}
-		{{ > getUsersContributions this}}
-		{{/with}}
-		{{#if isMyProfile}}
-		<button name="changeInfo">Update Profile</button>
-		{{#if isEditing}}
-		<form id="infoEdit">
-			<input type="text" name="firstname" placeholder="first name"/>
-			<input type="text" name="lastname" placeholder="last name"/>
-			<input type="submit" id="submit"/>
-		</form>
-		{{/if}}
-		{{/if}}
+		<div class="row">
+			<div class="col-md-12 page-header">
+				<div class="col-md-offset-1">
+					<h1>User Profile</h1>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				{{#with whichUser}}
+				{{ > getUsersName this}}
+				{{ > getUsersUsername this}}
+				{{ > getUsersEmail this}}
+				{{ > getUsersContributions this}}
+				{{/with}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				{{#if isMyProfile}}
+				<button class="btn btn-default" name="changeInfo">Update Profile</button>
+				{{#if isEditing}}
+				<form id="infoEdit">
+					<input type="text" name="firstname" placeholder="first name"/>
+					<input type="text" name="lastname" placeholder="last name"/>
+					<input type="submit" id="submit"/>
+				</form>
+				{{/if}}
+				{{/if}}
+			</div>
+		</div>
 		{{else}}
 		<p>What are you doing here?</p>
 		<p>You don't seem to be logged in.</p>
@@ -28,5 +41,4 @@
 		{{else}}
 		<p>No user with that username exists :C</p>
 		{{/if}}
-	</div>
 </template>
