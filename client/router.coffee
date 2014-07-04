@@ -50,6 +50,16 @@ Router.map ->
       Session.set 'langSearch',lDoc
       @render()
   }
+  @route 'langs',{
+    path: '/pedia/:_id/:search'
+    template: 'entryPage'
+    action: ->
+      Session.set 'tabSelect','second'
+      aDoc = AlgoPedia.findOne({AiD:@params._id})
+      Session.set 'lsiSearch',@params.search
+      Session.set 'lastAlgoSearch',aDoc
+      @render()
+  }
 
 Router.configure {
   layoutTemplate: 'layout_main'
