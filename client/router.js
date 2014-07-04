@@ -1,15 +1,4 @@
 Router.map(function(){
-	this.route('pediaSearch',{
-		path:'/pedia/:algo/:search',
-		template: 'entryPage',
-		action: function(){
-			aDoc=AlgoPedia.findOne({AiD:@params.algo});
-			Session.set('lastAlgoSearch',aDoc);
-			Session.set('tabSelect','second');
-			Session.set('lsiSearch',@params.search);
-			this.render();
-		}
-	});
 	this.route('home',{
 		path:'/',
 		template: 'home'
@@ -32,7 +21,7 @@ Router.map(function(){
 		path: '/users/:_id',
 		template:'userPage',
 		action:function(){
-			uDoc = Meteor.users.findOne({username:@params._id});
+			var uDoc = Meteor.users.findOne({username:this.params._id});
 			Session.set('lastUserSearch',uDoc);
 			this.render();
 		}
@@ -41,7 +30,7 @@ Router.map(function(){
 		path:'/pedia/:_id',
 		template: 'entryPage',
 		action: function(){
-			aDoc = AlgoPedia.findOne({AiD:@params._id});
+			var aDoc = AlgoPedia.findOne({AiD:this.params._id});
 			Session.set('tabSelect','first');
 			Session.set('lastAlgoSearch',aDoc);
 			this.render();
@@ -51,7 +40,7 @@ Router.map(function(){
 		path:'/search/:_id',
 		template: 'searchList',
 		action: function(){
-			Session.set('lastSearch',@params._id);
+			Session.set('lastSearch',this.params._id);
 			this.render();
 		}
 	});
@@ -60,12 +49,24 @@ Router.map(function(){
 		template: 'entryPageLang',
 		action: function(){
 			Session.set('tabSelectLang','first');
-			lDoc = Languages.findOne({Name:@params._id});
+			var lDoc = Languages.findOne({Name:this.params._id});
 			Session.set('langSearch',lDoc);
 			this.render();
 		}
 	});
-}
-Router.configure = {
+	this.route('pediaSearch',{
+		path:'/pedia/:algo/:search',
+		template: 'entryPage',
+		action: function(){
+			var aDoc=AlgoPedia.findOne({AiD:this.params.algo});
+			Session.set('lastAlgoSearch',aDoc);
+			Session.set('tabSelect','second');
+			Session.set('lsiSearch',this.params.search);
+			this.render();
+		}
+	});
+});
+
+Router.configure({
 	layoutTemplate: 'layout_main'
-}
+});
