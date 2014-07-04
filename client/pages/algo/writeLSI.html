@@ -18,6 +18,16 @@
 			</div>
 		</div>
 		<div class="col-md-9">
+			{{#if isError}}
+			<div class="row">
+				<div class="col-md-12">
+					<div class="alert alert-warning alert-dismissible" role="alert">
+						<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<p>Please select a valid language</p>
+					</div>
+				</div>
+			</div>
+			{{/if}}
 			<div class="row">
 				<div class="col-md-12 page-header">
 					<h3 class="col-md-offset-2">Contribute Language-Specific Implementation</h3>
