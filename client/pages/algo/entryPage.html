@@ -9,13 +9,18 @@
 				</ul>
 			</div>
 		</div>
-		{{#if first}}
-		{{ > wikiPage}}
-		{{/if}}
-		{{#if second}}
-		{{ > lsiPage}}
-		{{/if}}
-		{{#if third}}
-		{{/if}}
+		<div class="row">
+			<div class="col-md-12">
+				{{#if first}}
+				{{ > wikiPage}}
+				{{/if}}
+				{{#if second}}
+				{{ > lsiPage}}
+				{{/if}}
+				{{#if third}}
+				{{ > contributeLSI}}
+				{{/if}}
+			</div>
+		</div>
 	</div>
 </template>

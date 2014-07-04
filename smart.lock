@@ -7,7 +7,8 @@
       "moment": {},
       "postgresql": {},
       "external-file-loader": {},
-      "bootstrap-3": {}
+      "bootstrap-3": {},
+      "epic-editor": {}
     },
     "packages": {
       "iron-router": {
@@ -39,6 +40,11 @@
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
         "tag": "v3.2.0-1",
         "commit": "17a63902fc6cf1096c5289d963c66cf28b474727"
+      },
+      "epic-editor": {
+        "git": "https://github.com/alanmeira/meteor-epic-editor",
+        "tag": "v0.3.1",
+        "commit": "879ee425c8138fdd3e57c1ac27c7427ba90df0ba"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

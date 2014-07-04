@@ -3,6 +3,7 @@ Template.contributeLSI.events = {
 		Session.set('submitLanguage',event.currentTarget.value);
 	},
 	'submit': function(event,template){
+		event.preventDefault();
 		var code = template.find('textarea[name=lsi]').value;
 		var aid = this.AiD;
 		var language = Session.get('submitLanguage');
@@ -13,6 +14,7 @@ Template.contributeLSI.events = {
 		}
 		lobj[language]=lsiObj;
 		Meteor.call('uploadLSI',lobj,aid);
+		Router.go('pedia',{_id:aid});
 	}
 }
 
@@ -25,4 +27,8 @@ Template.contributeLSI.selectedLanguage = function(name){
 		return "selected";
 	}
 	return "";
+}
+
+Template.contributeLSI.Algo = function(){
+	return Session.get('lastAlgoSearch');
 }

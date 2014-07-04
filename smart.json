@@ -5,6 +5,7 @@
     "moment": {},
     "postgresql": {},
     "external-file-loader": {},
-    "bootstrap-3": {}
+    "bootstrap-3": {},
+    "epic-editor": {}
   }
 }

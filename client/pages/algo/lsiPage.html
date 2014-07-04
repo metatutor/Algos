@@ -1,6 +1,23 @@
 <template name="lsiPage">
-	<div class="rows">
-		<div class="col-md-12 page-header">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="row">
+				<div class="col-md-12">
+				{{#with Algo}}
+				{{ > blockAlgoLarge this}}
+				{{/with}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+				<div class="thumbnail">
+				<h4>Don't See a Language?</h4>
+				{{ > contributeLang}}
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="col-md-9 page-header">
 			<div class="col-md-offset-2">
 				<h3>{{algoName}} implementations</h3>
 			</div>
