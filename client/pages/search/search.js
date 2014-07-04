@@ -11,14 +11,13 @@ Template.searchList.getRelevantInfo = function(){
 	return algoArray.concat(aidArray).concat(kwArray).concat(userArray);
 }
 
-//TODO perform uniq on the results when we get underscore.
 var getAmountResults = function(){
 	var info = Session.get('lastSearch'); 
 	var userSearch = Meteor.users.find({username:info}).count();
 	var aidSearch = AlgoPedia.find({AiD:info}).count();
 	var algoSearch = AlgoPedia.find({Name:info}).count();
 	var kwSearch = AlgoPedia.find({ KeyWords: info}).count();
-	var entries = userSearch+aidSearch+algoSearch+kwSearch;
+	var entries = _.uniq(userSearch+aidSearch+algoSearch+kwSearch);
 	return entries;
 }
 

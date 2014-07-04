@@ -1,29 +1,29 @@
 Template.entryPageLang.events = {
 	'click a[name=first]': function(){
-		Session.set('tabSelect','first');
+		Session.set('tabSelectLang','first');
 	},
 	'click a[name=second]': function(){
-		Session.set('tabSelect','second');
+		Session.set('tabSelectLang','second');
 	}
 }
 
 Template.entryPageLang.first = function(){
-	return Session.equals('tabSelect','first');
+	return Session.equals('tabSelectLang','first');
 }
 
 Template.entryPageLang.second = function(){
-	return Session.equals('tabSelect','second');
+	return Session.equals('tabSelectLang','second');
 }
 
 Template.entryPageLang.firstClass = function(){
-	if(Session.equals('tabSelect','first')){
+	if(Session.equals('tabSelectLang','first')){
 		return "active";
 	}
 	return "";
 }
 
 Template.entryPageLang.secondClass = function(){
-	if(Session.equals('tabSelect','second')){
+	if(Session.equals('tabSelectLang','second')){
 		return "active";
 	}
 	return "";
