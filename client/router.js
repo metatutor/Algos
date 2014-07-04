@@ -12,28 +12,34 @@ Router.map(function(){
 	});
 	this.route('profile',{
 		template: 'userPage',
-		action: function(){
+		onBeforeAction: function(pause){
 			Session.set('lastUserSearch',Meteor.user());
-			this.render();
+			if(!(Session.equals('lastUserSearch',Meteor.user()))){
+				pause();
+			}
 		}
 	});
 	this.route('users',{
 		path: '/users/:_id',
 		template:'userPage',
-		action:function(){
+		onBeforeAction: function(pause){
 			var uDoc = Meteor.users.findOne({username:this.params._id});
 			Session.set('lastUserSearch',uDoc);
-			this.render();
+			if(Session.equals('lastUserSearch',undefined)){
+				pause();
+			}
 		}
 	});
 	this.route('pedia',{
 		path:'/pedia/:_id',
 		template: 'entryPage',
-		action: function(){
+		onBeforeAction: function(pause){
 			var aDoc = AlgoPedia.findOne({AiD:this.params._id});
 			Session.set('tabSelect','first');
 			Session.set('lastAlgoSearch',aDoc);
-			this.render();
+			if(Session.equals('lastAlgoSearch',undefined)){
+				pause();
+			}
 		}
 	});
 	this.route('search',{
@@ -47,22 +53,26 @@ Router.map(function(){
 	this.route('langs',{
 		path: '/langs/:_id',
 		template: 'entryPageLang',
-		action: function(){
+		onBeforeAction: function(pause){
 			Session.set('tabSelectLang','first');
 			var lDoc = Languages.findOne({Name:this.params._id});
 			Session.set('langSearch',lDoc);
-			this.render();
+			if(Session.equals('langSearch',undefined)){
+				pause();
+			}
 		}
 	});
 	this.route('pediaSearch',{
 		path:'/pedia/:algo/:search',
 		template: 'entryPage',
-		action: function(){
+		onBeforeAction: function(pause){
 			var aDoc=AlgoPedia.findOne({AiD:this.params.algo});
 			Session.set('lastAlgoSearch',aDoc);
 			Session.set('tabSelect','second');
 			Session.set('lsiSearch',this.params.search);
-			this.render();
+			if(Session.equals('lastAlgoSearch',undefined)){
+				pause();
+			}
 		}
 	});
 });

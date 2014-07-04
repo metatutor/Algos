@@ -1,0 +1,7 @@
+pre {
+	word-break:keep-all;
+}
+
+textarea {
+	word-break:keep-all;
+}
