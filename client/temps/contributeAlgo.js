@@ -4,12 +4,12 @@ Meteor.startup(function(){
 
 Template.contributeAlgo.events = {
 	'submit': function(event,template){
+		event.preventDefault();
 		var name = template.find("input[name=algoName]").value;
 		var aid = template.find("input[name=algoID]").value;
 		var dupes = getDuplications(name,aid);
 		Session.set("duplicationWarning",dupes);
 		if(dupes>0){
-			event.preventDefault();
 			return;
 		}
 		var desc = template.find("textarea[name=description]").value;
@@ -23,6 +23,7 @@ Template.contributeAlgo.events = {
 			KeyWords: keywords
 		}
 		Meteor.call('uploadDoc',algoObject,Meteor.user().username);
+		Router.go('pedia',{_id:aid});
 	}
 }
 

@@ -4,12 +4,12 @@ Meteor.startup(function(){
 
 Template.contributeLang.events = {
 	'submit': function(event,template){
+		event.preventDefault();
 		var name = template.find("input[name=langName]").value;
 		var desc = template.find("textarea[name=description]").value;
 		var dupes = getDuplications(name);
 		Session.set("duplicationWarningLang",dupes);
 		if(dupes>0){
-			event.preventDefault();
 			return;
 		}
 		var langObject = {
@@ -17,6 +17,7 @@ Template.contributeLang.events = {
 			Description: desc,
 		}
 		Meteor.call('uploadLang',langObject,Meteor.user().username);
+		Router.go('langs',{_id:name});
 	}
 }
 
