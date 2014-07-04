@@ -11,3 +11,7 @@ Template.wikiPage.getUserByAlgo = function(algo){
 	var uname = algo.Contributor;
 	return Meteor.users.findOne({username:uname});
 }
+
+Template.wikiPage.isEntry = function(){
+	return Session.equals('lsiSuccess',2);
+}

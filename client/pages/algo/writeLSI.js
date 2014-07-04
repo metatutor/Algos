@@ -24,7 +24,7 @@ Template.contributeLSI.events = {
 		lobj[language]=lsiObj;
 		Meteor.call('uploadLSI',lobj,aid);
 		Session.set('lsiSuccess',2);
-		Router.go('pedia',{_id:aid});
+		Session.set('tabSelect','second');
 	}
 }
 

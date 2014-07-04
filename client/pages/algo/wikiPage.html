@@ -1,20 +1,30 @@
 <template name="wikiPage">
 	{{#if algoExists}}
 	{{#with getSessionAlgo}}
-		<div class="row">
-			<div class="col-md-3">
-				{{ > blockAlgoLarge this}}
-			</div>
-			<div class="col-md-9 page-header">
-				<div class="col-md-offset-2 col-md-10">
-					<h3>{{ > algoName this}} <small>{{ > algoID this}}</small></h3>
-				</div>
-			</div>
-		</div>
-		{{/with}}
-		{{else}}
+	{{#if isEntry}}
+	<div class="row">
 		<div class="col-md-12">
-			<p>No algorithm exists with that algorithm ID :C</p>
+			<div class="alert alert-success alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<p>LSI added successfully</p>
+			</div>
 		</div>
+	</div>
+	{{/if}}
+	<div class="row">
+		<div class="col-md-3">
+			{{ > blockAlgoLarge this}}
+		</div>
+		<div class="col-md-9 page-header">
+			<div class="col-md-offset-2 col-md-10">
+				<h3>{{ > algoName this}} <small>{{ > algoID this}}</small></h3>
+			</div>
+		</div>
+	</div>
+	{{/with}}
+	{{else}}
+	<div class="col-md-12">
+		<p>No algorithm exists with that algorithm ID :C</p>
+	</div>
 	{{/if}}
 </template>
