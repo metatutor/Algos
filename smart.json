@@ -6,6 +6,7 @@
     "postgresql": {},
     "external-file-loader": {},
     "bootstrap-3": {},
-    "epic-editor": {}
+    "epic-editor": {},
+    "underscore-string-latest": {}
   }
 }

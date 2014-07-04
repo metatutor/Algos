@@ -9,13 +9,6 @@ Meteor.methods({
 			When: moment().unix(),
 			Description:""
 		});
-		AlgoPedia.update({
-			AiD: docObject.AiD
-		},{
-			$push:{
-				pseudocode: docObject.Pseudo
-			}
-		});
 		Meteor.users.update({
 			username:uname
 		},{

@@ -8,7 +8,8 @@
       "postgresql": {},
       "external-file-loader": {},
       "bootstrap-3": {},
-      "epic-editor": {}
+      "epic-editor": {},
+      "underscore-string-latest": {}
     },
     "packages": {
       "iron-router": {
@@ -45,6 +46,11 @@
         "git": "https://github.com/alanmeira/meteor-epic-editor",
         "tag": "v0.3.1",
         "commit": "879ee425c8138fdd3e57c1ac27c7427ba90df0ba"
+      },
+      "underscore-string-latest": {
+        "git": "https://github.com/TimHeckel/meteor-underscore-string.git",
+        "tag": "v2.3.3",
+        "commit": "4a5d70eee48fbd90a6e6fc78747250d704a0b3bb"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
