@@ -6,6 +6,9 @@ Template.contributeLSI.events = {
 	'change select[name=language]': function(event,template){
 		Session.set('submitLanguage',event.currentTarget.value);
 	},
+	'click button[name=dismissal]':function(){
+		Session.set('lsiSuccess',0);
+	},
 	'submit': function(event,template){
 		event.preventDefault();
 		var algo = Session.get('lastAlgoSearch');
