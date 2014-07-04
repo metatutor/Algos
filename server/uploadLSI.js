@@ -1,10 +1,7 @@
 Meteor.methods({
 	uploadLSI:function(lsiObject,aid){
-		AlgoPedia.update({
-			AiD:aid
-		},{
-			$addToSet:
-				lsiObject
+		LSIs.insert({
+			lsiObject
 		});
 	}
 });

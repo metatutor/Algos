@@ -16,13 +16,13 @@ Template.contributeLSI.events = {
 			Session.set('lsiSuccess',1);
 			return;
 		}
-		var lobj = {};
 		var lsiObj = {
 			Code: code,
-			Contributor: Meteor.user().username
+			Contributor: Meteor.user().username,
+			AiD: aid,
+			Language: language
 		}
-		lobj[language]=lsiObj;
-		Meteor.call('uploadLSI',lobj,aid);
+		Meteor.call('uploadLSI',lsiObj);
 		Session.set('lsiSuccess',2);
 		Session.set('tabSelect','second');
 	}
