@@ -24,6 +24,9 @@ Template.contributeAlgo.events = {
 		}
 		Meteor.call('uploadDoc',algoObject,Meteor.user().username);
 		Router.go('pedia',{_id:aid});
+	},
+	'click button[name=dismissal]':function(){
+		Session.set("duplicationWarning",0);
 	}
 }
 

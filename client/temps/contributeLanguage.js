@@ -18,6 +18,9 @@ Template.contributeLang.events = {
 		}
 		Meteor.call('uploadLang',langObject,Meteor.user().username);
 		Router.go('langs',{_id:name});
+	},
+	'click button[name=dismissal]':function(){
+		Session.set('duplicationWarningLang',0);
 	}
 }
 
