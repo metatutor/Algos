@@ -21,6 +21,9 @@ Template.lsiPage.events = {
 		var aid = Session.get('lastAlgoSearch').AiD;
 		var query = template.find('input[name=lsiSearch]').value;
 		Router.go('pediaSearch',{algo:aid,search:query});
+	},
+	'click button[name=dismissal]': function(){
+		Session.set('lsiSuccess',0);
 	}
 }
 

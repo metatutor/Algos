@@ -3,15 +3,14 @@
 		<thead>
 			<tr>
 				<th>Author</th>
-				<th>Show More</th>
+				<th>Language</th>
+				<th>Points</th>
+				<th>Show</th>
 			</tr>
 		</thead>
 		<tbody>
 			{{#each matchingLSI}}
-			<tr>
-				<td>{{Contributor}}</td>
-				<td>Link</td>
-			</tr>
+			{{ > lsiTableEntry this}}
 			{{/each}}
 		</tbody>
 	</table>

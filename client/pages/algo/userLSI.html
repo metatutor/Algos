@@ -1,0 +1,9 @@
+<template name="userLSI">
+	{{#if noneSelected}}
+	<h4>Choose an LSI on the left to view</h4>
+	{{else}}
+	{{#with getUserLSI}}
+	{{Code}}
+	{{/with}}
+	{{/if}}
+</template>
