@@ -35,19 +35,18 @@
 			<div class="col-md-12">
 				<form id="docSubmit">
 					<div class="row">
-						<div class="col-md-6 form-group">
-							<input type="text" class="form-control" name="algoName" placeholder="Formal Name"/>
-						</div>
-						<div class="col-md-6">
-							<input type="text" class="form-control" name="algoID" placeholder="Unique ID"/>
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" style="width: inherit" name="keywords" placeholder="Keyword List"/>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-6 form-group">
-							<input type="text" class="form-control" name="keywords" placeholder="Keyword List"/>
-						</div>
-						<div class="col-md-6">
-							<button type="submit" class="btn btn-success" name="submitDoc"><span class="glyphicon glyphicon-upload"></span></button>
+						<div class="col-md-12">
+							<div class="input-group" style="width: inherit">
+								<input type="text" class="form-control" name="algoName" placeholder="Formal Name"/>
+								<span class="input-group-btn">
+									<button type="submit" class="btn btn-success" name="submitDoc"><span class="glyphicon glyphicon-upload"></span></button>
+								</span>
+							</div>
 						</div>
 					</div>
 				</form>
