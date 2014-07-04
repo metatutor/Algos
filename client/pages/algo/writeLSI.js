@@ -8,8 +8,9 @@ Template.contributeLSI.events = {
 	},
 	'submit': function(event,template){
 		event.preventDefault();
+		var algo = Session.get('lastAlgoSearch');
+		var aid = algo.AiD;
 		var code = template.find('textarea[name=lsi]').value;
-		var aid = this.AiD;
 		var language = Session.get('submitLanguage');
 		console.log(language);
 		if(language===undefined){
@@ -20,11 +21,12 @@ Template.contributeLSI.events = {
 			Code: code,
 			Contributor: Meteor.user().username,
 			pAiD: aid,
-			Language: language
+			Language: language,
+			When: moment().unix()
 		}
 		Meteor.call('uploadLSI',lsiObj);
 		Session.set('lsiSuccess',2);
-		Session.set('tabSelect','second');
+		Router.go('pediaSearch',{algo:aid,search:language});
 	}
 }
 

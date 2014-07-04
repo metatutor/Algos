@@ -1,5 +1,18 @@
 <template name="lsiSearchResults">
-	{{#each matchingLSI}}
-	<p>{{Language}} {{_id}}</p>
-	{{/each}}
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Author</th>
+				<th>Show More</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each matchingLSI}}
+			<tr>
+				<td>{{Contributor}}</td>
+				<td>Link</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
 </template>

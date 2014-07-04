@@ -4,7 +4,11 @@ Template.lsiPage.allDefined = function(){
 	}
 }
 Template.lsiPage.algoName = function(){
-	return Session.get('lastAlgoSearch').Name;
+	var algo= Session.get('lastAlgoSearch');
+	if(algo===undefined){
+		return;
+	}
+	return algo.Name;
 }
 
 Template.lsiPage.Algo = function(){
@@ -18,4 +22,8 @@ Template.lsiPage.events = {
 		var query = template.find('input[name=lsiSearch]').value;
 		Router.go('pediaSearch',{algo:aid,search:query});
 	}
+}
+
+Template.lsiPage.isEntry = function(){
+	return Session.equals('lsiSuccess',2);
 }

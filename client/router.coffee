@@ -4,9 +4,9 @@ Router.map ->
     template: 'entryPage'
     action: ->
       aDoc = AlgoPedia.findOne({AiD:@params.algo})
+      Session.set 'lastAlgoSearch',aDoc
       Session.set 'tabSelect','second'
       Session.set 'lsiSearch',@params.search
-      Session.set 'lastAlgoSearch',aDoc
       @render()
   }
   @route 'home',{
