@@ -14,7 +14,7 @@ Router.map(function(){
 		template: 'userPage',
 		onBeforeAction: function(pause){
 			Session.set('lastUserSearch',Meteor.user());
-			if(!(Session.equals('lastUserSearch',Meteor.user()))){
+			if(Session.equals('lastUserSearch',undefined)){
 				pause();
 			}
 		}
