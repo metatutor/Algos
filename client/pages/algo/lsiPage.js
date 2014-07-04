@@ -15,7 +15,7 @@ Template.lsiPage.events = {
 	'submit': function(event,template){
 		event.preventDefault();
 		var aid = Session.get('lastAlgoSearch').AiD;
-		var query = template.find('textarea[name=lsiSearch]').value;
-		Router.go('pedia',{_id:aid,search:query});
+		var query = template.find('input[name=lsiSearch]').value;
+		Router.go('pediaSearch',{algo:aid,search:query});
 	}
 }

@@ -19,7 +19,7 @@ Template.contributeLSI.events = {
 		var lsiObj = {
 			Code: code,
 			Contributor: Meteor.user().username,
-			AiD: aid,
+			pAiD: aid,
 			Language: language
 		}
 		Meteor.call('uploadLSI',lsiObj);

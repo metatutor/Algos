@@ -1,4 +1,14 @@
 Router.map ->
+  @route 'pediaSearch',{
+    path: '/pedia/:algo/:search'
+    template: 'entryPage'
+    action: ->
+      aDoc = AlgoPedia.findOne({AiD:@params.algo})
+      Session.set 'tabSelect','second'
+      Session.set 'lsiSearch',@params.search
+      Session.set 'lastAlgoSearch',aDoc
+      @render()
+  }
   @route 'home',{
     path: '/'
 	 template: 'home'
@@ -48,16 +58,6 @@ Router.map ->
       Session.set 'tabSelect','first'
       lDoc = Languages.findOne({Name:@params._id})
       Session.set 'langSearch',lDoc
-      @render()
-  }
-  @route 'langs',{
-    path: '/pedia/:_id/:search'
-    template: 'entryPage'
-    action: ->
-      Session.set 'tabSelect','second'
-      aDoc = AlgoPedia.findOne({AiD:@params._id})
-      Session.set 'lsiSearch',@params.search
-      Session.set 'lastAlgoSearch',aDoc
       @render()
   }
 

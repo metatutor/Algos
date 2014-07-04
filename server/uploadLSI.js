@@ -1,7 +1,5 @@
 Meteor.methods({
 	uploadLSI:function(lsiObject,aid){
-		LSIs.insert({
-			lsiObject
-		});
+		LSIs.insert(lsiObject);
 	}
 });
