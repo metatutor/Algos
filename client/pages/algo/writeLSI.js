@@ -15,7 +15,6 @@ Template.contributeLSI.events = {
 		var aid = algo.AiD;
 		var code = template.find('textarea[name=lsi]').value;
 		var language = Session.get('submitLanguage');
-		console.log(language);
 		if(language===undefined){
 			Session.set('lsiSuccess',1);
 			return;
@@ -31,7 +30,7 @@ Template.contributeLSI.events = {
 		}
 		Meteor.call('uploadLSI',lsiObj);
 		Session.set('lsiSuccess',2);
-		Router.go('lsiSearchRoute',{algo:aid,lang:language,search:makeid});
+		Router.go('lsiSearchRoute',{algo:aid,lang:_.slugify(language),search:makeid});
 	}
 }
 
@@ -51,6 +50,5 @@ Template.contributeLSI.Algo = function(){
 }
 
 Template.contributeLSI.isError = function(){
-	console.log('Session');
 	return Session.equals('lsiSuccess',1);
 }

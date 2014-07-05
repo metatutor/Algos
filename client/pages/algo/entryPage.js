@@ -1,9 +1,11 @@
 Template.entryPage.events = {
 	'click a[name=first]': function(){
-		Session.set('tabSelect','first');
+		var algo = Session.get('lastAlgoSearch');
+		Router.go('pedia',{_id:algo.AiD});
 	},
 	'click a[name=second]': function(){
-		Session.set('tabSelect','second');
+		var algo = Session.get('lastAlgoSearch');
+		Router.go('pediaSearch',{algo:algo.AiD,search:"showAll"});
 	},
 	'click a[name=third]': function(){
 		Session.set('tabSelect','third');

@@ -20,7 +20,11 @@ Template.lsiPage.events = {
 		event.preventDefault();
 		var aid = Session.get('lastAlgoSearch').AiD;
 		var query = template.find('input[name=lsiSearch]').value;
-		Router.go('pediaSearch',{algo:aid,search:query});
+		if(_.isBlank(query)){
+			Router.go('pediaSearch',{algo:aid,search:"showAll"});
+		}else{
+			Router.go('pediaSearch',{algo:aid,search:_.slugify(query)});
+		}
 	},
 	'click button[name=dismissal]': function(){
 		Session.set('lsiSuccess',0);

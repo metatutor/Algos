@@ -54,7 +54,7 @@ Router.map(function(){
 		template: 'entryPageLang',
 		onBeforeAction: function(pause){
 			Session.set('tabSelectLang','first');
-			var lDoc = Languages.findOne({Name:this.params._id});
+			var lDoc = Languages.findOne({Slug:this.params._id});
 			Session.set('langSearch',lDoc);
 			if(Session.equals('langSearch',undefined)){
 				pause();
@@ -66,12 +66,26 @@ Router.map(function(){
 		template: 'entryPage',
 		onBeforeAction: function(pause){
 			var aDoc=AlgoPedia.findOne({AiD:this.params.algo});
-			Session.set('lsiSelected',null);
 			Session.set('lastAlgoSearch',aDoc);
-			Session.set('tabSelect','second');
-			Session.set('lsiLangSearch',this.params.search);
-			if(Session.equals('lastAlgoSearch',undefined)){
-				pause();
+			if(this.params.search==="showAll"){
+				Session.set('lsiLangSearch',null);
+				Session.set('lsiSelected',null);
+				Session.set('tabSelect','second');
+				if(Session.equals('lastAlgoSearch',undefined)){
+					pause();
+				}
+			}
+			else{
+				var lDoc = Languages.findOne({Slug:this.params.search});
+				Session.set('lsiLangSearch',lDoc);
+				Session.set('lsiSelected',null);
+				Session.set('tabSelect','second');
+				if(Session.equals('lastAlgoSearch',undefined)){
+					pause();
+				}
+				if(Session.equals('lsiLangSearch',undefined)){
+					pause();
+				}
 			}
 		}
 	});
@@ -80,12 +94,26 @@ Router.map(function(){
 		template: 'entryPage',
 		onBeforeAction: function(pause){
 			var aDoc=AlgoPedia.findOne({AiD:this.params.algo});
-			Session.set('lsiSelected',this.params.search);
 			Session.set('lastAlgoSearch',aDoc);
-			Session.set('tabSelect','second');
-			Session.set('lsiLangSearch',this.params.lang);
-			if(Session.equals('lastAlgoSearch',undefined)){
-				pause();
+			if(this.params.lang==="showAll"){
+				Session.set('lsiSelected',this.params.search);
+				Session.set('tabSelect','second');
+				Session.set('lsiLangSearch',null);
+				if(Session.equals('lastAlgoSearch',undefined)){
+					pause();
+				}
+			}
+			else{
+				var lDoc = Languages.findOne({Slug:this.params.lang});
+				Session.set('lsiSelected',this.params.search);
+				Session.set('tabSelect','second');
+				Session.set('lsiLangSearch',lDoc);
+				if(Session.equals('lastAlgoSearch',undefined)){
+					pause();
+				}
+				if(Session.equals('lsiLangSearch',undefined)){
+					pause();
+				}
 			}
 		}
 	});

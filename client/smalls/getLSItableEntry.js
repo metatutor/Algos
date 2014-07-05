@@ -5,10 +5,20 @@ Meteor.startup(function(){
 Template.lsiTableEntry.events = {
 	'click button[name=pullInfo]': function(){
 		if(Session.equals('lsiSelected',this._id)){
-			Router.go('pediaSearch',{algo:this.pAiD,search:this.Language});
+			if(Session.equals('lsiLangSearch',null)){
+				Router.go('pediaSearch',{algo:this.pAiD,search:"showAll"});
+			}
+			else{
+				Router.go('pediaSearch',{algo:this.pAiD,search:_.slugify(this.Language)});
+			}
 		}
 		else{
-			Router.go('lsiSearchRoute',{algo:this.pAiD,lang:this.Language,search:this._id});
+			if(Session.equals('lsiLangSearch',null)){
+				Router.go('lsiSearchRoute',{algo:this.pAiD,lang:"showAll",search:this._id});
+			}
+			else{
+				Router.go('lsiSearchRoute',{algo:this.pAiD,lang:_.slugify(this.Language),search:this._id});
+			}
 		}
 	}
 }
