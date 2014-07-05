@@ -15,3 +15,10 @@ Template.lsiSearchResults.everyLSI = function(){
 Template.lsiSearchResults.isntSet = function(){
 	return Session.equals('lsiLangSearch',null);
 }
+
+Template.lsiSearchResults.noneExist = function(){
+	var lang = Session.get('lsiLangSearch');
+	var algo = Session.get('lastAlgoSearch');
+	var amount = LSIs.find({pAiD:algo.AiD},{sort:{When:-1}}).count();
+	return amount<1;
+}

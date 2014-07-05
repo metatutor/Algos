@@ -1,20 +1,22 @@
 <template name="wikiPage">
-	{{#if algoExists}}
-	{{#with getSessionAlgo}}
 	<div class="row">
+		{{#if algoExists}}
+		{{#with getSessionAlgo}}
 		<div class="col-md-3">
 			{{ > blockAlgoLarge this}}
 		</div>
 		<div class="col-md-9 page-header">
-			<div class="col-md-offset-2 col-md-10">
-				<h3>{{ > algoName this}} <small>{{ > algoID this}}</small></h3>
+			<div class="row">
+				<div class="col-md-offset-2 col-md-10">
+					<h2>{{ > algoName this}} <small>{{ > algoID this}}</small></h2>
+				</div>
 			</div>
 		</div>
+		{{/with}}
+		{{else}}
+		<div class="col-md-12">
+			<h4>No algorithm exists with that algorithm ID :C</h4>
+		</div>
+		{{/if}}
 	</div>
-	{{/with}}
-	{{else}}
-	<div class="col-md-12">
-		<p>No algorithm exists with that algorithm ID :C</p>
-	</div>
-	{{/if}}
 </template>

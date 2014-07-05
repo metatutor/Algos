@@ -8,6 +8,11 @@
 				<th>Show</th>
 			</tr>
 		</thead>
+		{{#if noneExist}}
+		<tr>
+			<td>No code yet</td>
+		</tr>
+		{{else}}
 		{{#if isntSet}}
 		<tbody>
 			{{#each everyLSI}}
@@ -20,6 +25,7 @@
 			{{ > lsiTableEntry this}}
 			{{/each}}
 		</tbody>
+		{{/if}}
 		{{/if}}
 	</table>
 </template>
