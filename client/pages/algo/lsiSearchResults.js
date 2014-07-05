@@ -1,6 +1,9 @@
 Template.lsiSearchResults.matchingLSI = function(){
 	var lang = Session.get('lsiLangSearch');
 	var algo = Session.get('lastAlgoSearch');
+	if(lang===undefined){
+		return LSIs.find({pAiD:algo.AiD},{sort:{When:-1}});
+	}
 	return LSIs.find({pAiD:algo.AiD, Language:lang.Name},{sort:{When:-1}});
 }
 
