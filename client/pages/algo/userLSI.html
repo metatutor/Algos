@@ -1,9 +1,31 @@
 <template name="userLSI">
-	{{#if noneSelected}}
-	<h4>Choose an LSI on the left to view</h4>
-	{{else}}
-	{{#with getUserLSI}}
-	<pre>{{Code}}</pre>
-	{{/with}}
-	{{/if}}
+	<div class="row">
+		{{#if noneSelected}}
+		<div class="col-md-12">
+			<h4>Choose an LSI on the left to view</h4>
+		</div>
+		{{else}}
+		{{#with getUserLSI}}
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-12">
+					<p>User Information goes here and points</p>
+				</div>
+			</div>
+			<div style="width: inherit" class="row">
+				<div class="col-md-11">
+					<pre>{{Code}}</pre>
+				</div>
+				<div class="col-md-1">
+					<div class="btn-group-vertical">
+						<button name="plus" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
+						<button name="minus" class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+						<button name="comment" class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{/with}}
+		{{/if}}
+	</div>
 </template>
