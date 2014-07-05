@@ -37,6 +37,7 @@ Router.map(function(){
 			var aDoc = AlgoPedia.findOne({AiD:this.params._id});
 			Session.set('tabSelect','first');
 			Session.set('lastAlgoSearch',aDoc);
+			Session.set('lsiSearch',null);
 			Session.set('lsiSelected',null);
 			if(Session.equals('lastAlgoSearch',undefined)){
 				pause();

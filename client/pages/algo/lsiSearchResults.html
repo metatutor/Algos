@@ -8,10 +8,18 @@
 				<th>Show</th>
 			</tr>
 		</thead>
+		{{#if isntSet}}
+		<tbody>
+			{{#each everyLSI}}
+			{{ > lsiTableEntry this}}
+			{{/each}}
+		</tbody>
+		{{else}}
 		<tbody>
 			{{#each matchingLSI}}
 			{{ > lsiTableEntry this}}
 			{{/each}}
 		</tbody>
+		{{/if}}
 	</table>
 </template>
