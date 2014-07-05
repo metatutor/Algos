@@ -7,7 +7,7 @@ Template.contributeLang.events = {
 		event.preventDefault();
 		var name = template.find("input[name=langName]").value;
 		var desc = template.find("textarea[name=description]").value;
-		var dupes = getDuplications(name);
+		var dupes = getDuplications(name,desc);
 		Session.set("duplicationWarningLang",dupes);
 		if(dupes>0){
 			return;
@@ -30,10 +30,28 @@ Template.contributeLang.isDuplicationWarning = function(){
 }
 
 Template.contributeLang.getWarning = function(){
-	return "A language with that name already exists.";
+	switch(Session.get('duplicationWarningLang')){
+		case 1:
+			return 'Please provide a brief description. This helps identify the language.';
+		case 2:
+			return 'Please provide a name. Names are important.';
+		case 3:
+			return "A language with that name already exists.";
+		default:
+			return "something went horribly wrong. Contacting propery authorities.";
+	}
 }
 
-var getDuplications = function(name,aid){
+var getDuplications = function(name,desc){
+	if(_.isBlank(desc)){
+		return 1;
+	}
+	if(_.isBlank(name)){
+		return 2;
+	}
 	var nameCount = Languages.find({Name:name}).count();
-	return nameCount;
+	if(nameCount>0){
+		return 3;
+	}
+	return 0;
 }
