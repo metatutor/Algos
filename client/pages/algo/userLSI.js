@@ -38,6 +38,32 @@ Template.userLSI.events = {
 			Contributor: author
 		};
 		Meteor.call('logComment',obj);
+	},
+	'click button[name=plus]':function(){
+		var LiD = Session.get('lsiSelected');
+		var lang = LSIs.findOne({_id:LiD});
+		if(approvalGiven(lang,Meteor.user().username)){
+			Meteor.call('unapprove',Meteor.user().username,LiD);
+		}
+		else{
+			if(disapprovalGiven(lang,Meteor.user().username)){
+				Meteor.call('undisapprove',Meteor.user().username,LiD);
+			}
+			Meteor.call('approve',Meteor.user().username,LiD);
+		}
+	},
+	'click button[name=minus]':function(){
+		var LiD = Session.get('lsiSelected');
+		var lang = LSIs.findOne({_id:LiD});
+		if(disapprovalGiven(lang, Meteor.user().username)){
+			Meteor.call('undisapprove',Meteor.user().username,LiD);
+		}
+		else{
+			if(approvalGiven(lang, Meteor.user().username)){
+				Meteor.call('unapprove',Meteor.user().username,LiD);
+			}
+			Meteor.call('disapprove',Meteor.user().username,LiD);
+		}
 	}
 }
 
@@ -49,4 +75,14 @@ Template.userLSI.wantsToSeeComments = function(){
 Template.userLSI.getAuthor = function(){
 	var user = Meteor.users.findOne({username:this.Contributor});
 	return user;
+}
+
+var approvalGiven = function(lid,uname){
+	var aList = lid.Approve;
+	return _.contains(aList,uname)
+}
+
+var disapprovalGiven = function(lid,uname){
+	var dList = lid.Disapprove;
+	return _.contains(dList,uname)
 }

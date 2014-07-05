@@ -25,6 +25,8 @@ Template.contributeLSI.events = {
 			Code: code,
 			Contributor: Meteor.user().username,
 			pAiD: aid,
+			Approve: [],
+			Disapprove: [],
 			Language: language,
 			When: moment().unix()
 		}
