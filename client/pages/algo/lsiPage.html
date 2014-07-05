@@ -43,6 +43,15 @@
 					</form>
 				</div>
 			</div>
+			{{#if langUndefined}}
+			<div class="row">
+				<div class="col-md-offset-9 col-md-3">
+					<div class="alert alert-warning alert-dismissible" role="alert">
+						<p>That's not a valid language!</p>
+					</div>
+				</div>
+			</div>
+			{{/if}}
 			<div class="row">
 				<div class="col-md-4">
 					<div class="thumbnail">

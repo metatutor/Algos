@@ -15,6 +15,10 @@ Template.lsiPage.Algo = function(){
 	return Session.get('lastAlgoSearch');
 }
 
+Template.lsiPage.langUndefined = function(){
+	return Session.equals('lsiLangSearch',undefined);
+}
+
 Template.lsiPage.events = {
 	'submit': function(event,template){
 		event.preventDefault();
