@@ -1,3 +1,7 @@
+Meteor.startup(function(){
+	Session.set('reading',[]);
+});
+
 Template.userLSI.noneSelected = function(){
 	return Session.equals('lsiSelected',null);
 }
@@ -8,21 +12,20 @@ Template.userLSI.getUserLSI = function(){
 }
 
 Template.userLSI.events = {
-	'click button[name=comment]':function(){
-		Session.set('commenting',true);
-	},
 	'click button[name=viewMore]':function(){
-		if(Session.equals('reading',true)){
-			Session.set('reading',false);
+		var LiD = Session.get('lsiSelected');
+		var readingArray = Session.get('reading');
+		if(_.contains(readingArray,LiD)){
+			Session.set('reading',[]);
 		}
 		else{
-			Session.set('reading',true);
+			Session.set('reading',[LiD]);
 		}
 	},
-	'click button[name=addComment]': function(events, template){
-		Session.set('commenting',false);
+	'click button[name=commentsubmit]': function(events, template){
 		var context = Session.get('lsiSelected');
 		var text = template.find('textarea[name=comment]').value;
+		Session.set('reading',[context]);
 		if(_.isBlank(text)){
 			event.preventDefault();
 			return;
@@ -38,10 +41,12 @@ Template.userLSI.events = {
 	}
 }
 
-Template.userLSI.wantsToComment = function(){
-	return Session.equals('commenting',true);
+Template.userLSI.wantsToSeeComments = function(){
+	var readingArray = Session.get('reading');
+	return readingArray.length>0;
 }
 
-Template.userLSI.wantsToSeeComments = function(){
-	return Session.equals('reading',true);
+Template.userLSI.getAuthor = function(){
+	var user = Meteor.users.findOne({username:this.Contributor});
+	return user;
 }
