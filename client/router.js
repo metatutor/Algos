@@ -3,9 +3,6 @@ Router.map(function(){
 		path:'/',
 		template: 'home'
 	});
-	this.route('forum',{
-		template: 'forum'
-	});
 	this.route('algo',{
 		path: '/pedia',
 		template: 'algopedia'
