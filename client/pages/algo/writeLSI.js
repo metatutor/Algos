@@ -20,7 +20,9 @@ Template.contributeLSI.events = {
 			Session.set('lsiSuccess',1);
 			return;
 		}
+		var makeid = aid+Meteor.user().username+language+moment().unix();
 		var lsiObj = {
+			_id: makeid,
 			Code: code,
 			Contributor: Meteor.user().username,
 			pAiD: aid,
@@ -29,7 +31,7 @@ Template.contributeLSI.events = {
 		}
 		Meteor.call('uploadLSI',lsiObj);
 		Session.set('lsiSuccess',2);
-		Router.go('pediaSearch',{algo:aid,search:language});
+		Router.go('lsiSearchRoute',{algo:aid,lang:language,search:makeid});
 	}
 }
 

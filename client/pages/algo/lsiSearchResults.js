@@ -1,5 +1,5 @@
 Template.lsiSearchResults.matchingLSI = function(){
-	var query = Session.get('lsiSearch');
+	var query = Session.get('lsiLangSearch');
 	var algo = Session.get('lastAlgoSearch');
 	return LSIs.find({pAiD:algo.AiD, Language:query},{sort:{When:-1}});
 }
@@ -10,5 +10,5 @@ Template.lsiSearchResults.everyLSI = function(){
 }
 
 Template.lsiSearchResults.isntSet = function(){
-	return Session.equals('lsiSearch',null);
+	return Session.equals('lsiLangSearch',null);
 }

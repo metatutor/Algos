@@ -5,10 +5,10 @@ Meteor.startup(function(){
 Template.lsiTableEntry.events = {
 	'click button[name=pullInfo]': function(){
 		if(Session.equals('lsiSelected',this._id)){
-			Session.set('lsiSelected',null);
+			Router.go('pediaSearch',{algo:this.pAiD,search:this.Language});
 		}
 		else{
-			Session.set('lsiSelected',this._id);
+			Router.go('lsiSearchRoute',{algo:this.pAiD,lang:this.Language,search:this._id});
 		}
 	}
 }

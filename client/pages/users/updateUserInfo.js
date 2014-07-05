@@ -1,4 +1,4 @@
-Template.updateUserProfile.events = {
+Template.updateUserInfo.events = {
 	'submit': function(event,template){
 		event.preventDefault();
 		var stats = {};

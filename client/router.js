@@ -37,7 +37,7 @@ Router.map(function(){
 			var aDoc = AlgoPedia.findOne({AiD:this.params._id});
 			Session.set('tabSelect','first');
 			Session.set('lastAlgoSearch',aDoc);
-			Session.set('lsiSearch',null);
+			Session.set('lsiLangSearch',null);
 			Session.set('lsiSelected',null);
 			if(Session.equals('lastAlgoSearch',undefined)){
 				pause();
@@ -72,7 +72,21 @@ Router.map(function(){
 			Session.set('lsiSelected',null);
 			Session.set('lastAlgoSearch',aDoc);
 			Session.set('tabSelect','second');
-			Session.set('lsiSearch',this.params.search);
+			Session.set('lsiLangSearch',this.params.search);
+			if(Session.equals('lastAlgoSearch',undefined)){
+				pause();
+			}
+		}
+	});
+	this.route('lsiSearchRoute',{
+		path:'/pedia/:algo/:lang/:search',
+		template: 'entryPage',
+		onBeforeAction: function(pause){
+			var aDoc=AlgoPedia.findOne({AiD:this.params.algo});
+			Session.set('lsiSelected',this.params.search);
+			Session.set('lastAlgoSearch',aDoc);
+			Session.set('tabSelect','second');
+			Session.set('lsiLangSearch',this.params.lang);
 			if(Session.equals('lastAlgoSearch',undefined)){
 				pause();
 			}
