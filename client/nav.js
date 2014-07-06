@@ -32,3 +32,7 @@ Template.nav.events = {
 var goToSearch = function(query){
 	Router.go('search', {_id:query});
 }
+
+Template.nav.getStats = function(){
+	return (LSIs.find().count() +' implementationsi for '+AlgoPedia.find().count()+' algorithms in '+Languages.find().count()+' languages.');
+}
