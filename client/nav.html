@@ -20,13 +20,9 @@
 					<ul class="dropdown-menu" role="menu">
 						{{#if currentUser}}
 						<li><a href="{{pathFor 'profile'}}">View Profile</a></li>
-						<li class="divider"></li>
 						{{#if notRegistered}}
-						<li><button name="verify">Verify Email</button></li>
 						<li class="divider"></li>
-						{{else}}
-						<li><a href="#">Contribute Algorithm</a></li>
-						<li><a href="#">Contribute Language</a></li>
+						<li><button name="verify">Verify Email</button></li>
 						{{/if }}
 						{{else}}
 						<li>Please log in to view profile</li>
