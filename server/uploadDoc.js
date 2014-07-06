@@ -16,5 +16,14 @@ Meteor.methods({
 				"profile.algorithmContributions": docObject.AiD
 			}
 		});
+	},
+	updateWiki:function(aid,text){
+		AlgoPedia.update({
+			AiD:aid
+		},{
+			$set:{
+				Wiki:text
+			}
+		});
 	}
 });

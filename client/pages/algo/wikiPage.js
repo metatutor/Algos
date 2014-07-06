@@ -11,3 +11,15 @@ Template.wikiPage.getUserByAlgo = function(algo){
 	var uname = algo.Contributor;
 	return Meteor.users.findOne({username:uname});
 }
+
+Template.wikiPage.events = {
+	'submit': function(event,template){
+		var text = template.find('textarea[name=updater]').value;
+		var algoDoc = Session.get("lastAlgoSearch");
+		if(_.isBlank(text)){
+			event.preventDefault();
+			return;
+		}
+		Meteor.call('updateWiki',algoDoc.AiD,text);
+	}
+}
