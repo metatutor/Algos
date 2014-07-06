@@ -16,10 +16,10 @@ moment
 postgresql
 external-file-loader
 bootstrap-3
-accounts-ui
 accounts-github
 accounts-google
 accounts-twitter
 accounts-password
 epic-editor
 underscore-string-latest
+accounts-ui-bootstrap-3

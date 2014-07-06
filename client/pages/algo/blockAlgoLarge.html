@@ -9,8 +9,10 @@
 					<div class="col-md-12">
 						<h5>{{ > algoKW this}}</h5>
 						{{#with getULink}}
-						{{ > getUserLink this}}
-						<button data-toggle="modal" data-target="#editShortModal" title="Edit Description/Keywords" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-pencil"></span></button>
+						<div class="btn-group">
+							{{ > getUserLink this}}
+							<button data-toggle="modal" data-target="#editShortModal" title="Edit Description/Keywords" class="btn btn-info btn-sm">Edit <span class="glyphicon glyphicon-pencil"></span></button>
+							</div>
 						{{/with}}
 					</div>
 				</div>

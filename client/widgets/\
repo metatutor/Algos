@@ -1,7 +1,7 @@
 <template name="rAdded">
 	<div class="row">
 		<div class="col-md-12">
-			<h3>Recent Algorithms</h3>
+			<h3>Recently Added</h3>
 		</div>
 	</div>
 	<div class="row">
@@ -10,6 +10,7 @@
 				<thead>
 					<tr>
 						<th>Name</th>
+						<th>AiD</th>
 						<th>Wiki</th>
 					</tr>
 				</thead>
@@ -17,6 +18,7 @@
 					{{#each newAlgos}}
 					<tr>
 						<td>{{ > algoName this}}</td>
+						<td>{{ > algoID this}}</td>
 						<td>{{ > getAlgoLink this}}</td>
 					</tr>
 					{{/each}}

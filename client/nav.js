@@ -21,8 +21,9 @@ Template.nav.notRegistered = function(){
 Template.nav.events = {
 	'click button[name=verify]': function(){
 		Meteor.call("sendEmail",Meteor.userId());
+		alert('Verification Email sent');
 	},
-	'submit': function(event, template){
+	'click button[name=makesearch]': function(event, template){
 		event.preventDefault();
 		var queryField = template.find("input[name=query]");
 		goToSearch(queryField.value);

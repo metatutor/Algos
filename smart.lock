@@ -9,7 +9,8 @@
       "external-file-loader": {},
       "bootstrap-3": {},
       "epic-editor": {},
-      "underscore-string-latest": {}
+      "underscore-string-latest": {},
+      "accounts-ui-bootstrap-3": {}
     },
     "packages": {
       "iron-router": {
@@ -51,6 +52,11 @@
         "git": "https://github.com/TimHeckel/meteor-underscore-string.git",
         "tag": "v2.3.3",
         "commit": "4a5d70eee48fbd90a6e6fc78747250d704a0b3bb"
+      },
+      "accounts-ui-bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
+        "tag": "v0.3.3",
+        "commit": "2e50b605d8d5ed68e48c4529a65f13552d8af3f9"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
