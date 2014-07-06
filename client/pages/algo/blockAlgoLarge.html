@@ -9,8 +9,28 @@
 						<h5>{{ > algoKW this}}</h5>
 						{{#with getULink}}
 						{{ > getUserLink this}}
+						<button data-toggle="modal" data-target="#editShortModal" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-pencil"></span></button>
 						{{/with}}
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="editShortModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="ModalLabel">{{ > algoName this}} <small>{{ > algoID this}}</small></h4>
+				</div>
+				<div class="modal-body input-group">
+					<pre style="font-family: Times New Roman"><textarea form="shortUpdate" name="shortupdater" class="form-control" cols="500" rows="15">{{ > algoShortBare this}}</textarea></pre>
+				</div>
+				<div class="modal-footer">
+					<form role="form" id="shortUpdate">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button name="shortupdate" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+					</form>
 				</div>
 			</div>
 		</div>

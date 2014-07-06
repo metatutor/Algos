@@ -25,5 +25,14 @@ Meteor.methods({
 				Wiki:text
 			}
 		});
+	},
+	updateShort:function(aid,text){
+		AlgoPedia.update({
+			AiD:aid
+		},{
+			$set:{
+				Short:text
+			}
+		});
 	}
 });
