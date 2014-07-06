@@ -21,6 +21,11 @@
 					<button data-toggle="modal" data-target="#editModal" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-pencil"></span></button>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-md-12">
+				{{ > getChanges this}}
+				</div>
+			</div>
 			<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">

@@ -33,7 +33,7 @@ Template.userLSI.events = {
 		var author = Meteor.user().username;
 		var obj = {
 			Context: context,
-			When: moment.unix(),
+			When: moment().unix(),
 			Text: text,
 			Contributor: author
 		};

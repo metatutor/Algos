@@ -10,5 +10,6 @@ Template.blockAlgoLarge.events = {
 		}
 		var aid = this.AiD;
 		Meteor.call('updateShort',aid,text);
+		Meteor.call('updateLog',aid,Meteor.user().username,'Short');
 	}
 }

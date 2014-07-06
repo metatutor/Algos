@@ -34,5 +34,18 @@ Meteor.methods({
 				Short:text
 			}
 		});
-	}
+	},
+	updateLog:function(aid,username,change){
+		AlgoPedia.update({
+			AiD:aid
+		},{
+			$addToSet:{
+				Log:{
+					When:moment().unix(),
+					Contributor: username,
+					Changed:change
+				}
+			}
+		});
+	},
 });
