@@ -36,3 +36,7 @@ Template.lsiTableEntry.getTitle = function(){
 	}
 	return "View Code";
 }
+
+Template.lsiTableEntry.getPoints = function(){
+	return +(this.Approve.length - this.Disapprove.length);
+}

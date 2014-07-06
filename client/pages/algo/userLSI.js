@@ -56,17 +56,12 @@ Template.userLSI.events = {
 Template.userLSI.getPercentApproval = function(){
 	var LiD = Session.get('lsiSelected');
 	var lang = LSIs.findOne({_id:LiD});
+	if(lang===undefined){
+		return 0;
+	}
 	var approvalLength = lang.Approve.length;
 	var disapprovalLength = lang.Disapprove.length;
 	return Math.round(approvalLength/(approvalLength+disapprovalLength))*100;
-}
-
-Template.userLSI.getPercentDisapproval = function(){
-	var LiD = Session.get('lsiSelected');
-	var lang = LSIs.findOne({_id:LiD});
-	var approvalLength = lang.Approve.length;
-	var disapprovalLength = lang.Disapprove.length;
-	return Math.round(disapprovalLength/(approvalLength+disapprovalLength))*100;
 }
 
 Template.userLSI.getAuthor = function(){
