@@ -54,13 +54,11 @@ Template.userLSI.events = {
 }
 
 Template.userLSI.getPercentApproval = function(){
-	var LiD = Session.get('lsiSelected');
-	var lang = LSIs.findOne({_id:LiD});
-	if(lang===undefined){
+	if(this===undefined){
 		return 0;
 	}
-	var approvalLength = lang.Approve.length;
-	var disapprovalLength = lang.Disapprove.length;
+	var approvalLength = this.Approve.length;
+	var disapprovalLength = this.Disapprove.length;
 	if(approvalLength+disapprovalLength===0){
 		return 50;
 	}
@@ -80,4 +78,24 @@ var approvalGiven = function(lid,uname){
 var disapprovalGiven = function(lid,uname){
 	var dList = lid.Disapprove;
 	return _.contains(dList,uname)
+}
+
+Template.userLSI.getPoints = function(){
+	return this.Approve.length-this.Disapprove.length;
+}
+
+Template.userLSI.getRedAlertValue = function(){
+	var lang = LSIs.findOne({_id:this._id});
+	if(disapprovalGiven(lang,Meteor.user().username)){
+		return "alert-danger";
+	}
+	return "";
+}
+
+Template.userLSI.getGreenAlertValue = function(){
+	var lang = LSIs.findOne({_id:this._id});
+	if(approvalGiven(lang,Meteor.user().username)){
+		return "alert-success";
+	}
+	return "";
 }
