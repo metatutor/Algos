@@ -49,18 +49,6 @@ Router.map(function(){
 			this.render();
 		}
 	});
-	this.route('langs',{
-		path: '/langs/:_id',
-		template: 'entryPageLang',
-		onBeforeAction: function(pause){
-			Session.set('tabSelectLang','first');
-			var lDoc = Languages.findOne({Slug:this.params._id});
-			Session.set('langSearch',lDoc);
-			if(Session.equals('langSearch',undefined)){
-				pause();
-			}
-		}
-	});
 	this.route('pediaSearch',{
 		path:'/pedia/:algo/:search',
 		template: 'entryPage',
