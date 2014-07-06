@@ -31,6 +31,7 @@ Template.contributeLSI.events = {
 			When: moment().unix()
 		}
 		Meteor.call('uploadLSI',lsiObj);
+		Meteor.call('approve',Meteor.user().username,makeid);
 		Session.set('lsiSuccess',2);
 		Router.go('lsiSearchRoute',{algo:aid,lang:"showAll",search:makeid});
 	}

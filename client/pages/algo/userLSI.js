@@ -61,7 +61,9 @@ Template.userLSI.getPercentApproval = function(){
 	}
 	var approvalLength = lang.Approve.length;
 	var disapprovalLength = lang.Disapprove.length;
-	console.log(Math.round(approvalLength/(approvalLength+disapprovalLength))*100);
+	if(approvalLength+disapprovalLength===0){
+		return 50;
+	}
 	return approvalLength/(approvalLength+disapprovalLength)*100;
 }
 
