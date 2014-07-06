@@ -32,7 +32,7 @@ Template.contributeLSI.events = {
 		}
 		Meteor.call('uploadLSI',lsiObj);
 		Session.set('lsiSuccess',2);
-		Router.go('lsiSearchRoute',{algo:aid,lang:_.slugify(language),search:makeid});
+		Router.go('lsiSearchRoute',{algo:aid,lang:"showAll",search:makeid});
 	}
 }
 
