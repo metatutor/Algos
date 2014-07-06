@@ -81,21 +81,42 @@ var disapprovalGiven = function(lid,uname){
 }
 
 Template.userLSI.getPoints = function(){
-	return this.Approve.length-this.Disapprove.length;
+	var val = this.Approve.length-this.Disapprove.length;
+	if((val===1)||(val===-1)){
+		return val+' point';
+	}
+	return val+' points';
 }
 
-Template.userLSI.getRedAlertValue = function(){
+Template.userLSI.getAlert = function(){
 	var lang = LSIs.findOne({_id:this._id});
 	if(disapprovalGiven(lang,Meteor.user().username)){
 		return "alert-danger";
 	}
-	return "";
-}
-
-Template.userLSI.getGreenAlertValue = function(){
-	var lang = LSIs.findOne({_id:this._id});
 	if(approvalGiven(lang,Meteor.user().username)){
 		return "alert-success";
 	}
 	return "";
+}
+
+Template.userLSI.getLikeStatus = function(){
+	var lang = LSIs.findOne({_id:this._id});
+	if(disapprovalGiven(lang,Meteor.user().username)){
+		return "Like";
+	}
+	if(approvalGiven(lang,Meteor.user().username)){
+		return "Undo Like";
+	}
+	return "Like";
+}
+
+Template.userLSI.getDislikeStatus = function(){
+	var lang = LSIs.findOne({_id:this._id});
+	if(disapprovalGiven(lang,Meteor.user().username)){
+		return "Undo Dislike";
+	}
+	if(approvalGiven(lang,Meteor.user().username)){
+		return "Dislike";
+	}
+	return "Dislike";
 }

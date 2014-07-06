@@ -14,26 +14,24 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<pre>{{Code}}</pre>
+					<pre class="{{getAlert}}">{{Code}}</pre>
 				</div>
 			</div>
 			{{#if currentUser}}
 			<div class="row">
-				<div class="col-md-12 input-group">
-					<div class="input-group-addon {{getGreenAlertValue}}">
-						<div class="btn-group btn-group-xs">
-							<button name="plus" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></button>
-						</div>
+				<div class="col-md-6">
+					<div class="btn-group">
+						<button name="plus" class="btn btn-success btn-xs">{{getLikeStatus}}</button>
+						<button name="minus" class="btn btn-danger btn-xs">{{getDislikeStatus}}</button>
 					</div>
-					<div class="form-control" style="height:inherit">
-						<p style="text-align: center">{{getPoints}}</p>
-						<div class="progress progress-bar-danger">
-							<div class="progress-bar progress-bar-success" role="progressbar" style="width: {{getPercentApproval}}%"></div>
-						</div>
-					</div>
-					<div class="input-group-addon {{getRedAlertValue}} ">
-						<div class="btn-group btn-group-xs">
-							<button name="minus" class="btn btn-danger"><span class="glyphicon glyphicon-minus"></span></button>
+					<span>{{getPoints}}</span>
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="progress progress-bar-danger">
+								<div class="progress-bar progress-bar-success" role="progressbar" style="width: {{getPercentApproval}}%"></div>
+							</div>
 						</div>
 					</div>
 				</div>
