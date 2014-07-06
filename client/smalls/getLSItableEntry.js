@@ -29,3 +29,10 @@ Template.lsiTableEntry.getGlyph = function(){
 	}
 	return "glyphicon glyphicon-eye-open";
 }
+
+Template.lsiTableEntry.getTitle = function(){
+	if(Session.equals('lsiSelected',this._id)){
+		return "Hide Code";
+	}
+	return "View Code";
+}

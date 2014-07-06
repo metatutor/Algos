@@ -67,7 +67,6 @@ Router.map(function(){
 		onBeforeAction: function(pause){
 			var aDoc=AlgoPedia.findOne({AiD:this.params.algo});
 			Session.set('lastAlgoSearch',aDoc);
-			Session.set('reading',[]);
 			if(this.params.search==="showAll"){
 				Session.set('lsiLangSearch',null);
 				Session.set('lsiSelected',null);
@@ -96,7 +95,6 @@ Router.map(function(){
 		onBeforeAction: function(pause){
 			var aDoc=AlgoPedia.findOne({AiD:this.params.algo});
 			Session.set('lastAlgoSearch',aDoc);
-			Session.set('reading',[]);
 			if(this.params.lang==="showAll"){
 				Session.set('lsiSelected',this.params.search);
 				Session.set('tabSelect','second');

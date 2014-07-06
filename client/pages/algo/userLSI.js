@@ -1,7 +1,3 @@
-Meteor.startup(function(){
-	Session.set('reading',[]);
-});
-
 Template.userLSI.noneSelected = function(){
 	return Session.equals('lsiSelected',null);
 }
@@ -12,16 +8,6 @@ Template.userLSI.getUserLSI = function(){
 }
 
 Template.userLSI.events = {
-	'click button[name=viewMore]':function(){
-		var LiD = Session.get('lsiSelected');
-		var readingArray = Session.get('reading');
-		if(_.contains(readingArray,LiD)){
-			Session.set('reading',[]);
-		}
-		else{
-			Session.set('reading',[LiD]);
-		}
-	},
 	'click button[name=commentsubmit]': function(events, template){
 		var context = Session.get('lsiSelected');
 		var text = template.find('textarea[name=comment]').value;
@@ -81,11 +67,6 @@ Template.userLSI.getPercentDisapproval = function(){
 	var approvalLength = lang.Approve.length;
 	var disapprovalLength = lang.Disapprove.length;
 	return Math.round(disapprovalLength/(approvalLength+disapprovalLength))*100;
-}
-
-Template.userLSI.wantsToSeeComments = function(){
-	var readingArray = Session.get('reading');
-	return readingArray.length>0;
 }
 
 Template.userLSI.getAuthor = function(){

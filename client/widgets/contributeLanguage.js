@@ -3,7 +3,7 @@ Meteor.startup(function(){
 });
 
 Template.contributeLang.events = {
-	'submit': function(event,template){
+	'click button[name=submitLang]': function(event,template){
 		event.preventDefault();
 		var name = template.find("input[name=langName]").value;
 		var desc = template.find("textarea[name=description]").value;

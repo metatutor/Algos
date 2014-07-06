@@ -3,7 +3,7 @@ Meteor.startup(function(){
 });
 
 Template.contributeAlgo.events = {
-	'submit': function(event,template){
+	'click button[name=submit]': function(event,template){
 		event.preventDefault();
 		var name = template.find("input[name=algoName]").value;
 		var keywords = getKWarray(template.find("input[name=keywords]").value);
