@@ -6,13 +6,6 @@ Router.map(function(){
 			Session.set('showSearch',false);
 		}
 	});
-	this.route('algo',{
-		path: '/pedia',
-		template: 'algopedia',
-		onBeforeAction: function(pause){
-			Session.set('showSearch',true);
-		}
-	});
 	this.route('langs',{
 		path: '/langs',
 		template: 'langList',

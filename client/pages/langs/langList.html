@@ -1,9 +1,47 @@
 <template name="langList">
-	<div class="col-md-3" style="padding-right:0">
+	<div class="col-md-3">
 		<div class="list-group">
 			{{#each getLanguages}}
 			<a class="list-group-item {{isActive this}}"><h4 class="list-group-item-heading">{{Name}}</h4><p class="list-group-item-text">{{Description}}</p></a>
 			{{/each}}
 		</div>
+	</div>
+	<div class="col-md-9">
+		{{# each getCodeForLang}}
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="row">
+					<div class="col-md-12">
+					{{ > getUserLink getAuthor}} {{Contributor}}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<pre class="{{getAlert}}">{{#markdown}}{{Code}}{{/markdown}}</pre>
+					</div>
+				</div>
+				{{#if currentUser}}
+				<div class="row">
+					<div class="col-md-6">
+						<div class="btn-group">
+							<button name="plus" class="btn btn-success btn-xs">{{getLikeStatus}}</button>
+							<button name="minus" class="btn btn-danger btn-xs">{{getDislikeStatus}}</button>
+						</div>
+					<span>{{getPoints}}</span>
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="progress progress-bar-danger">
+									<div class="progress-bar progress-bar-success" role="progressbar" style="width: {{getPercentApproval}}%"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{{/if}}
+			</div>
+		</div>
+		{{/each}}
 	</div>
 </template>
