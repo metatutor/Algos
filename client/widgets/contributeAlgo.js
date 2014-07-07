@@ -20,8 +20,12 @@ Template.contributeAlgo.events = {
 			Short: Short,
 			KeyWords: keywords
 		}
+		template.find("input[name=algoName]").value="";
+		template.find("input[name=keywords]").value="";
+		template.find("textarea[name=description]").value="";
 		Meteor.call('uploadDoc',algoObject,Meteor.user().username);
 		Router.go('pedia',{_id:aid});
+		$('#algoModal').modal('hide');
 	},
 	'click button[name=dismissal]':function(){
 		Session.set("duplicationWarning",0);
