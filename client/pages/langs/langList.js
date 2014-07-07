@@ -23,6 +23,9 @@ Template.langList.events = {
 			Meteor.call('disapprove',Meteor.user().username,LiD);
 		}
 	},
+	'click button[name=visitLang]':function(){
+		Router.go('lsiSearchRoute',{algo:this.pAiD,lang:'showAll',search:this._id});
+	},
 	'click a': function(event,template){
 		Router.go('langSearch',{_id:this.Slug});
 	}
