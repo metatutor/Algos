@@ -1,36 +1,30 @@
-Template.langList.noneSelected = function(){
-	return Session.equals('lsiSelected',null);
-}
-
-Template.langList.getUserLSI = function(){
-	var LiD = Session.get('lsiSelected');
-	return LSIs.findOne({_id:LiD});
-}
-
 Template.langList.events = {
-	'click button[name=plus]':function(){
-		var lang = LSIs.findOne({_id:this.LiD});
-		if(approvalGiven(lang,Meteor.user().username)){
+	'click button[name=plusLang]':function(){
+		var LiD = this._id;
+		if(approvalGiven(this,Meteor.user().username)){
 			Meteor.call('unapprove',Meteor.user().username,LiD);
 		}
 		else{
-			if(disapprovalGiven(lang,Meteor.user().username)){
+			if(disapprovalGiven(this,Meteor.user().username)){
 				Meteor.call('undisapprove',Meteor.user().username,LiD);
 			}
 			Meteor.call('approve',Meteor.user().username,LiD);
 		}
 	},
-	'click button[name=minus]':function(){
-		var lang = LSIs.findOne({_id:this.LiD});
-		if(disapprovalGiven(lang, Meteor.user().username)){
+	'click button[name=minusLang]':function(){
+		var LiD = this._id;
+		if(disapprovalGiven(this, Meteor.user().username)){
 			Meteor.call('undisapprove',Meteor.user().username,LiD);
 		}
 		else{
-			if(approvalGiven(lang, Meteor.user().username)){
+			if(approvalGiven(this, Meteor.user().username)){
 				Meteor.call('unapprove',Meteor.user().username,LiD);
 			}
 			Meteor.call('disapprove',Meteor.user().username,LiD);
 		}
+	},
+	'click a': function(event,template){
+		Router.go('langSearch',{_id:this.Slug});
 	}
 }
 
@@ -70,33 +64,30 @@ Template.langList.getPoints = function(){
 }
 
 Template.langList.getAlert = function(){
-	var lang = LSIs.findOne({_id:this._id});
-	if(disapprovalGiven(lang,Meteor.user().username)){
+	if(disapprovalGiven(this,Meteor.user().username)){
 		return "alert-danger";
 	}
-	if(approvalGiven(lang,Meteor.user().username)){
+	if(approvalGiven(this,Meteor.user().username)){
 		return "alert-success";
 	}
 	return "";
 }
 
 Template.langList.getLikeStatus = function(){
-	var lang = LSIs.findOne({_id:this._id});
-	if(disapprovalGiven(lang,Meteor.user().username)){
+	if(disapprovalGiven(this,Meteor.user().username)){
 		return "Like";
 	}
-	if(approvalGiven(lang,Meteor.user().username)){
+	if(approvalGiven(this,Meteor.user().username)){
 		return "Undo Like";
 	}
 	return "Like";
 }
 
 Template.langList.getDislikeStatus = function(){
-	var lang = LSIs.findOne({_id:this._id});
-	if(disapprovalGiven(lang,Meteor.user().username)){
+	if(disapprovalGiven(this,Meteor.user().username)){
 		return "Undo Dislike";
 	}
-	if(approvalGiven(lang,Meteor.user().username)){
+	if(approvalGiven(this,Meteor.user().username)){
 		return "Dislike";
 	}
 	return "Dislike";
@@ -104,12 +95,6 @@ Template.langList.getDislikeStatus = function(){
 
 Template.langList.getLanguages = function(){
 	return Languages.find().fetch();
-}
-
-Template.langList.events = {
-	'click a': function(event,template){
-		Router.go('langSearch',{_id:this.Slug});
-	}
 }
 
 Template.langList.isActive = function(obj){

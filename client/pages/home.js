@@ -13,7 +13,7 @@ Template.home.containsQuery = function(){
 }
 
 Template.home.getAmountResults = function(){
-	return AlgoPedia.find().length;
+	return AlgoPedia.find().count();
 }
 
 Template.home.isAlgo = function(obj){
