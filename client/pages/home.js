@@ -9,11 +9,19 @@ Template.home.fieldNotBlank = function() {
 }
 
 Template.home.containsQuery = function(){
-	return matchingAlgos();
+	return matchingAll();
 }
 
 Template.home.getAmountResults = function(){
-	return matchingAlgos().length;
+	return matchingAll().length;
+}
+
+Template.home.isAlgo = function(obj){
+	return obj.hasOwnProperty('AiD');
+}
+
+Template.home.isCode = function(obj){
+	return obj.hasOwnProperty('pAiD');
 }
 
 var matchingAll = function(){
@@ -33,6 +41,7 @@ var matchingAlgos = function(){
 			for(var j=0;j<entry.KeyWords.length;j++){
 				if(_.str.include(entry.KeyWords[j].toLowerCase(),snip.toLowerCase())){
 					answer.push(entry);
+					break;
 				}
 			}
 		}

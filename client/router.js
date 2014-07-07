@@ -13,6 +13,22 @@ Router.map(function(){
 			Session.set('showSearch',true);
 		}
 	});
+	this.route('langs',{
+		path: '/langs',
+		template: 'langList',
+		onBeforeAction: function(pause){
+			Session.set('showSearch',true);
+			Session.set('langPageLang',this.params._id);
+		}
+	});
+	this.route('langSearch',{
+		path: '/langs/:_id',
+		template: 'langList',
+		onBeforeAction: function(pause){
+			Session.set('langPageLang',this.params._id);
+			Session.set('showSearch',true);
+		}
+	});
 	this.route('profile',{
 		template: 'userPage',
 		onBeforeAction: function(pause){

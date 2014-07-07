@@ -1,0 +1,9 @@
+<template name="langList">
+	<div class="col-md-3" style="padding-right:0">
+		<div class="list-group">
+			{{#each getLanguages}}
+			<a class="list-group-item {{isActive this}}"><h4 class="list-group-item-heading">{{Name}}</h4><p class="list-group-item-text">{{Description}}</p></a>
+			{{/each}}
+		</div>
+	</div>
+</template>
