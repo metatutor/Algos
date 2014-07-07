@@ -58,9 +58,9 @@ var disapprovalGiven = function(lid,uname){
 Template.langList.getPoints = function(){
 	var val = this.Approve.length-this.Disapprove.length;
 	if((val===1)||(val===-1)){
-		return val+' point';
+		return val+' like';
 	}
-	return val+' points';
+	return val+' likes';
 }
 
 Template.langList.getAlert = function(){
