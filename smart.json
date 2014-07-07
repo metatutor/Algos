@@ -8,6 +8,7 @@
     "bootstrap-3": {},
     "epic-editor": {},
     "underscore-string-latest": {},
-    "accounts-ui-bootstrap-3": {}
+    "accounts-ui-bootstrap-3": {},
+    "pagedown-bootstrap": {}
   }
 }

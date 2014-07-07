@@ -34,10 +34,10 @@
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 								<h4 class="modal-title" id="myModalLabel">{{ > algoName this}} <small>{{ > algoID this}}</small></h4>
-							</div>
-							<div class="modal-body input-group">
-									<pre style="font-family: Times New Roman"><textarea form="wikiUpdate" name="updater" class="form-control" cols="500" rows="15">{{ > algoWikiBare this}}</textarea></pre>
-							</div>
+						</div>
+						<div class="modal-body">
+							<pre style="font-family: Times New Roman"><textarea form="wikiUpdate" name="updater" class="form-control" cols="500" rows="15">{{ > algoWikiBare this}}</textarea></pre>
+						</div>
 							<div class="modal-footer">
 								<form role="form" id="wikiUpdate">
 									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -57,4 +57,18 @@
 		</div>
 		{{/if}}
 	</div>
+	<script type="text/javascript">
+		(function () {
+			var converter2 = new Markdown.Converter();
+			converter2.hooks.chain("preConversion", function (text) {
+				return text.replace(/\b(a\w*)/gi, "*$1*");
+			});
+			converter2.hooks.chain("plainLinkText", function (url) {
+				return "Link to " + url.replace(/^https?:\/\//, "");
+			});
+			var help = function () { alert("Do you need help?"); }
+			var editor2 = new Markdown.Editor(converter2, "-second", { handler: help });
+			editor2.run();
+		})();
+	</script>
 </template>
