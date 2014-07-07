@@ -47,6 +47,10 @@ Template.contributeLang.getWarning = function(){
 			return "A language with that name already exists.";
 		case 4:
 			return "A name very similar to this one already exists, check the database!";
+		case 5:
+			return "Please use a shorter name.";
+		case 6:
+			return "Please limit your description to 200 characters.";
 		default:
 			return "something went horribly wrong. Contacting propery authorities.";
 	}
@@ -58,6 +62,12 @@ var getDuplications = function(name,desc,slug){
 	}
 	if(_.isBlank(name)){
 		return 2;
+	}
+	if(name.length>30){
+		return 5;
+	}
+	if(desc.length>200){
+		return 6;
 	}
 	var nameCount = Languages.find({Name:name}).count();
 	var slugCount = Languages.find({Slug:slug}).count();

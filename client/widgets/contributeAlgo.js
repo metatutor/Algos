@@ -52,6 +52,12 @@ Template.contributeAlgo.getWarning = function(){
 			return "Please enter at least 3 key words. These help find the algorithm later.";
 		case 6:
 			return "Please write a short description. This helps identify algorithm entries!";
+		case 7: 
+			return "Please limit the 'Short' to 200 characters.";
+		case 8: 
+			return "That name is too long!";
+		case 9:
+			return "Please use fewer keywords.";
 		default:
 			return "Something went horribly wrong. Notifying proper authority.";
 	}
@@ -66,6 +72,15 @@ var getDuplications = function(name,aid,keywords,Short){
 	}
 	if(_.isBlank(Short)){
 		return 6;
+	}
+	if(Short.length>200){
+		return 7;
+	}
+	if(name.length>30){
+		return 8;
+	}
+	if(keywords.length>15){
+		return 9;
 	}
 	var nameCount = AlgoPedia.find({Name:name}).count();
 	var aidCount = AlgoPedia.find({AiD:aid}).count();
