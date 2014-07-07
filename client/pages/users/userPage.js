@@ -12,7 +12,12 @@ Template.userPage.userExists = function(){
 
 Template.userPage.events = {
 	'click button[name=changeInfo]': function(){
-		Session.set("editingProfile",true);
+		if(Session.equals('editingProfile',false)){
+			Session.set("editingProfile",true);
+		}
+		else{
+			Session.set("editingProfile",false);
+		}
 	},
 	'submit': function(event,template){
 		event.preventDefault();

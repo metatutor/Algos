@@ -9,11 +9,11 @@ Template.home.fieldNotBlank = function() {
 }
 
 Template.home.containsQuery = function(){
-	return matchingAll();
+	return AlgoPedia.find();
 }
 
 Template.home.getAmountResults = function(){
-	return matchingAll().length;
+	return AlgoPedia.find().length;
 }
 
 Template.home.isAlgo = function(obj){
@@ -22,42 +22,4 @@ Template.home.isAlgo = function(obj){
 
 Template.home.isCode = function(obj){
 	return obj.hasOwnProperty('pAiD');
-}
-
-var matchingAll = function(){
-	return matchingAlgos().concat(matchingCode());
-}
-
-var matchingAlgos = function(){
-	var snip = Session.get('mainQuery');
-	var list = AlgoPedia.find().fetch();
-	var answer = [];
-	for(var i =0;i<list.length;i++){
-		var entry = list[i];
-		if(_.str.include(entry.Name.toLowerCase(),snip.toLowerCase())){
-			answer.push(entry);
-		}
-		else{
-			for(var j=0;j<entry.KeyWords.length;j++){
-				if(_.str.include(entry.KeyWords[j].toLowerCase(),snip.toLowerCase())){
-					answer.push(entry);
-					break;
-				}
-			}
-		}
-	}
-	return answer;
-}
-
-var matchingCode = function(){
-	var snip = Session.get('mainQuery');
-	var list = LSIs.find().fetch();
-	var answer = [];
-	for(var i =0;i<list.length;i++){
-		var entry = list[i];
-		if(_.str.include(entry.Language.toLowerCase(),snip.toLowerCase())){
-			answer.push(entry);
-		}
-	}
-	return answer;
 }
