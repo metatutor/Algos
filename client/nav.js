@@ -37,3 +37,7 @@ var goToSearch = function(query){
 Template.nav.getStats = function(){
 	return (LSIs.find().count() +' implementations for '+AlgoPedia.find().count()+' algorithms in '+Languages.find().count()+' languages.');
 }
+
+Template.nav.showSearch = function(){
+	return Session.equals('showSearch',true);
+}

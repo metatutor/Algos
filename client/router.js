@@ -1,15 +1,22 @@
 Router.map(function(){
 	this.route('home',{
 		path:'/',
-		template: 'home'
+		template: 'home',
+		onBeforeAction: function(pause){
+			Session.set('showSearch',false);
+		}
 	});
 	this.route('algo',{
 		path: '/pedia',
-		template: 'algopedia'
+		template: 'algopedia',
+		onBeforeAction: function(pause){
+			Session.set('showSearch',true);
+		}
 	});
 	this.route('profile',{
 		template: 'userPage',
 		onBeforeAction: function(pause){
+			Session.set('showSearch',true);
 			Session.set('lastUserSearch',Meteor.user());
 			if(Session.equals('lastUserSearch',undefined)){
 				pause();
@@ -20,6 +27,7 @@ Router.map(function(){
 		path: '/users/:_id',
 		template:'userPage',
 		onBeforeAction: function(pause){
+			Session.set('showSearch',true);
 			var uDoc = Meteor.users.findOne({username:this.params._id});
 			Session.set('lastUserSearch',uDoc);
 			if(Session.equals('lastUserSearch',undefined)){
@@ -31,6 +39,7 @@ Router.map(function(){
 		path:'/pedia/:_id',
 		template: 'entryPage',
 		onBeforeAction: function(pause){
+			Session.set('showSearch',true);
 			var aDoc = AlgoPedia.findOne({AiD:this.params._id});
 			Session.set('tabSelect','first');
 			Session.set('lastAlgoSearch',aDoc);
@@ -45,6 +54,7 @@ Router.map(function(){
 		path:'/search/:_id',
 		template: 'searchList',
 		action: function(){
+			Session.set('showSearch',true);
 			Session.set('lastSearch',this.params._id);
 			this.render();
 		}
@@ -53,6 +63,7 @@ Router.map(function(){
 		path:'/pedia/:algo/:search',
 		template: 'entryPage',
 		onBeforeAction: function(pause){
+			Session.set('showSearch',true);
 			var aDoc=AlgoPedia.findOne({AiD:this.params.algo});
 			Session.set('lastAlgoSearch',aDoc);
 			if(this.params.search==="showAll"){
@@ -81,6 +92,7 @@ Router.map(function(){
 		path:'/pedia/:algo/:lang/:search',
 		template: 'entryPage',
 		onBeforeAction: function(pause){
+			Session.set('showSearch',true);
 			var aDoc=AlgoPedia.findOne({AiD:this.params.algo});
 			Session.set('lastAlgoSearch',aDoc);
 			if(this.params.lang==="showAll"){
