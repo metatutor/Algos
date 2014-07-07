@@ -1,4 +1,5 @@
 Meteor.startup(function(){
+	Session.set('successfulLangSubmit',false);
 	Session.set("duplicationWarningLang",0);
 });
 
@@ -19,10 +20,15 @@ Template.contributeLang.events = {
 			Slug:slug
 		}
 		Meteor.call('uploadLang',langObject,Meteor.user().username);
-		Router.go('langs',{_id:slug});
+		template.find("input[name=langName]").value="";
+		template.find("textarea[name=description]").value="";
+		Session.set('successfulLangSubmit',true);
 	},
 	'click button[name=dismissal]':function(){
 		Session.set('duplicationWarningLang',0);
+	},
+	'click button[name=dismissalSuccess]':function(){
+		Session.set('successfulLangSubmit',false);
 	}
 }
 
@@ -62,4 +68,8 @@ var getDuplications = function(name,desc,slug){
 		return 4;
 	}
 	return 0;
+}
+
+Template.contributeLang.langSuccess = function(){
+	return Session.equals('successfulLangSubmit',true);
 }

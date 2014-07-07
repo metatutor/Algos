@@ -15,11 +15,6 @@
 		<div class="collapse navbar-collapse" id="navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-left">
 				<li><a href="{{pathFor 'algo'}}">AlgoPedia</a></li>
-				{{#if currentUser}}
-				{{#if notRegistered}}
-				<li><button name="verify">Verify Email</button></li>
-				{{/if }}
-				{{/if}}
 			</ul>
 			<form class="navbar-form navbar-left" role="search">
 				<div class="input-group">
@@ -29,6 +24,13 @@
 					</span>
 				</div>
 			</form>
+			{{#if currentUser}}
+			{{#if notRegistered}}
+			<ul class="nav navbar=nav navbar-left">
+				<li><button class="btn btn-default navbar-btn" name="verify">Verify Email</button></li>
+			</ul>
+			{{/if}}
+			{{/if}}
 			<ul class="nav navbar-nav navbar-right">
 				{{ > loginButtons}}
 			</ul>
