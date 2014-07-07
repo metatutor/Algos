@@ -18,6 +18,11 @@
 			{{#if currentUser}}
 			<div class="row">
 				<div class="col-md-12">
+					<div class="page-header"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
 					<div style="text-align: right">
 						<button data-toggle="modal" title="Edit Description" data-target="#editModal" class="btn btn-info btn-sm">Edit <span class="glyphicon glyphicon-pencil"></span></button>
 					</div>
@@ -57,18 +62,4 @@
 		</div>
 		{{/if}}
 	</div>
-	<script type="text/javascript">
-		(function () {
-			var converter2 = new Markdown.Converter();
-			converter2.hooks.chain("preConversion", function (text) {
-				return text.replace(/\b(a\w*)/gi, "*$1*");
-			});
-			converter2.hooks.chain("plainLinkText", function (url) {
-				return "Link to " + url.replace(/^https?:\/\//, "");
-			});
-			var help = function () { alert("Do you need help?"); }
-			var editor2 = new Markdown.Editor(converter2, "-second", { handler: help });
-			editor2.run();
-		})();
-	</script>
 </template>
