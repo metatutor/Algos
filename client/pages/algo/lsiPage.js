@@ -30,7 +30,9 @@ Template.lsiPage.events = {
 			Router.go('pediaSearch',{algo:aid,search:_.slugify(query)});
 		}
 	},
-	'click button[name=resetLang]': function(){
+	'click button[name=resetLang]': function(event,template){
+		event.preventDefault();
+		var aid = Session.get('lastAlgoSearch').AiD;
 		Router.go('pediaSearch',{algo:aid,search:"showAll"});
 	},
 	'click button[name=dismissal]': function(){
