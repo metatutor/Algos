@@ -39,6 +39,7 @@ Template.userLSI.events = {
 		};
 		template.find('textarea[name=comment]').value="";
 		Meteor.call('logComment',obj);
+		checkMentions(text);
 	},
 	'click button[name=plus]':function(){
 		var LiD = Session.get('lsiSelected');
@@ -148,5 +149,19 @@ Template.userLSI.getWarningText = function(){
 			return "Please enter some text";
 		default:
 			return "Something went horribly wrong. Logging this for reference. Sorry!";
+	}
+}
+
+var checkMentions = function(text){
+	var textray = text.replace( /\n/g, ' ').split(' ');
+	var users = [];
+	for(var i = 0;i<textray.length;i++){
+		var block = textray[i];
+		if((block.charAt(0)==="@")&&(block.length>1)){
+			var message = {};
+			message.Sender = "You've been mentioned!";
+			message.Text = "Click here to see comment";
+			Meteor.call('sendNotification',block.replace(/@/,''),message);
+		}
 	}
 }
