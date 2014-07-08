@@ -19,6 +19,10 @@ Template.contributeLSI.events = {
 			Session.set('lsiSuccess',1);
 			return;
 		}
+		if(_.isBlank(code)){
+			Session.set('lsiSuccess',3);
+			return;
+		}
 		var makeid = aid+Meteor.user().username+language+moment().unix();
 		var lsiObj = {
 			_id: makeid,
@@ -54,4 +58,13 @@ Template.contributeLSI.Algo = function(){
 
 Template.contributeLSI.isError = function(){
 	return Session.equals('lsiSuccess',1);
+}
+
+Template.contributeLSI.isError = function(){
+	if(Session.equals('lsiSuccess',1)){
+		return "Please select a valid language.";
+	}
+	else{
+		return "Please enter code.";
+	}
 }
