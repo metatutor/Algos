@@ -1,12 +1,12 @@
 Meteor.methods({
-	updateProfile:function(profObj,userID){
+	updateProfile:function(prof,userID){
 		Meteor.users.update({
 			_id:userID
 		},{
 			$set:{
-				'profile.lastname':profObj.lastname,
-				'profile.firstname':profObj.firstname,
-				'profile.email':profObj.emailNew
+				'profile.lastname':prof.lastname,
+				'profile.email':prof.email,
+				'profile.firstname':prof.firstname
 			}
 		},{
 			upsert:true
