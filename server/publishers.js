@@ -24,3 +24,12 @@ Meteor.publish('getUserAlgos',function(username){
 	var user = Meteor.users.findOne({username:username});
 	return AlgoPedia.find({Contributor:user._id});
 });
+
+Meteor.publish('getAlgosByReg',function(query){
+	var queryMod = new RegExp(query);
+	return AlgoPedia.find({AiD: { $regex: queryMod}});
+});
+
+Meteor.publish('getAlgosByKeyWord',function(query){
+	return AlgoPedia.find({KeyWords: { $elemMatch: {Name:query}}});
+});
