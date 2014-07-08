@@ -57,10 +57,16 @@ Template.contributeLSI.Algo = function(){
 }
 
 Template.contributeLSI.isError = function(){
-	return Session.equals('lsiSuccess',1);
+	if(Session.equals('lsiSuccess',1)){
+		return true;
+	}
+	if(Session.equals('lsiSuccess',3)){
+		return true;
+	}
+	return false;
 }
 
-Template.contributeLSI.isError = function(){
+Template.contributeLSI.getTheError = function(){
 	if(Session.equals('lsiSuccess',1)){
 		return "Please select a valid language.";
 	}

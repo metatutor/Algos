@@ -5,3 +5,7 @@ Template.getInbox.noMail = function(){
 Template.getInbox.message = function(){
 	return Meteor.user().inbox.reverse();
 }
+
+Template.getInbox.canGet = function(){
+	return Meteor.user().hasOwnProperty('inbox');
+}

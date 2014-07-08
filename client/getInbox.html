@@ -1,5 +1,6 @@
 <template name="getInbox">
 	{{#if currentUser}}
+	{{#if canGet}}
 	{{#if noMail}}
 	<p>no mail!</p>
 	{{else}}
@@ -19,6 +20,7 @@
 		</div>
 	</div>
 	{{/each}}
+	{{/if}}
 	{{/if}}
 	{{/if}}
 </template>
