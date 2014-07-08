@@ -20,7 +20,7 @@ Template.lsiPage.langUndefined = function(){
 }
 
 Template.lsiPage.events = {
-	'submit': function(event,template){
+	'click button[name=searchLangs]': function(event,template){
 		event.preventDefault();
 		var aid = Session.get('lastAlgoSearch').AiD;
 		var query = template.find('input[name=lsiSearch]').value;
@@ -29,6 +29,9 @@ Template.lsiPage.events = {
 		}else{
 			Router.go('pediaSearch',{algo:aid,search:_.slugify(query)});
 		}
+	},
+	'click button[name=resetLang]': function(){
+		Router.go('pediaSearch',{algo:aid,search:"showAll"});
 	},
 	'click button[name=dismissal]': function(){
 		Session.set('lsiSuccess',0);
