@@ -97,5 +97,6 @@ var getDuplications = function(name,aid,keywords,Short){
 }
 
 var getKWarray = function(list){
+	list = list.toLowerCase();
 	return list.replace(/\s+/g, '').split(',');
 }
