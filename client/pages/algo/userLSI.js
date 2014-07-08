@@ -23,6 +23,7 @@ Template.userLSI.events = {
 			Text: text,
 			Contributor: author
 		};
+		template.find('textarea[name=comment]').value="";
 		Meteor.call('logComment',obj);
 	},
 	'click button[name=plus]':function(){
