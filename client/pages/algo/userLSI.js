@@ -1,3 +1,7 @@
+Meteor.startup(function(){
+	Session.set('commentWarning',0);
+});
+
 Template.userLSI.noneSelected = function(){
 	return Session.equals('lsiSelected',null);
 }
@@ -7,12 +11,22 @@ Template.userLSI.getUserLSI = function(){
 	return LSIs.findOne({_id:LiD});
 }
 
+Template.userLSI.commentError = function(){
+	return (!(Session.equals('commentWarning',0)));
+}
+
 Template.userLSI.events = {
 	'click button[name=commentsubmit]': function(events, template){
 		var context = Session.get('lsiSelected');
 		var text = template.find('textarea[name=comment]').value;
 		Session.set('reading',[context]);
 		if(_.isBlank(text)){
+			Session.set('commentWarning',2);
+			event.preventDefault();
+			return;
+		}
+		if(text.length>200){
+			Session.set('commentWarning',1);
 			event.preventDefault();
 			return;
 		}
@@ -51,6 +65,9 @@ Template.userLSI.events = {
 			}
 			Meteor.call('disapprove',Meteor.user()._id,LiD);
 		}
+	},
+	'click button[name=dismissalComment]':function(){
+		Session.set("commentWarning",0);
 	}
 }
 
@@ -120,4 +137,16 @@ Template.userLSI.getDislikeStatus = function(){
 		return "Dislike";
 	}
 	return "Dislike";
+}
+
+Template.userLSI.getWarningText = function(){
+	var issue = Session.get('commentWarning');
+	switch(issue){
+		case 1:
+			return "Please use fewer than 200 characters";
+		case 2:
+			return "Please enter some text";
+		default:
+			return "Something went horribly wrong. Logging this for reference. Sorry!";
+	}
 }
