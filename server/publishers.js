@@ -36,5 +36,5 @@ Meteor.publish('getAlgosByKeyWord',function(query){
 });
 
 Meteor.publish('getMyInfo',function(){
-	return Meteor.users.find({_id:this.userId},{fields: {profile:1}});
+	return Meteor.users.find({_id:this.userId},{fields: {profile:1,inbox:1,username:1,emails:1}});
 });

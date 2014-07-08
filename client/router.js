@@ -130,5 +130,5 @@ Router.map(function(){
 });
 
 Router.configure({
-	layoutTemplate: 'layout_main'
+	layoutTemplate: 'layout_main',
 });

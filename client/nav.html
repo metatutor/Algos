@@ -34,16 +34,19 @@
 				</div>
 			</form>
 			{{/if}}
-			{{#if currentUser}}
-			{{#if notRegistered}}
-			<ul class="nav navbar=nav navbar-left">
-				<li><button class="btn btn-default navbar-btn" name="verify">Verify Email</button></li>
-			</ul>
-			{{/if}}
-			{{/if}}
 			<ul class="nav navbar-nav navbar-right">
 				{{ > loginButtons}}
 			</ul>
+			{{#if currentUser}}
+			{{#if notRegistered}}
+			<ul class="nav navbar-nav navbar-left">
+				<li><button class="btn btn-default navbar-btn" name="verify">Verify Email</button></li>
+			</ul>
+			{{/if}}
+			<ul class="nav navbar-nav navbar-right">
+				<span class="badge navbar-btn">{{ > getMessageCount}}</span>
+			</ul>
+			{{/if}}
 		</div>
 	</div>
 </nav>
@@ -80,7 +83,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<button type="button" class="close" name="dismissInbox" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 				<h4 class="modal-title">Inbox</h4>
 			</div>
 			<div class="modal-body">

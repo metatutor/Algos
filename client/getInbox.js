@@ -1,7 +1,7 @@
 Template.getInbox.noMail = function(){
-	return Meteor.user().profile.inbox.length===0;
+	return Meteor.user().inbox.length===0;
 }
 
 Template.getInbox.message = function(){
-	return Meteor.user().profile.inbox;
+	return Meteor.user().inbox.reverse();
 }

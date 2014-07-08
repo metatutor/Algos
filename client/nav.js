@@ -27,6 +27,10 @@ Template.nav.events = {
 		event.preventDefault();
 		var queryField = template.find("input[name=query]");
 		goToSearch(queryField.value);
+	},
+	'click button[name=dismissInbox]':function(event,template){
+		event.preventDefault();
+		Meteor.call('deleteInbox',Meteor.user()._id);
 	}
 }
 
