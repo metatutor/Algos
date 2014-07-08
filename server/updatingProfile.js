@@ -5,7 +5,8 @@ Meteor.methods({
 		},{
 			$set:{
 				'profile.lastname':profObj.lastname,
-				'profile.firstname':profObj.firstname
+				'profile.firstname':profObj.firstname,
+				'profile.email':profObj.emailNew
 			}
 		},{
 			upsert:true
