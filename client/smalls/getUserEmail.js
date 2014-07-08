@@ -1,7 +1,7 @@
 Template.getUsersEmail.getEmail = function(){
 	var user = this;
-	if(user.hasOwnProperty('emails')){
-		return user.emails[0].address;
+	if(user.profile.hasOwnProperty('email')){
+		return user.profile.email;
 	}  
 	return 'email not found';
 }  

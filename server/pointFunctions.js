@@ -1,37 +1,37 @@
 Meteor.methods({
-	approve: function(uname,lid){
+	approve: function(uid,lid){
 		LSIs.update({
 			_id: lid
 		},{
 			$addToSet:{
-				Approve:uname
+				Approve:uid
 			}
 		});
 	},
-	unapprove: function(uname,lid){
+	unapprove: function(uid,lid){
 		LSIs.update({
 			_id: lid
 		},{
 			$pull:{
-				Approve:uname
+				Approve:uid
 			}
 		});
 	},
-	disapprove: function(uname,lid){
+	disapprove: function(uid,lid){
 		LSIs.update({
 			_id: lid
 		},{
 			$addToSet:{
-				Disapprove:uname
+				Disapprove:uid
 			}
 		});
 	},
-	undisapprove: function(uname,lid){
+	undisapprove: function(uid,lid){
 		LSIs.update({
 			_id: lid
 		},{
 			$pull:{
-				Disapprove:uname
+				Disapprove:uid
 			}
 		});
 	}

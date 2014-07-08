@@ -19,7 +19,7 @@ Template.contributeLang.events = {
 			Description: desc,
 			Slug:slug
 		}
-		Meteor.call('uploadLang',langObject,Meteor.user().username);
+		Meteor.call('uploadLang',langObject,Meteor.user()._id);
 		template.find("input[name=langName]").value="";
 		template.find("textarea[name=description]").value="";
 		Session.set('successfulLangSubmit',true);

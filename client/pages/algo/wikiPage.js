@@ -20,6 +20,6 @@ Template.wikiPage.events = {
 			return;
 		}
 		Meteor.call('updateWiki',algoDoc.AiD,text);
-		Meteor.call('updateLog',algoDoc.AiD,Meteor.user().username,'Wiki');
+		Meteor.call('updateLog',algoDoc.AiD,Meteor.user()._id,'Wiki');
 	}
 }

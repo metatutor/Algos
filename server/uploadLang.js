@@ -1,10 +1,10 @@
 Meteor.methods({
-	uploadLang:function(docObject,uname){
+	uploadLang:function(docObject,uid){
 		Languages.insert({
 			Name: docObject.Name,
 			Description: docObject.Description,
 			Slug: docObject.Slug,
-			Contributor: uname,
+			Contributor: uid,
 			When: moment().unix()
 		});
 	}

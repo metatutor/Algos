@@ -1,16 +1,16 @@
 Meteor.methods({
-	uploadDoc:function(docObject,uname){
+	uploadDoc:function(docObject,uid){
 		AlgoPedia.insert({
 			AiD: docObject.AiD,
 			Name: docObject.Name,
 			Short: docObject.Short,
-			Contributor: uname,
+			Contributor: uid,
 			KeyWords: docObject.KeyWords,
 			When: moment().unix(),
 			Description:""
 		});
 		Meteor.users.update({
-			username:uname
+			_id:uid
 		},{
 			$push:{
 				"profile.algorithmContributions": docObject.AiD
@@ -35,14 +35,14 @@ Meteor.methods({
 			}
 		});
 	},
-	updateLog:function(aid,username,change){
+	updateLog:function(aid,uid,change){
 		AlgoPedia.update({
 			AiD:aid
 		},{
 			$addToSet:{
 				Log:{
 					When:moment().unix(),
-					Contributor: username,
+					Contributor: uid,
 					Changed:change
 				}
 			}

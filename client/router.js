@@ -48,12 +48,13 @@ Router.map(function(){
 		path:'/pedia/:_id',
 		template: 'entryPage',
 		onBeforeAction: function(pause){
-			Session.set('showSearch',true);
+			this.subscribe('algoParticular',this.params._id).wait();
 			var aDoc = AlgoPedia.findOne({AiD:this.params._id});
-			Session.set('tabSelect','first');
 			Session.set('lastAlgoSearch',aDoc);
-			Session.set('lsiLangSearch',null);
 			Session.set('lsiSelected',null);
+			Session.set('showSearch',true);
+			Session.set('tabSelect','first');
+			Session.set('lsiLangSearch',null);
 			if(Session.equals('lastAlgoSearch',undefined)){
 				pause();
 			}
@@ -72,10 +73,12 @@ Router.map(function(){
 		path:'/pedia/:algo/:search',
 		template: 'entryPage',
 		onBeforeAction: function(pause){
+			this.subscribe('algoParticular',this.params.algo).wait();
 			Session.set('showSearch',true);
 			var aDoc=AlgoPedia.findOne({AiD:this.params.algo});
 			Session.set('lastAlgoSearch',aDoc);
 			if(this.params.search==="showAll"){
+				this.subscribe('codeByAlgo',this.params.algo).wait();
 				Session.set('lsiLangSearch',null);
 				Session.set('lsiSelected',null);
 				Session.set('tabSelect','second');
@@ -84,6 +87,7 @@ Router.map(function(){
 				}
 			}
 			else{
+				this.subscribe('codeByAlgoAndLang',this.params.algo,this.params.search).wait();
 				var lDoc = Languages.findOne({Slug:this.params.search});
 				Session.set('lsiLangSearch',lDoc);
 				Session.set('lsiSelected',null);
@@ -101,10 +105,12 @@ Router.map(function(){
 		path:'/pedia/:algo/:lang/:search',
 		template: 'entryPage',
 		onBeforeAction: function(pause){
+			this.subscribe('algoParticular',this.params.algo).wait();
 			Session.set('showSearch',true);
 			var aDoc=AlgoPedia.findOne({AiD:this.params.algo});
 			Session.set('lastAlgoSearch',aDoc);
 			if(this.params.lang==="showAll"){
+				this.subscribe('codeByAlgo',this.params.algo).wait();
 				Session.set('lsiSelected',this.params.search);
 				Session.set('tabSelect','second');
 				Session.set('lsiLangSearch',null);
@@ -113,6 +119,7 @@ Router.map(function(){
 				}
 			}
 			else{
+				this.subscribe('codeByAlgoAndLang',this.params.algo,this.params.search).wait();
 				var lDoc = Languages.findOne({Slug:this.params.lang});
 				Session.set('lsiSelected',this.params.search);
 				Session.set('tabSelect','second');

@@ -23,7 +23,7 @@ Template.contributeAlgo.events = {
 		template.find("input[name=algoName]").value="";
 		template.find("input[name=keywords]").value="";
 		template.find("textarea[name=description]").value="";
-		Meteor.call('uploadDoc',algoObject,Meteor.user().username);
+		Meteor.call('uploadDoc',algoObject,Meteor.user()._id);
 		Router.go('pedia',{_id:aid});
 		$('#algoModal').modal('hide');
 	},

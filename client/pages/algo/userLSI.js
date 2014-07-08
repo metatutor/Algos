@@ -16,7 +16,7 @@ Template.userLSI.events = {
 			event.preventDefault();
 			return;
 		}
-		var author = Meteor.user().username;
+		var author = Meteor.user()._id;
 		var obj = {
 			Context: context,
 			When: moment().unix(),
@@ -28,27 +28,27 @@ Template.userLSI.events = {
 	'click button[name=plus]':function(){
 		var LiD = Session.get('lsiSelected');
 		var lang = LSIs.findOne({_id:LiD});
-		if(approvalGiven(lang,Meteor.user().username)){
-			Meteor.call('unapprove',Meteor.user().username,LiD);
+		if(approvalGiven(lang,Meteor.user()._id)){
+			Meteor.call('unapprove',Meteor.user()._id,LiD);
 		}
 		else{
-			if(disapprovalGiven(lang,Meteor.user().username)){
-				Meteor.call('undisapprove',Meteor.user().username,LiD);
+			if(disapprovalGiven(lang,Meteor.user()._id)){
+				Meteor.call('undisapprove',Meteor.user()._id,LiD);
 			}
-			Meteor.call('approve',Meteor.user().username,LiD);
+			Meteor.call('approve',Meteor.user()._id,LiD);
 		}
 	},
 	'click button[name=minus]':function(){
 		var LiD = Session.get('lsiSelected');
 		var lang = LSIs.findOne({_id:LiD});
-		if(disapprovalGiven(lang, Meteor.user().username)){
-			Meteor.call('undisapprove',Meteor.user().username,LiD);
+		if(disapprovalGiven(lang, Meteor.user()._id)){
+			Meteor.call('undisapprove',Meteor.user()._id,LiD);
 		}
 		else{
-			if(approvalGiven(lang, Meteor.user().username)){
-				Meteor.call('unapprove',Meteor.user().username,LiD);
+			if(approvalGiven(lang, Meteor.user()._id)){
+				Meteor.call('unapprove',Meteor.user()._id,LiD);
 			}
-			Meteor.call('disapprove',Meteor.user().username,LiD);
+			Meteor.call('disapprove',Meteor.user()._id,LiD);
 		}
 	}
 }
@@ -66,7 +66,7 @@ Template.userLSI.getPercentApproval = function(){
 }
 
 Template.userLSI.getAuthor = function(){
-	var user = Meteor.users.findOne({username:this.Contributor});
+	var user = Meteor.users.findOne({_id:this.Contributor});
 	return user;
 }
 
@@ -90,10 +90,10 @@ Template.userLSI.getPoints = function(){
 
 Template.userLSI.getAlert = function(){
 	var lang = LSIs.findOne({_id:this._id});
-	if(disapprovalGiven(lang,Meteor.user().username)){
+	if(disapprovalGiven(lang,Meteor.user()._id)){
 		return "alert-danger";
 	}
-	if(approvalGiven(lang,Meteor.user().username)){
+	if(approvalGiven(lang,Meteor.user()._id)){
 		return "alert-success";
 	}
 	return "";
@@ -101,10 +101,10 @@ Template.userLSI.getAlert = function(){
 
 Template.userLSI.getLikeStatus = function(){
 	var lang = LSIs.findOne({_id:this._id});
-	if(disapprovalGiven(lang,Meteor.user().username)){
+	if(disapprovalGiven(lang,Meteor.user()._id)){
 		return "Like";
 	}
-	if(approvalGiven(lang,Meteor.user().username)){
+	if(approvalGiven(lang,Meteor.user()._id)){
 		return "Undo Like";
 	}
 	return "Like";
@@ -112,10 +112,10 @@ Template.userLSI.getLikeStatus = function(){
 
 Template.userLSI.getDislikeStatus = function(){
 	var lang = LSIs.findOne({_id:this._id});
-	if(disapprovalGiven(lang,Meteor.user().username)){
+	if(disapprovalGiven(lang,Meteor.user()._id)){
 		return "Undo Dislike";
 	}
-	if(approvalGiven(lang,Meteor.user().username)){
+	if(approvalGiven(lang,Meteor.user()._id)){
 		return "Dislike";
 	}
 	return "Dislike";
