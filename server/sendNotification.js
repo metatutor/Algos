@@ -4,7 +4,7 @@ Meteor.methods({
 		username:sendTo
 	},{
 		$addToSet:{
-			inbox:message
+			'profile.inbox':message
 		}
 	});
 	}

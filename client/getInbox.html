@@ -2,6 +2,23 @@
 	{{#if currentUser}}
 	{{#if noMail}}
 	<p>no mail!</p>
+	{{else}}
+	{{#each message}}
+	<div class="row">
+		<div class="col-md-12 thumbnail">
+			<div class="row">
+				<div class="col-md-12">
+					{{Sender}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					{{Text}}
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/each}}
 	{{/if}}
 	{{/if}}
 </template>
