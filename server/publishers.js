@@ -34,3 +34,7 @@ Meteor.publish('getAlgosByKeyWord',function(query){
 	query = query.toLowerCase();
 	return AlgoPedia.find({KeyWords: query});
 });
+
+Meteor.publish('getMyInfo',function(){
+	return Meteor.users.find({_id:this.userId},{fields: {profile:1}});
+});
