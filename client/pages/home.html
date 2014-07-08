@@ -31,12 +31,7 @@
 		<div class="col-md-12">
 			{{#each containsQuery}}
 			<div class="col-md-3">
-			{{#if isAlgo this}}
 			{{> blockAlgoSmall this}}
-			{{/if}}
-			{{#if isCode this}}
-			{{> lsiTableEntry this}}
-			{{/if}}
 			</div>
 			{{/each}}
 		</div>

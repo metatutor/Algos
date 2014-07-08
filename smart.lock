@@ -12,7 +12,8 @@
       "underscore-string-latest": {},
       "accounts-ui-bootstrap-3": {},
       "pagedown-bootstrap": {},
-      "typeahead": {}
+      "typeahead": {},
+      "natural": {}
     },
     "packages": {
       "iron-router": {
@@ -69,6 +70,11 @@
         "git": "https://github.com/sergeyt/meteor-typeahead.git",
         "tag": "v0.0.10",
         "commit": "fe0bb03aea8493037de134d815f9663feb21a944"
+      },
+      "natural": {
+        "git": "https://github.com/pent/meteor-natural.git",
+        "tag": "v1.0.1",
+        "commit": "632d9c2278ba9e7d3e278cc69c68b4def9cf3155"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

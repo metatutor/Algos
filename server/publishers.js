@@ -31,5 +31,6 @@ Meteor.publish('getAlgosByReg',function(query){
 });
 
 Meteor.publish('getAlgosByKeyWord',function(query){
+	query = query.toLowerCase();
 	return AlgoPedia.find({KeyWords: query});
 });

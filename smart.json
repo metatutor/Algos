@@ -10,6 +10,7 @@
     "underscore-string-latest": {},
     "accounts-ui-bootstrap-3": {},
     "pagedown-bootstrap": {},
-    "typeahead": {}
+    "typeahead": {},
+    "natural": {}
   }
 }

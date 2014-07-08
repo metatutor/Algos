@@ -13,13 +13,11 @@ Template.home.containsQuery = function(){
 }
 
 Template.home.getAmountResults = function(){
-	return AlgoPedia.find().count();
-}
-
-Template.home.isAlgo = function(obj){
-	return obj.hasOwnProperty('AiD');
-}
-
-Template.home.isCode = function(obj){
-	return obj.hasOwnProperty('pAiD');
+	var count = AlgoPedia.find().count();
+	if(count===1){
+		return count+' algorithm found';
+	}
+	else{
+		return count+' algorithms found';
+	}
 }
