@@ -37,8 +37,9 @@
 				<div class="col-md-12">
 					<form id="lsiSubmit">
 						<select name="language">
+							<option value="">Select Language</option>
 							{{#each language}}
-							<option value="{{Name}}" {{selectedLanguage Name}} >{{Name}}</option>
+							<option value="{{Name}}" {{selectedLanguage Name}}>{{Name}}</option>
 							{{/each}}
 						</select>
 						<input type="submit" name="submitLSI"/>

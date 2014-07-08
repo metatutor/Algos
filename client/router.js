@@ -11,31 +11,23 @@ Router.map(function(){
 		template: 'langList',
 		onBeforeAction: function(pause){
 			Session.set('showSearch',true);
-			Session.set('langPageLang',this.params._id);
+			Session.set('langPageLang',"");
 		}
 	});
 	this.route('langSearch',{
 		path: '/langs/:_id',
 		template: 'langList',
 		onBeforeAction: function(pause){
+			this.subscribe('codeByLang',this.params._id).wait();
 			Session.set('langPageLang',this.params._id);
 			Session.set('showSearch',true);
-		}
-	});
-	this.route('profile',{
-		template: 'userPage',
-		onBeforeAction: function(pause){
-			Session.set('showSearch',true);
-			Session.set('lastUserSearch',Meteor.user());
-			if(Session.equals('lastUserSearch',undefined)){
-				pause();
-			}
 		}
 	});
 	this.route('users',{
 		path: '/users/:_id',
 		template:'userPage',
 		onBeforeAction: function(pause){
+			this.subscribe('getUserAlgos',this.params._id).wait();
 			Session.set('showSearch',true);
 			var uDoc = Meteor.users.findOne({username:this.params._id});
 			Session.set('lastUserSearch',uDoc);
