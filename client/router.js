@@ -99,6 +99,7 @@ Router.map(function(){
 		path:'/pedia/:algo/:lang/:search',
 		template: 'entryPage',
 		onBeforeAction: function(pause){
+			this.subscribe('getComments',this.params.search);
 			this.subscribe('algoParticular',this.params.algo).wait();
 			Session.set('showSearch',true);
 			var aDoc=AlgoPedia.findOne({AiD:this.params.algo});
@@ -113,7 +114,7 @@ Router.map(function(){
 				}
 			}
 			else{
-				this.subscribe('codeByAlgoAndLang',this.params.algo,this.params.search).wait();
+				this.subscribe('codeByAlgoAndLang',this.params.algo,this.params.lang).wait();
 				var lDoc = Languages.findOne({Slug:this.params.lang});
 				Session.set('lsiSelected',this.params.search);
 				Session.set('tabSelect','second');
