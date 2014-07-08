@@ -51,6 +51,8 @@ Template.contributeLang.getWarning = function(){
 			return "Please use a shorter name.";
 		case 6:
 			return "Please limit your description to 200 characters.";
+		case 7:
+			return "Not a valid language name.";
 		default:
 			return "something went horribly wrong. Contacting propery authorities.";
 	}
@@ -68,6 +70,9 @@ var getDuplications = function(name,desc,slug){
 	}
 	if(desc.length>200){
 		return 6;
+	}
+	if(slug==="showall"){
+		return 7;
 	}
 	var nameCount = Languages.find({Name:name}).count();
 	var slugCount = Languages.find({Slug:slug}).count();
