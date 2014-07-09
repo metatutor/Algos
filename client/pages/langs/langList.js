@@ -35,7 +35,7 @@ Template.langList.events = {
 	},
 	'click button[name=langUpdate]':function(event,template){
 		event.preventDefault();
-		var text = template.find('textarea[name=description]').value;
+		var text = escapeHTML(template.find('textarea[name=description]').value);
 		if(_.isBlank(text)){
 			Session.set('editLangWarn',1);
 			return;
@@ -160,4 +160,8 @@ Template.langList.getWarning = function(){
 	default:
 		return "Something went horribly wrong. Robots are working to fix it.";
 	}
+}
+
+function escapeHTML(s) {
+	return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }

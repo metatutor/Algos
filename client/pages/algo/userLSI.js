@@ -18,7 +18,7 @@ Template.userLSI.commentError = function(){
 Template.userLSI.events = {
 	'click button[name=commentsubmit]': function(events, template){
 		var context = Session.get('lsiSelected');
-		var text = template.find('textarea[name=comment]').value;
+		var text = escapeHTML(template.find('textarea[name=comment]').value);
 		Session.set('reading',[context]);
 		if(_.isBlank(text)){
 			Session.set('commentWarning',2);
@@ -177,4 +177,8 @@ Template.userLSI.getUsername = function(){
 		return "Nameless";
 	}
 	return user.username;
+}
+
+function escapeHTML(s) {
+	return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }

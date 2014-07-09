@@ -15,8 +15,8 @@ Template.contributeLang.events = {
 			return;
 		}
 		var langObject = {
-			Name: name,
-			Description: desc,
+			Name: escapeHTML(name),
+			Description: escapeHTML(desc),
 			Slug:slug
 		}
 		Meteor.call('uploadLang',langObject,Meteor.user()._id);
@@ -87,4 +87,8 @@ var getDuplications = function(name,desc,slug){
 
 Template.contributeLang.langSuccess = function(){
 	return Session.equals('successfulLangSubmit',true);
+}
+
+function escapeHTML(s) {
+	return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }

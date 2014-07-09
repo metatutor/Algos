@@ -16,8 +16,8 @@ Template.contributeAlgo.events = {
 		}
 		var algoObject = {
 			AiD: aid,
-			Name: name,
-			Short: Short,
+			Name: escapeHTML(name),
+			Short: escapeHTML(Short),
 			KeyWords: keywords
 		}
 		template.find("input[name=algoName]").value="";
@@ -102,6 +102,11 @@ var getDuplications = function(name,aid,keywords,Short){
 }
 
 var getKWarray = function(list){
+	list = escapeHTML(list);
 	list = list.toLowerCase();
 	return list.replace(/\s+/g, '').split(',');
+}
+
+function escapeHTML(s) { 
+return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }

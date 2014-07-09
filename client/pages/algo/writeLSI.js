@@ -13,7 +13,7 @@ Template.contributeLSI.events = {
 		event.preventDefault();
 		var algo = Session.get('lastAlgoSearch');
 		var aid = algo.AiD;
-		var code = template.find('textarea[name=lsi]').value;
+		var code = escapeHTML(template.find('textarea[name=lsi]').value);
 		var language = Session.get('submitLanguage');
 		if(_.isBlank(language)){
 			Session.set('lsiSuccess',1);
@@ -73,4 +73,8 @@ Template.contributeLSI.getTheError = function(){
 	else{
 		return "Please enter code.";
 	}
+}
+
+function escapeHTML(s) {
+	return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
