@@ -15,6 +15,9 @@ Template.contributeLSI.events = {
 		var aid = algo.AiD;
 		var code = escapeHTML(template.find('textarea[name=lsi]').value);
 		var language = Session.get('submitLanguage');
+		if(!(Match.test(code,String))){
+			return;
+		}
 		if(_.isBlank(language)){
 			Session.set('lsiSuccess',1);
 			return;

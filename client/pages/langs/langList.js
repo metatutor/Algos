@@ -36,6 +36,9 @@ Template.langList.events = {
 	'click button[name=langUpdate]':function(event,template){
 		event.preventDefault();
 		var text = escapeHTML(template.find('textarea[name=description]').value);
+		if(!(Match.test(text,String))){
+			return;
+		}
 		if(_.isBlank(text)){
 			Session.set('editLangWarn',1);
 			return;

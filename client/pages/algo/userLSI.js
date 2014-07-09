@@ -20,6 +20,9 @@ Template.userLSI.events = {
 		var context = Session.get('lsiSelected');
 		var text = escapeHTML(template.find('textarea[name=comment]').value);
 		Session.set('reading',[context]);
+		if(!(Match.test(text,String))){
+			return;
+		}
 		if(_.isBlank(text)){
 			Session.set('commentWarning',2);
 			event.preventDefault();

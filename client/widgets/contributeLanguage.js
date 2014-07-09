@@ -10,6 +10,12 @@ Template.contributeLang.events = {
 		var desc = template.find("textarea[name=description]").value;
 		var slug = _.slugify(name);
 		var dupes = getDuplications(name,desc,slug);
+		if(!(Match.test(name,String))){
+			return;
+		}
+		if(!(Match.test(desc,String))){
+			return;
+		}
 		Session.set("duplicationWarningLang",dupes);
 		if(dupes>0){
 			return;

@@ -24,6 +24,9 @@ Template.lsiPage.events = {
 		event.preventDefault();
 		var aid = Session.get('lastAlgoSearch').AiD;
 		var query = escapeHTML(template.find('input[name=lsiSearch]').value);
+		if(!(Match.test(query,String))){
+			return;
+		}
 		if(_.isBlank(query)){
 			Router.go('pediaSearch',{algo:aid,search:"showAll"});
 		}else{

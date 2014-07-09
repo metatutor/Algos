@@ -9,6 +9,15 @@ Template.contributeAlgo.events = {
 		var keywords = getKWarray(template.find("input[name=keywords]").value);
 		var aid = _.slugify(name);
 		var Short = template.find("textarea[name=description]").value;
+		if(!(Match.test(name,String))){
+			return;
+		}
+		if(!(Match.test(keywords,String))){
+			return;
+		}
+		if(!(Match.test(Short,String))){
+			return;
+		}
 		var dupes = getDuplications(name,aid,keywords,Short);
 		Session.set("duplicationWarning",dupes);
 		if(dupes>0){
