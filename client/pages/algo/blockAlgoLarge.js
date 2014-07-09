@@ -37,7 +37,8 @@ Template.blockAlgoLarge.events = {
 		}
 		var aid = this.AiD;
 		Meteor.call('updateShort',aid,text);
-		Meteor.call('updateLog',aid,Meteor.user().username,'Short');
+		Meteor.call('updateKeywords',aid,keys);
+		Meteor.call('updateLog',aid,Meteor.user()._id,'Short/Keywords');
 		$('#editShortModal').modal('hide');
 	},
 	'click button[name=dismissSmallAlgo]':function(event,template){

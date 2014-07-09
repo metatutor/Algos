@@ -48,4 +48,13 @@ Meteor.methods({
 			}
 		});
 	},
+	updateKeywords:function(aid,text){
+		AlgoPedia.update({
+			AiD:aid
+		},{
+			$set:{
+				KeyWords:text
+			}
+		});
+	}
 });
