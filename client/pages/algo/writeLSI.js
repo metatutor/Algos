@@ -42,6 +42,11 @@ Template.contributeLSI.events = {
 		Meteor.call('approve',Meteor.user()._id,makeid);
 		Session.set('lsiSuccess',2);
 		Router.go('lsiSearchRoute',{algo:aid,lang:"showAll",search:makeid},Meteor.user()._id);
+		var message = {
+			Sender: "Thanks for the code!",
+			Text: "The community just got a little better!"
+		}
+		Meteor.call('sendNotification',Meteor.user().username,message);
 	}
 }
 

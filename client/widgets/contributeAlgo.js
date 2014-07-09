@@ -12,10 +12,10 @@ Template.contributeAlgo.events = {
 		if(!(Match.test(name,String))){
 			return;
 		}
-		if(!(Match.test(keywords,String))){
+		if(!(Match.test(Short,String))){
 			return;
 		}
-		if(!(Match.test(Short,String))){
+		if(!(Match.test(keywords,[String]))){
 			return;
 		}
 		var dupes = getDuplications(name,aid,keywords,Short);
@@ -34,8 +34,8 @@ Template.contributeAlgo.events = {
 		template.find("textarea[name=description]").value="";
 		Meteor.call('uploadDoc',algoObject,Meteor.user()._id);
 		var message = {
-			Sender: "From: Algos",
-			Text: "Thanks for the submission! The community just got a little better!"
+			Sender: "Thanks for the submission!",
+			Text: "The community just got a little better!"
 		}
 		Meteor.call('sendNotification',Meteor.user().username,message);
 		Router.go('pedia',{_id:aid});

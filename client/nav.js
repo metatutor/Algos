@@ -23,25 +23,12 @@ Template.nav.events = {
 		Meteor.call("sendEmail",Meteor.userId());
 		alert('Verification Email sent');
 	},
-	'click button[name=makesearch]': function(event, template){
-		event.preventDefault();
-		var queryField = template.find("input[name=query]");
-		goToSearch(queryField.value);
-	},
 	'click button[name=dismissInbox]':function(event,template){
 		event.preventDefault();
 		Meteor.call('deleteInbox',Meteor.user()._id);
 	}
 }
 
-var goToSearch = function(query){
-	Router.go('search', {_id:query});
-}
-
 Template.nav.getStats = function(){
 	return (LSIs.find().count() +' implementations for '+AlgoPedia.find().count()+' algorithms in '+Languages.find().count()+' languages.');
-}
-
-Template.nav.showSearch = function(){
-	return Session.equals('showSearch',true);
 }

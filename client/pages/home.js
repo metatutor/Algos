@@ -1,7 +1,7 @@
 Template.home.events = {
 	'keyup': function(event,template){
 		var query = template.find('input[name=query]').value;
-		if(Test.match(query,String)){
+		if(Match.test(query,String)){
 			Session.set('mainQuery',escapeHTML(query));
 		}
 	}

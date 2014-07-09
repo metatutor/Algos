@@ -6,6 +6,11 @@
 					<h3>{{ > getUsersName this}}</h3>
 					<h5>{{ > getUsersUsername this}}</h5>
 					<h5>{{ > getUsersEmail this }}</h5>
+					<h5>{{getPoints this}}</h5>
+					<h4>Awards</h4>
+					{{#each awards this}}
+					<h6>{{this}}</h6>
+					{{/each}}
 				</div>
 			</div>
 		</div>

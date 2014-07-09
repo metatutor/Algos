@@ -29,6 +29,11 @@ Template.contributeLang.events = {
 		template.find("input[name=langName]").value="";
 		template.find("textarea[name=description]").value="";
 		Session.set('successfulLangSubmit',true);
+		var message = {
+			Sender: "Thanks for the submission!",
+			Text: "The community just got a little better!"
+		}
+		Meteor.call('sendNotification',Meteor.user().username,message);
 	},
 	'click button[name=dismissal]':function(){
 		Session.set('duplicationWarningLang',0);

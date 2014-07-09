@@ -5,14 +5,12 @@ Router.map(function(){
 		onBeforeAction: function(pause){
 			this.subscribe('getAlgosByReg',Session.get('mainQuery')).wait();
 			this.subscribe('getAlgosByKeyWord',Session.get('mainQuery')).wait();
-			Session.set('showSearch',false);
 		}
 	});
 	this.route('langs',{
 		path: '/langs',
 		template: 'langList',
 		onBeforeAction: function(pause){
-			Session.set('showSearch',true);
 			Session.set('langPageLang',"");
 		}
 	});
@@ -22,7 +20,6 @@ Router.map(function(){
 		onBeforeAction: function(pause){
 			this.subscribe('codeByLang',this.params._id).wait();
 			Session.set('langPageLang',this.params._id);
-			Session.set('showSearch',true);
 		}
 	});
 	this.route('users',{
@@ -31,7 +28,6 @@ Router.map(function(){
 		onBeforeAction: function(pause){
 			this.subscribe('getUserCode',this.params._id).wait();
 			this.subscribe('getUserAlgos',this.params._id).wait();
-			Session.set('showSearch',true);
 			var uDoc = Meteor.users.findOne({username:this.params._id});
 			Session.set('lastUserSearch',uDoc);
 			if(Session.equals('lastUserSearch',undefined)){
@@ -47,7 +43,6 @@ Router.map(function(){
 			var aDoc = AlgoPedia.findOne({AiD:this.params._id});
 			Session.set('lastAlgoSearch',aDoc);
 			Session.set('lsiSelected',null);
-			Session.set('showSearch',true);
 			Session.set('tabSelect','first');
 			Session.set('lsiLangSearch',null);
 			if(Session.equals('lastAlgoSearch',undefined)){
@@ -55,21 +50,11 @@ Router.map(function(){
 			}
 		}
 	});
-	this.route('search',{
-		path:'/search/:_id',
-		template: 'searchList',
-		action: function(){
-			Session.set('showSearch',true);
-			Session.set('lastSearch',this.params._id);
-			this.render();
-		}
-	});
 	this.route('pediaSearch',{
 		path:'/pedia/:algo/:search',
 		template: 'entryPage',
 		onBeforeAction: function(pause){
 			this.subscribe('algoParticular',this.params.algo).wait();
-			Session.set('showSearch',true);
 			var aDoc=AlgoPedia.findOne({AiD:this.params.algo});
 			Session.set('lastAlgoSearch',aDoc);
 			if(this.params.search==="showAll"){
@@ -102,7 +87,6 @@ Router.map(function(){
 		onBeforeAction: function(pause){
 			this.subscribe('getComments',this.params.search);
 			this.subscribe('algoParticular',this.params.algo).wait();
-			Session.set('showSearch',true);
 			var aDoc=AlgoPedia.findOne({AiD:this.params.algo});
 			Session.set('lastAlgoSearch',aDoc);
 			if(this.params.lang==="showAll"){

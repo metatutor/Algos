@@ -16,6 +16,53 @@ Meteor.methods({
 				"profile.algorithmContributions": docObject.AiD
 			}
 		});
+		var user = Meteor.users.findOne({_id:uid});
+		if(user.profile.algorithmContributions.length>50){
+			Meteor.users.update({
+				_id:uid
+			},{
+				$push:{
+					"profile.awards":"Scholar"
+				}
+			});
+			var message = {
+				Sender: "You have a new award!",
+				Text: "You earned 'Scholar' for your algorithm submissions!"
+			}
+			Meteor.call('sendNotification',user.username,message);
+		}
+		else{
+			if(user.profile.algorithmContributions.length>20){
+				Meteor.users.update({
+					_id:uid
+				},{
+					$push:{
+						"profile.awards":"Author"
+					}
+				});
+				var message = {
+					Sender: "You have a new award!",
+					Text: "You earned 'Author' for your algorithm submissions!"
+				}
+				Meteor.call('sendNotification',user.username,message);
+			}
+			else{
+				if(user.profile.algorithmContributions.length>5){
+					Meteor.users.update({
+						_id:uid
+					},{
+						$push:{
+							"profile.awards":"Bookworm"
+						}
+					});
+					var message = {
+						Sender: "You have a new award!",
+						Text: "You earned 'Bookworm' for your algorithm submissions!"
+					}
+					Meteor.call('sendNotification',user.username,message);
+				}
+			}
+		}
 	},
 	updateWiki:function(aid,text){
 		AlgoPedia.update({
