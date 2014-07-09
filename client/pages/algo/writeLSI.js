@@ -9,7 +9,7 @@ Template.contributeLSI.events = {
 	'click button[name=dismissal]':function(){
 		Session.set('lsiSuccess',0);
 	},
-	'submit': function(event,template){
+	'click button[name=submitCode]': function(event,template){
 		event.preventDefault();
 		var algo = Session.get('lastAlgoSearch');
 		var aid = algo.AiD;
@@ -34,7 +34,7 @@ Template.contributeLSI.events = {
 			Language: language,
 			When: moment().unix()
 		}
-		Meteor.call('uploadLSI',lsiObj);
+		Meteor.call('uploadLSI',lsiObj,Meteor.user()._id);
 		Meteor.call('approve',Meteor.user()._id,makeid);
 		Session.set('lsiSuccess',2);
 		Router.go('lsiSearchRoute',{algo:aid,lang:"showAll",search:makeid},Meteor.user()._id);

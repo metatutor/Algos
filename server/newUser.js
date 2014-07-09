@@ -5,6 +5,7 @@ Accounts.onCreateUser(function(options,user){
 		email: '',
 		inbox: [],
 		algorithmContributions: [],
+		codeContributions: [],
 		points: 1
 	}
 	return user;

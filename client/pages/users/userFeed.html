@@ -1,3 +1,32 @@
 <template name="userFeed">
-	<p>hi</p>
+	{{#if hasContributions}}
+	<div class="row">
+		{{#each code}}
+		<div class="col-md-8 thumbnail">
+			<div class="row">
+				<div class="col-md-12">
+					{{ > getUserLink getAuthor}} {{getUsername}}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<pre class="{{#if currentUser}}{{getAlert}}{{/if}}">{{#markdown}}{{Code}}{{/markdown}}</pre>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<button name="visitLang" class="btn btn-info btn-xs">View <span class="glyphicon glyphicon-file"></span></button>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+		{{#each algo}}
+		<div class="col-md-4 thumbnail">
+			{{ > blockAlgoSmall this}}
+		</div>
+		{{/each}}
+	</div>
+	{{else}}
+	<h4>This user has no contributions, yet.</h4>
+	{{/if}}
 </template>

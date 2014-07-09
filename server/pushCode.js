@@ -4,8 +4,8 @@ Meteor.methods({
 		Meteor.users.update({
 			_id:userid
 		},{
-			$addToSet:{
-				codeContributions:lsiObject._id
+			$push:{
+				'profile.codeContributions':lsiObject._id
 			}
 		});
 	}
