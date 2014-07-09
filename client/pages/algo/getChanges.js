@@ -4,3 +4,11 @@ Template.getChanges.change = function(){
 	});
 	return list.reverse();
 }
+
+Template.getChanges.getUsername = function(){
+	var user = Meteor.users.findOne({_id:this.Contributor});
+	if(user===undefined){
+		return "Nameless";
+	}
+	return user.username;
+}

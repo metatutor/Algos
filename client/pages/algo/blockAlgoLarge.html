@@ -8,8 +8,9 @@
 					<div class="col-md-12">
 						<h4>Keywords</h4>
 						{{ > algoKWfront this}}
+						<br/>
 						{{#if currentUser}}
-						{{#with getULink}}
+						{{#with getUserInfo}}
 						<div class="btn-group">
 							{{ > getUserLink this}}
 							<button data-toggle="modal" data-target="#editShortModal" title="Edit Description/Keywords" class="btn btn-info btn-sm">Edit <span class="glyphicon glyphicon-pencil"></span></button>
@@ -29,13 +30,20 @@
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 					<h4 class="modal-title" id="ModalLabel">{{ > algoName this}} <small>{{ > algoID this}}</small></h4>
 				</div>
+				{{#if isWarning}}
+				<div class="alert alert-warning alert-dismissible" role="alert">
+					<button type="button" name="dismissSmallAlgo" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<p>{{getWarning}}</p>
+				</div>
+				{{/if}}
 				<div class="modal-body input-group">
 					<pre style="font-family: Times New Roman"><textarea form="shortUpdate" name="shortupdater" class="form-control" cols="500" rows="15">{{ > algoShortBare this}}</textarea></pre>
+					<input name="keyupdater" class="form-control" value="{{getKW this}}"/>
 				</div>
 				<div class="modal-footer">
 					<form role="form" id="shortUpdate">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button name="shortupdate" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+						<button name="shortupdate" class="btn btn-primary">Save changes</button>
 					</form>
 				</div>
 			</div>
