@@ -29,6 +29,7 @@ Router.map(function(){
 		path: '/users/:_id',
 		template:'userPage',
 		onBeforeAction: function(pause){
+			this.subscribe('getUserCode',this.params._id).wait();
 			this.subscribe('getUserAlgos',this.params._id).wait();
 			Session.set('showSearch',true);
 			var uDoc = Meteor.users.findOne({username:this.params._id});

@@ -49,3 +49,8 @@ Meteor.publish('getComments',function(lsi){
 Meteor.publish('getAllUsers',function(){
 	return Meteor.users.find({},{fields: {profile:1,username:1,_id:1}});
 });
+
+Meteor.publish('getUserCode',function(username){
+	var user = Meteor.users.findOne({username:username});
+	return LSIs.find({Contributor:user._id});
+});

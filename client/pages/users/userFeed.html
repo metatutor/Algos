@@ -1,30 +1,44 @@
 <template name="userFeed">
 	{{#if hasContributions}}
 	<div class="row">
+		<div class="col-md-7 thumbnail">
+		<h5 style="text-align:center">Code</h5>
 		{{#each code}}
-		<div class="col-md-8 thumbnail">
+		{{#with getCode this}}
 			<div class="row">
 				<div class="col-md-12">
-					{{ > getUserLink getAuthor}} {{getUsername}}
+					<div class="row">
+						<div class="col-md-12">
+							<pre>{{#markdown}}{{Code}}{{/markdown}}</pre>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<button name="visitLang" class="btn btn-info btn-xs">View <span class="glyphicon glyphicon-file"></span></button>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<pre class="{{#if currentUser}}{{getAlert}}{{/if}}">{{#markdown}}{{Code}}{{/markdown}}</pre>
+					<!--take up some space-->
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<button name="visitLang" class="btn btn-info btn-xs">View <span class="glyphicon glyphicon-file"></span></button>
-				</div>
-			</div>
-		</div>
+		{{/with}}
 		{{/each}}
+		</div>
+		<div class="col-md-5 thumbnail">
+		<h5 style="text-align:center">Algorithms</h5>
 		{{#each algo}}
-		<div class="col-md-4 thumbnail">
-			{{ > blockAlgoSmall this}}
-		</div>
+		{{#with getAlgo this}}
+			<div class="row">
+				<div class="col-md-12">
+				{{ > blockAlgoSmall this}}
+				</div>
+			</div>
+		{{/with}}
 		{{/each}}
+		</div>
 	</div>
 	{{else}}
 	<h4>This user has no contributions, yet.</h4>
