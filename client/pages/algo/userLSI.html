@@ -9,12 +9,12 @@
 		<div class="col-md-11">
 			<div class="row">
 				<div class="col-md-12">
-					{{ > getUserLink getAuthor}} {{Contributor}}
+					{{ > getUserLink getAuthor}} {{getUsername}}
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<pre class="{{getAlert}}">{{Code}}</pre>
+					<pre class="{{#if currentUser}}{{getAlert}}{{/if}}">{{Code}}</pre>
 				</div>
 			</div>
 			{{#if currentUser}}

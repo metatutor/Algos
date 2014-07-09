@@ -12,12 +12,12 @@
 			<div class="col-md-6 col-md-offset-3 thumbnail">
 				<div class="row">
 					<div class="col-md-12">
-					{{ > getUserLink getAuthor}} {{Contributor}}
+					{{ > getUserLink getAuthor}} {{getUsername}}
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<pre class="{{getAlert}}">{{#markdown}}{{Code}}{{/markdown}}</pre>
+						<pre class="{{#if currentUser}}{{getAlert}}{{/if}}">{{#markdown}}{{Code}}{{/markdown}}</pre>
 					</div>
 				</div>
 				{{#if currentUser}}

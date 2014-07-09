@@ -44,7 +44,7 @@ Template.langList.getPercentApproval = function(){
 }
 
 Template.langList.getAuthor = function(){
-	var user = Meteor.users.findOne({username:this.Contributor});
+	var user = Meteor.users.findOne({_id:this.Contributor});
 	return user;
 }
 
@@ -114,4 +114,12 @@ Template.langList.getCodeForLang = function(){
 		return;
 	}
 	return LSIs.find({Language:lang.Name}).fetch();
+}
+
+Template.langList.getUsername = function(){
+	var user = Meteor.users.findOne({_id:this.Contributor});
+	if(user===undefined){
+		return "Nameless";
+	}
+	return user.username;
 }

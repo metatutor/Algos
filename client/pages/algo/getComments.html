@@ -1,12 +1,16 @@
 <template name="getComments">
 	<div class="container-fluid">
+		{{#if commentsExist}}
 		{{#each comment}}
 		<div class="row">
 			<div class="col-md-12">
-				{{ > getUserLinkComment getAuthor}} {{Contributor}}
+				{{ > getUserLinkComment getAuthor}} {{getUsername}}
 				<pre style="font-family: Times New Roman">{{Text}}</pre>
 			</div>
 		</div>
 		{{/each}}
+		{{else}}
+		<p style="text-align:center">No comments yet.</p>
+		{{/if}}
 	</div>
 </template>

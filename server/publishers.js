@@ -45,3 +45,7 @@ Meteor.publish('getMyInfo',function(){
 Meteor.publish('getComments',function(lsi){
 	return Comments.find({Context:lsi});
 });
+
+Meteor.publish('getAllUsers',function(){
+	return Meteor.users.find({},{fields: {profile:1,username:1,_id:1}});
+});

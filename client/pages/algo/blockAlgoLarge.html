@@ -3,20 +3,21 @@
 		<div class="col-md-12">
 			<div class="thumbnail">
 				<h3>{{ > algoName this}}</h3>
-				<h5>{{ > algoShort this }}</h5>
-				{{#if currentUser}}
+				{{#markdown}}{{ > algoShortBare this }}{{/markdown}}
 				<div class="row">
 					<div class="col-md-12">
-						<h5>{{ > algoKW this}}</h5>
+						<h4>Keywords</h4>
+						{{ > algoKWfront this}}
+						{{#if currentUser}}
 						{{#with getULink}}
 						<div class="btn-group">
 							{{ > getUserLink this}}
 							<button data-toggle="modal" data-target="#editShortModal" title="Edit Description/Keywords" class="btn btn-info btn-sm">Edit <span class="glyphicon glyphicon-pencil"></span></button>
 							</div>
 						{{/with}}
+						{{/if}}
 					</div>
 				</div>
-				{{/if}}
 			</div>
 		</div>
 	</div>

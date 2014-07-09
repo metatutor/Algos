@@ -1,5 +1,5 @@
 Template.blockAlgoLarge.getULink = function(){
-	return Meteor.users.findOne({username:this.Contributor});
+	return Meteor.users.findOne({_id:this.Contributor});
 }
 
 Template.blockAlgoLarge.events = {
