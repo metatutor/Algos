@@ -1,0 +1,12 @@
+Meteor.methods({
+	uploadLSI:function(lsiObject,userid){
+		LSIs.insert(lsiObject);
+		Meteor.users.update({
+			_id:userid
+		},{
+			$addToSet:{
+				codeContributions:lsiObject._id
+			}
+		});
+	}
+});

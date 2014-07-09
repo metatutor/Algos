@@ -2,7 +2,9 @@
 	<div class="col-md-3">
 		<div class="list-group">
 			{{#each getLanguages}}
-			<a class="list-group-item {{isActive this}}"><h4 class="list-group-item-heading">{{Name}}</h4><p class="list-group-item-text">{{Description}}</p></a>
+			<a class="list-group-item {{isActive this}}"><h4 class="list-group-item-heading">{{Name}}</h4><p class="list-group-item-text">{{Description}}</p>
+					<button name="toggleModal" class="btn btn-info btn-xs" data-toggle="modal" data-target="#langEditor">Edit <span class="glyphicon glyphicon-pencil"></span></button>
+			</a>
 			{{/each}}
 		</div>
 	</div>
@@ -45,4 +47,32 @@
 		</div>
 		{{/each}}
 	</div>
+	{{#if currentUser}}
+	<div class="modal fade" id="langEditor" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title">Edit Language</h4>
+				</div>
+				{{#if isWarning}}
+				<div class="alert alert-warning alert-dismissible" role="alert">
+					<button type="button" name="editLangWarner" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<p>{{getWarning}}</p>
+				</div>
+				{{/if}}
+				<div class="modal-body">
+					<pre style="font-family: Times New Roman"><textarea rows="9" class="form-control" name="description" form="langEdit" placeholder="Language Hovertext"></textarea></pre>
+				</div>
+				<div class="modal-footer">
+					<form role="form" id="langEdit">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button name="langUpdate" class="btn btn-primary">Save changes</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+
 </template>

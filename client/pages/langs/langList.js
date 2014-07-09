@@ -1,3 +1,7 @@
+Meteor.startup(function(){
+	Session.set('editLangWarn',0);
+});
+
 Template.langList.events = {
 	'click button[name=plusLang]':function(){
 		var LiD = this._id;
@@ -28,6 +32,24 @@ Template.langList.events = {
 	},
 	'click a': function(event,template){
 		Router.go('langSearch',{_id:this.Slug});
+	},
+	'click button[name=langUpdate]':function(event,template){
+		event.preventDefault();
+		var text = template.find('textarea[name=description]').value;
+		if(_.isBlank(text)){
+			Session.set('editLangWarn',1);
+			return;
+		}
+		if(text.length>200){
+			Session.set('editLangWarn',2);
+			return;
+		}
+		var lang = Session.get('langPageLang');
+		Meteor.call('editLang',lang,text);
+		$('#langEditor').modal('hide');
+	},
+	'click button[name=editLangWarner]':function(){
+		Session.set('editLangWarn',0);
 	}
 }
 
@@ -122,4 +144,20 @@ Template.langList.getUsername = function(){
 		return "Nameless";
 	}
 	return user.username;
+}
+
+Template.langList.isWarning = function(){
+	return (!(Session.equals('editLangWarn',0)));
+}
+
+Template.langList.getWarning = function(){
+	var warn = Session.get('editLangWarn');
+	switch(warn){
+	case 1:
+		return "Please enter some text to describe the language.";
+	case 2:
+		return "Please use fewer than 200 characters.";
+	default:
+		return "Something went horribly wrong. Robots are working to fix it.";
+	}
 }

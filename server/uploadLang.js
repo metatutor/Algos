@@ -7,5 +7,14 @@ Meteor.methods({
 			Contributor: uid,
 			When: moment().unix()
 		});
+	},
+	editLang:function(slug,text){
+		Languages.update({
+			Slug:slug
+		},{
+			$set:{
+				Description:text
+			}
+		});
 	}
 });

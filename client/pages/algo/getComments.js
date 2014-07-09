@@ -12,7 +12,7 @@ Template.getComments.commentsExist = function(){
 }
 
 Template.getComments.getAuthor = function(){
-	var user = Meteor.users.findOne({username:this.Contributor});
+	var user = Meteor.users.findOne({_id:this.Contributor});
 	return user;
 }
 
