@@ -24,9 +24,10 @@ Template.contributeAlgo.events = {
 		template.find("input[name=keywords]").value="";
 		template.find("textarea[name=description]").value="";
 		Meteor.call('uploadDoc',algoObject,Meteor.user()._id);
-		var message = {};
-		message.Sender = "Algos";
-		message.Text = "Thanks for the submission!";
+		var message = {
+			Sender: "From: Algos",
+			Text: "Thanks for the submission! The community just got a little better!"
+		}
 		Meteor.call('sendNotification',Meteor.user().username,message);
 		Router.go('pedia',{_id:aid});
 		$('#algoModal').modal('hide');

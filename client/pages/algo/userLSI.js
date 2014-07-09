@@ -39,6 +39,11 @@ Template.userLSI.events = {
 		};
 		template.find('textarea[name=comment]').value="";
 		Meteor.call('logComment',obj);
+		var message = {
+			Text: 'Click here to see the comment!',
+			Sender: 'Comment on your code!'
+		}
+		Meteor.call('sendNotification',Meteor.users.findOne({_id:this.Contributor}).username,message);
 		checkMentions(text);
 	},
 	'click button[name=plus]':function(){
