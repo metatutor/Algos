@@ -13,11 +13,12 @@ Template.contributeLSI.events = {
 		event.preventDefault();
 		var algo = Session.get('lastAlgoSearch');
 		var aid = algo.AiD;
-		var code = escapeHTML(template.find('textarea[name=lsi]').value);
+		var code = template.find('textarea[name=lsi]').value;
 		var language = Session.get('submitLanguage');
 		if(!(Match.test(code,String))){
 			return;
 		}
+		code = escapeHTML(code);
 		if(_.isBlank(language)){
 			Session.set('lsiSuccess',1);
 			return;

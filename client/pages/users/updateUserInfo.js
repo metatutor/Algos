@@ -2,9 +2,9 @@ Template.updateUserInfo.events = {
 	'click button[name=updateProfile]': function(event,template){
 		event.preventDefault();
 		var stats = {};
-		var firstname= escapeHTML(template.find("input[name=firstname]").value);
-		var lastname = escapeHTML(template.find("input[name=lastname]").value);
-		var emailNew = escapeHTML(template.find("input[name=emailShow]").value);
+		var firstname= template.find("input[name=firstname]").value;
+		var lastname = template.find("input[name=lastname]").value;
+		var emailNew = template.find("input[name=emailShow]").value;
 		if(!(Match.test(firstname,String))){
 			return;
 		}
@@ -14,9 +14,9 @@ Template.updateUserInfo.events = {
 		if(!(Match.test(emailNew,String))){
 			return;
 		}
-		stats.firstname = firstname;
-		stats.lastname = lastname;
-		stats.email = emailNew;
+		stats.firstname = escapeHTML(firstname);
+		stats.lastname = escapeHTML(lastname);
+		stats.email = escapeHTML(emailNew);
 		Meteor.call('updateProfile',stats,Meteor.userId());
 		Session.set("editingProfile",false);
 	}

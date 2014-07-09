@@ -23,10 +23,11 @@ Template.lsiPage.events = {
 	'click button[name=searchLangs]': function(event,template){
 		event.preventDefault();
 		var aid = Session.get('lastAlgoSearch').AiD;
-		var query = escapeHTML(template.find('input[name=lsiSearch]').value);
+		var query = template.find('input[name=lsiSearch]').value;
 		if(!(Match.test(query,String))){
 			return;
 		}
+		query = escapeHTML(query);
 		if(_.isBlank(query)){
 			Router.go('pediaSearch',{algo:aid,search:"showAll"});
 		}else{

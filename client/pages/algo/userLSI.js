@@ -18,11 +18,12 @@ Template.userLSI.commentError = function(){
 Template.userLSI.events = {
 	'click button[name=commentsubmit]': function(events, template){
 		var context = Session.get('lsiSelected');
-		var text = escapeHTML(template.find('textarea[name=comment]').value);
+		var text = template.find('textarea[name=comment]').value;
 		Session.set('reading',[context]);
 		if(!(Match.test(text,String))){
 			return;
 		}
+		text=escapeHTML(text);
 		if(_.isBlank(text)){
 			Session.set('commentWarning',2);
 			event.preventDefault();
