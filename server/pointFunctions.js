@@ -1,5 +1,5 @@
 Meteor.methods({
-	approve: function(uid,lid){
+	approve: function(uid,lid,cid){
 		LSIs.update({
 			_id: lid
 		},{
@@ -7,8 +7,15 @@ Meteor.methods({
 				Approve:uid
 			}
 		});
+		Meteor.users.update({
+			_id:cid
+		},{
+			$inc:{
+				'profile.points':1
+			}
+		});
 	},
-	unapprove: function(uid,lid){
+	unapprove: function(uid,lid,cid){
 		LSIs.update({
 			_id: lid
 		},{
@@ -16,8 +23,15 @@ Meteor.methods({
 				Approve:uid
 			}
 		});
+		Meteor.users.update({
+			_id:cid
+		},{
+			$inc:{
+				'profile.points':-1
+			}
+		});
 	},
-	disapprove: function(uid,lid){
+	disapprove: function(uid,lid,cid){
 		LSIs.update({
 			_id: lid
 		},{
@@ -25,13 +39,27 @@ Meteor.methods({
 				Disapprove:uid
 			}
 		});
+		Meteor.users.update({
+			_id:cid
+		},{
+			$inc:{
+				'profile.points':-1
+			}
+		});
 	},
-	undisapprove: function(uid,lid){
+	undisapprove: function(uid,lid,cid){
 		LSIs.update({
 			_id: lid
 		},{
 			$pull:{
 				Disapprove:uid
+			}
+		});
+		Meteor.users.update({
+			_id:cid
+		},{
+			$inc:{
+				'profile.points':1
 			}
 		});
 	}

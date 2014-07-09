@@ -54,26 +54,26 @@ Template.userLSI.events = {
 		var LiD = Session.get('lsiSelected');
 		var lang = LSIs.findOne({_id:LiD});
 		if(approvalGiven(lang,Meteor.user()._id)){
-			Meteor.call('unapprove',Meteor.user()._id,LiD);
+			Meteor.call('unapprove',Meteor.user()._id,LiD,lang.Contributor);
 		}
 		else{
 			if(disapprovalGiven(lang,Meteor.user()._id)){
-				Meteor.call('undisapprove',Meteor.user()._id,LiD);
+				Meteor.call('undisapprove',Meteor.user()._id,LiD,lang.Contributor);
 			}
-			Meteor.call('approve',Meteor.user()._id,LiD);
+			Meteor.call('approve',Meteor.user()._id,LiD,lang.Contributor);
 		}
 	},
 	'click button[name=minus]':function(){
 		var LiD = Session.get('lsiSelected');
 		var lang = LSIs.findOne({_id:LiD});
 		if(disapprovalGiven(lang, Meteor.user()._id)){
-			Meteor.call('undisapprove',Meteor.user()._id,LiD);
+			Meteor.call('undisapprove',Meteor.user()._id,LiD,lang.Contributor);
 		}
 		else{
 			if(approvalGiven(lang, Meteor.user()._id)){
-				Meteor.call('unapprove',Meteor.user()._id,LiD);
+				Meteor.call('unapprove',Meteor.user()._id,LiD,lang.Contributor);
 			}
-			Meteor.call('disapprove',Meteor.user()._id,LiD);
+			Meteor.call('disapprove',Meteor.user()._id,LiD,lang.Contributor);
 		}
 	},
 	'click button[name=dismissalComment]':function(){

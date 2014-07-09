@@ -6,25 +6,25 @@ Template.langList.events = {
 	'click button[name=plusLang]':function(){
 		var LiD = this._id;
 		if(approvalGiven(this,Meteor.user().username)){
-			Meteor.call('unapprove',Meteor.user().username,LiD);
+			Meteor.call('unapprove',Meteor.user().username,LiD, this.Contributor);
 		}
 		else{
 			if(disapprovalGiven(this,Meteor.user().username)){
-				Meteor.call('undisapprove',Meteor.user().username,LiD);
+				Meteor.call('undisapprove',Meteor.user().username,LiD, this.Contributor);
 			}
-			Meteor.call('approve',Meteor.user().username,LiD);
+			Meteor.call('approve',Meteor.user().username,LiD, this.Contributor);
 		}
 	},
 	'click button[name=minusLang]':function(){
 		var LiD = this._id;
 		if(disapprovalGiven(this, Meteor.user().username)){
-			Meteor.call('undisapprove',Meteor.user().username,LiD);
+			Meteor.call('undisapprove',Meteor.user().username,LiD, this.Contributor);
 		}
 		else{
 			if(approvalGiven(this, Meteor.user().username)){
-				Meteor.call('unapprove',Meteor.user().username,LiD);
+				Meteor.call('unapprove',Meteor.user().username,LiD, this.Contributor);
 			}
-			Meteor.call('disapprove',Meteor.user().username,LiD);
+			Meteor.call('disapprove',Meteor.user().username,LiD, this.Contributor);
 		}
 	},
 	'click button[name=visitLang]':function(){
