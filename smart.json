@@ -5,7 +5,6 @@
     "moment": {},
     "bootstrap-3": {},
     "underscore-string-latest": {},
-    "pagedown-bootstrap": {},
-    "accounts-ui-bootstrap-3": {}
+    "pagedown-bootstrap": {}
   }
 }
