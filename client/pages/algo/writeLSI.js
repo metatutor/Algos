@@ -18,7 +18,6 @@ Template.contributeLSI.events = {
 		if(!(Match.test(code,String))){
 			return;
 		}
-		code = escapeHTML(code);
 		if(_.isBlank(language)){
 			Session.set('lsiSuccess',1);
 			return;
@@ -82,8 +81,4 @@ Template.contributeLSI.getTheError = function(){
 	else{
 		return "Please enter code.";
 	}
-}
-
-function escapeHTML(s) {
-	return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
