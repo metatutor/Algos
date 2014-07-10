@@ -8,6 +8,10 @@ Router.map(function(){
 			this.subscribe('getAlgosByKeyWord',Session.get('mainQuery')).wait();
 		}
 	});
+	this.route('guide',{
+		path:'/guidelines',
+		template:'guidelines'
+	});
 	this.route('langs',{
 		path: '/langs',
 		template: 'langList',

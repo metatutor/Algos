@@ -44,7 +44,7 @@ Template.userLSI.events = {
 		template.find('textarea[name=comment]').value="";
 		Meteor.call('logComment',obj);
 		var message = {
-			Text: 'Click here to see the comment!',
+			Text: 'Somebody has commented on your submission: '+context,
 			Sender: 'Comment on your code!'
 		}
 		Meteor.call('sendNotification',this.Contributor,message);

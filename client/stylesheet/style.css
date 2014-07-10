@@ -37,3 +37,11 @@ pre {
 	white-space:pre;
 	word-wrap: normal !important;
 }
+
+.guide {
+	text-align:center;
+}
+
+.guide li{
+	text-align: left;
+}
