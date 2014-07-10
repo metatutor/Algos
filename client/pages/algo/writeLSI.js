@@ -27,7 +27,7 @@ Template.contributeLSI.events = {
 			Session.set('lsiSuccess',3);
 			return;
 		}
-		var makeid = aid+Meteor.user().username+language+moment().unix();
+		var makeid = aid+Meteor.user()._id+language+moment().unix();
 		var lsiObj = {
 			_id: makeid,
 			Code: code,
