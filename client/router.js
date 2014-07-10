@@ -4,6 +4,7 @@ Router.map(function(){
 		template: 'home',
 		onBeforeAction: function(pause){
 			this.subscribe('getAlgosByReg',Session.get('mainQuery')).wait();
+			this.subscribe('getAlgosByName',Session.get('mainQuery')).wait();
 			this.subscribe('getAlgosByKeyWord',Session.get('mainQuery')).wait();
 		}
 	});

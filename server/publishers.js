@@ -52,3 +52,8 @@ Meteor.publish('getAllUsers',function(){
 Meteor.publish('getUserCode',function(uid){
 	return LSIs.find({Contributor:uid});
 });
+
+Meteor.publish('getAlgosByName',function(query){
+	var queryMod = new RegExp(query);
+	return AlgoPedia.find({Name: { $regex: queryMod}});
+});

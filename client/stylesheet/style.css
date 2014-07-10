@@ -27,3 +27,13 @@
 	background-color: #f8f8f8;
 	border: 2px solid #f6f6f6;
 }
+
+textarea {
+	white-space:pre;
+	word-wrap: normal !important;
+}
+
+pre {
+	white-space:pre;
+	word-wrap: normal !important;
+}
