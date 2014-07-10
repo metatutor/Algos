@@ -16,7 +16,7 @@ Template.getComments.getAuthor = function(){
 	return user;
 }
 
-Template.getComments.getUsername = function(){
+Template.getComments.getUserName = function(){
 	var user = Meteor.users.findOne({_id:this.Contributor});
 	if(user===undefined){
 		return "Nameless";
