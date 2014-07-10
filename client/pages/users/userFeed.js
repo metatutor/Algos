@@ -39,7 +39,7 @@ Template.userFeed.getAuthor = function(){
 	return user;
 }
 
-Template.userFeed.getCode = function(obj){
+Template.userFeed.getCodeForm = function(obj){
 	return unEscapeHTML(obj.Code);
 }
 
