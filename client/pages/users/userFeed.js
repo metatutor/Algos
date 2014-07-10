@@ -38,3 +38,11 @@ Template.userFeed.getAuthor = function(){
 	var user = Meteor.users.findOne({_id:this.Contributor});
 	return user;
 }
+
+Template.userFeed.getCode = function(obj){
+	return unEscapeHTML(obj.Code);
+}
+
+function unEscapeHTML(s) {
+	return s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/$lt;/g, '<').replace(/$gt;/g, '>');
+}
