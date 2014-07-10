@@ -3,6 +3,11 @@ Meteor.startup(function(){
 });
 
 Template.contributeLSI.events = {
+	'keydown':function(event){
+		if(event.which()===9){
+			event.preventDefault();
+		}
+	},
 	'change select[name=language]': function(event,template){
 		Session.set('submitLanguage',event.currentTarget.value);
 	},
