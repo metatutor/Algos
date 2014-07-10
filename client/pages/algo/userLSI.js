@@ -171,3 +171,11 @@ Template.userLSI.getUserName = function(){
 function escapeHTML(s) {
 	return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
+
+function unEscapeHTML(s) {
+	return s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/$lt;/g, '<').replace(/$gt;/g, '>');
+}
+
+Template.userLSI.getCode = function(obj){
+	return unEscapeHTML(obj.Code);
+}

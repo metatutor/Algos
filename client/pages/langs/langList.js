@@ -139,7 +139,10 @@ Template.langList.getCodeForLang = function(){
 	if(lang===undefined){
 		return;
 	}
-	return LSIs.find({Language:lang.Name}).fetch();
+	var list = _.sortBy(LSIs.find({Language:lang.Name}).fetch(),function(obj){
+		return obj.When;
+	});
+	return list.reverse();
 }
 
 Template.langList.getUserName = function(){
@@ -168,4 +171,12 @@ Template.langList.getWarning = function(){
 
 function escapeHTML(s) {
 	return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function unEscapeHTML(s) {
+	return s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/$lt;/g, '<').replace(/$gt;/g, '>');
+}
+
+Template.langList.getCode = function(obj){
+	return unEscapeHTML(obj.Code);
 }
