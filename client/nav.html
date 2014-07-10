@@ -32,13 +32,15 @@
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="{{pathFor 'users'}}">Profile</a></li>
 						<li><a href="#" data-toggle="modal" data-target="#inboxModal">Notifications <span class="badge">{{ > getMessageCount}}</span></a></li>
-						<li><div class="navbar-btn">{{ > loginButtons}}</div></li>
+						<li><div class="navbar-btn loginPad">{{ > loginButtons}}</div></li>
 					</ul>
 				</li>
 			</ul>
 			{{/with}}
 			{{else}}
-			<div class="navbar-btn">{{ > loginButtons}}</div>
+			<ul class="nav navbar-nav navbar-right">
+				<div class="navbar-btn">{{ > loginButtons}}</div>
+			</ul>
 			{{/if}}
 		</div>
 	</div>
