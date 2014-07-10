@@ -37,7 +37,7 @@ Template.contributeAlgo.events = {
 			Sender: "Thanks for the submission!",
 			Text: "The community just got a little better!"
 		}
-		Meteor.call('sendNotification',Meteor.user().username,message);
+		Meteor.call('sendNotification',Meteor.user()._id,message);
 		Router.go('pedia',{_id:aid});
 		$('#algoModal').modal('hide');
 	},

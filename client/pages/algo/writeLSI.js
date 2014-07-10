@@ -4,7 +4,7 @@ Meteor.startup(function(){
 
 Template.contributeLSI.events = {
 	'keydown':function(event){
-		if(event.which()===9){
+		if(event.which===9){
 			event.preventDefault();
 		}
 	},

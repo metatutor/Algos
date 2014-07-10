@@ -15,3 +15,11 @@ Template.nav.userID = function(){
 	}
 	return {_id:Meteor.user()._id};
 }
+
+Template.nav.getName = function(){
+	var user = Meteor.user();
+	if(user===undefined){
+		return;
+	}
+	return user.profile.firstname+' '+user.profile.lastname;
+}

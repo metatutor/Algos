@@ -13,6 +13,11 @@ Template.wikiPage.getUserByAlgo = function(algo){
 }
 
 Template.wikiPage.events = {
+	'keydown':function(event){
+		if(event.which===9){
+			event.preventDefault();
+		}
+	},
 	'click button[name=editDesc]': function(event,template){
 		var text = template.find('textarea[name=updater]').value;
 		var algoDoc = Session.get("lastAlgoSearch");

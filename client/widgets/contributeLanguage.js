@@ -33,7 +33,7 @@ Template.contributeLang.events = {
 			Sender: "Thanks for the submission!",
 			Text: "The community just got a little better!"
 		}
-		Meteor.call('sendNotification',Meteor.user().username,message);
+		Meteor.call('sendNotification',Meteor.user()._id,message);
 	},
 	'click button[name=dismissal]':function(){
 		Session.set('duplicationWarningLang',0);
