@@ -20,9 +20,8 @@ Meteor.publish('codeByLang',function(langSlug){
 	return LSIs.find({Language:lang.Name});
 });
 
-Meteor.publish('getUserAlgos',function(username){
-	var user = Meteor.users.findOne({username:username});
-	return AlgoPedia.find({Contributor:user._id});
+Meteor.publish('getUserAlgos',function(uid){
+	return AlgoPedia.find({Contributor:uid});
 });
 
 Meteor.publish('getAlgosByReg',function(query){
@@ -47,10 +46,9 @@ Meteor.publish('getComments',function(lsi){
 });
 
 Meteor.publish('getAllUsers',function(){
-	return Meteor.users.find({},{fields: {profile:1,username:1,_id:1}});
+	return Meteor.users.find({},{fields: {profile:1,_id:1}});
 });
 
-Meteor.publish('getUserCode',function(username){
-	var user = Meteor.users.findOne({username:username});
-	return LSIs.find({Contributor:user._id});
+Meteor.publish('getUserCode',function(uid){
+	return LSIs.find({Contributor:uid});
 });

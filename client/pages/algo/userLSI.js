@@ -47,8 +47,7 @@ Template.userLSI.events = {
 			Text: 'Click here to see the comment!',
 			Sender: 'Comment on your code!'
 		}
-		Meteor.call('sendNotification',Meteor.users.findOne({_id:this.Contributor}).username,message);
-		checkMentions(text);
+		Meteor.call('sendNotification',this.Contributor,message);
 	},
 	'click button[name=plus]':function(){
 		var LiD = Session.get('lsiSelected');
@@ -161,26 +160,12 @@ Template.userLSI.getWarningText = function(){
 	}
 }
 
-var checkMentions = function(text){
-	var textray = text.replace( /\n/g, ' ').split(' ');
-	var users = [];
-	for(var i = 0;i<textray.length;i++){
-		var block = textray[i];
-		if((block.charAt(0)==="@")&&(block.length>1)){
-			var message = {};
-			message.Sender = "You've been mentioned!";
-			message.Text = "Click here to see comment";
-			Meteor.call('sendNotification',block.replace(/@/,''),message);
-		}
-	}
-}
-
-Template.userLSI.getUsername = function(){
+Template.userLSI.getUserName = function(){
 	var user = Meteor.users.findOne({_id:this.Contributor});
 	if(user===undefined){
 		return "Nameless";
 	}
-	return user.username;
+	return user.profile.firstname+' '+user.profile.lastname;
 }
 
 function escapeHTML(s) {

@@ -29,7 +29,7 @@ Meteor.methods({
 				Sender: "You have a new award!",
 				Text: "You earned 'Scholar' for your algorithm submissions!"
 			}
-			Meteor.call('sendNotification',user.username,message);
+			Meteor.call('sendNotification',uid,message);
 		}
 		else{
 			if(user.profile.algorithmContributions.length>20){
@@ -44,7 +44,7 @@ Meteor.methods({
 					Sender: "You have a new award!",
 					Text: "You earned 'Author' for your algorithm submissions!"
 				}
-				Meteor.call('sendNotification',user.username,message);
+				Meteor.call('sendNotification',uid,message);
 			}
 			else{
 				if(user.profile.algorithmContributions.length>5){
@@ -59,7 +59,7 @@ Meteor.methods({
 						Sender: "You have a new award!",
 						Text: "You earned 'Bookworm' for your algorithm submissions!"
 					}
-					Meteor.call('sendNotification',user.username,message);
+					Meteor.call('sendNotification',uid,message);
 				}
 			}
 		}

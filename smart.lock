@@ -5,15 +5,14 @@
       "iron-router": {},
       "font-awesome": {},
       "moment": {},
-      "postgresql": {},
       "external-file-loader": {},
       "bootstrap-3": {},
-      "epic-editor": {},
       "underscore-string-latest": {},
-      "accounts-ui-bootstrap-3": {},
       "pagedown-bootstrap": {},
       "typeahead": {},
-      "natural": {}
+      "natural": {},
+      "accounts-ui-bootstrap-dropdown": {},
+      "accounts-ui-bs3-and-blaze": {}
     },
     "packages": {
       "iron-router": {
@@ -31,11 +30,6 @@
         "tag": "v2.6.0",
         "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
       },
-      "postgresql": {
-        "git": "https://github.com/austinrivas/meteor-postgresql",
-        "tag": "v2.11.3",
-        "commit": "f2d43b1a5b57c67ca1546c3a67535e89d791cb2b"
-      },
       "external-file-loader": {
         "git": "https://github.com/davidd8/meteor-external-file-loader.git",
         "tag": "v0.1.4",
@@ -46,20 +40,10 @@
         "tag": "v3.2.0-1",
         "commit": "17a63902fc6cf1096c5289d963c66cf28b474727"
       },
-      "epic-editor": {
-        "git": "https://github.com/alanmeira/meteor-epic-editor",
-        "tag": "v0.3.1",
-        "commit": "879ee425c8138fdd3e57c1ac27c7427ba90df0ba"
-      },
       "underscore-string-latest": {
         "git": "https://github.com/TimHeckel/meteor-underscore-string.git",
         "tag": "v2.3.3",
         "commit": "4a5d70eee48fbd90a6e6fc78747250d704a0b3bb"
-      },
-      "accounts-ui-bootstrap-3": {
-        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
-        "tag": "v0.3.3",
-        "commit": "2e50b605d8d5ed68e48c4529a65f13552d8af3f9"
       },
       "pagedown-bootstrap": {
         "git": "https://github.com/Blahah/meteor-pagedown-bootstrap.git",
@@ -75,6 +59,16 @@
         "git": "https://github.com/pent/meteor-natural.git",
         "tag": "v1.0.1",
         "commit": "632d9c2278ba9e7d3e278cc69c68b4def9cf3155"
+      },
+      "accounts-ui-bootstrap-dropdown": {
+        "git": "https://github.com/erobit/meteor-accounts-ui-bootstrap-dropdown.git",
+        "tag": "v0.8.3",
+        "commit": "a7af8a52e4e74db020a69b158a8f992797b8b0b0"
+      },
+      "accounts-ui-bs3-and-blaze": {
+        "git": "https://github.com/jzgoda/meteor-accounts-ui-bootstrap-3-and-blaze",
+        "tag": "v0.4.2",
+        "commit": "311530aecf2e9af74d990140c7f6d072077b679c"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

@@ -21,7 +21,7 @@ Meteor.methods({
 				Sender: "You have a new award!",
 				Text: "You earned 'Hyper-Active Citizen' for your code submissions!"
 			}
-			Meteor.call('sendNotification',user.username,message);
+			Meteor.call('sendNotification',userid,message);
 		}
 		else{
 			if(user.profile.codeContributions.length>20){
@@ -36,7 +36,7 @@ Meteor.methods({
 					Sender: "You have a new award!",
 					Text: "You earned 'Super-Active Citizen' for your code submissions!"
 				}
-				Meteor.call('sendNotification',user.username,message);
+				Meteor.call('sendNotification',userid,message);
 			}
 			else{
 				if(user.profile.codeContributions.length>5){
@@ -51,7 +51,7 @@ Meteor.methods({
 						Sender: "You have a new award!",
 						Text: "You earned 'Active Citizen' for your code submissions!"
 					}
-					Meteor.call('sendNotification',user.username,message);
+					Meteor.call('sendNotification',userid,message);
 				}
 			}
 		}

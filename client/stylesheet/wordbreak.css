@@ -5,3 +5,23 @@ pre {
 textarea {
 	word-break:keep-all;
 }
+
+.smallBlock {
+	height:300px;
+	overflow:hidden;
+	background-color: #f8f8f8;
+	border-radius: 4px;
+	margin-top: 24px;
+	padding-top: 4px;
+	margin-bottom: 16px;
+	border: 3px solid #f6f6f6;
+}
+
+.langCode {
+	border-radius: 4px;
+	margin-top: 24px;
+	padding-top: 4px;
+	margin-bottom: 16px;
+	background-color: #f8f8f8;
+	border: 3px solid #f6f6f6;
+}

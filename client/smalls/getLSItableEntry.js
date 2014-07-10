@@ -41,10 +41,10 @@ Template.lsiTableEntry.getPoints = function(){
 	return +(this.Approve.length - this.Disapprove.length);
 }
 
-Template.lsiTableEntry.getUsername = function(){
+Template.lsiTableEntry.getUserName = function(){
 	var user = Meteor.users.findOne({_id:this.Contributor});
 	if(user===undefined){
 		return "Nameless";
 	}
-	return user.username;
+	return user.profile.firstname+' '+user.profile.lastname;
 }

@@ -28,7 +28,7 @@ Router.map(function(){
 		onBeforeAction: function(pause){
 			this.subscribe('getUserCode',this.params._id).wait();
 			this.subscribe('getUserAlgos',this.params._id).wait();
-			var uDoc = Meteor.users.findOne({username:this.params._id});
+			var uDoc = Meteor.users.findOne({_id:this.params._id});
 			Session.set('lastUserSearch',uDoc);
 			if(Session.equals('lastUserSearch',undefined)){
 				pause();

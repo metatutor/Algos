@@ -3,14 +3,13 @@
     "iron-router": {},
     "font-awesome": {},
     "moment": {},
-    "postgresql": {},
     "external-file-loader": {},
     "bootstrap-3": {},
-    "epic-editor": {},
     "underscore-string-latest": {},
-    "accounts-ui-bootstrap-3": {},
     "pagedown-bootstrap": {},
     "typeahead": {},
-    "natural": {}
+    "natural": {},
+    "accounts-ui-bootstrap-dropdown": {},
+    "accounts-ui-bs3-and-blaze": {}
   }
 }

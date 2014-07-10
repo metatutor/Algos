@@ -5,10 +5,10 @@ Template.getChanges.change = function(){
 	return list.reverse();
 }
 
-Template.getChanges.getUsername = function(){
+Template.getChanges.getUserName = function(){
 	var user = Meteor.users.findOne({_id:this.Contributor});
 	if(user===undefined){
 		return "Nameless";
 	}
-	return user.username;
+	return user.profile.firstname+' '+user.profile.lastname;
 }

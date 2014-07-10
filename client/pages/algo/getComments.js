@@ -21,5 +21,5 @@ Template.getComments.getUsername = function(){
 	if(user===undefined){
 		return "Nameless";
 	}
-	return user.username;
+	return user.profile.firstname+' '+user.profile.lastname;
 }

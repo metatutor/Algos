@@ -5,26 +5,26 @@ Meteor.startup(function(){
 Template.langList.events = {
 	'click button[name=plusLang]':function(){
 		var LiD = this._id;
-		if(approvalGiven(this,Meteor.user().username)){
-			Meteor.call('unapprove',Meteor.user().username,LiD, this.Contributor);
+		if(approvalGiven(this,Meteor.user()._id)){
+			Meteor.call('unapprove',Meteor.user()._id,LiD, this.Contributor);
 		}
 		else{
-			if(disapprovalGiven(this,Meteor.user().username)){
-				Meteor.call('undisapprove',Meteor.user().username,LiD, this.Contributor);
+			if(disapprovalGiven(this,Meteor.user()._id)){
+				Meteor.call('undisapprove',Meteor.user()._id,LiD, this.Contributor);
 			}
-			Meteor.call('approve',Meteor.user().username,LiD, this.Contributor);
+			Meteor.call('approve',Meteor.user()._id,LiD, this.Contributor);
 		}
 	},
 	'click button[name=minusLang]':function(){
 		var LiD = this._id;
-		if(disapprovalGiven(this, Meteor.user().username)){
-			Meteor.call('undisapprove',Meteor.user().username,LiD, this.Contributor);
+		if(disapprovalGiven(this, Meteor.user()._id)){
+			Meteor.call('undisapprove',Meteor.user()._id,LiD, this.Contributor);
 		}
 		else{
-			if(approvalGiven(this, Meteor.user().username)){
-				Meteor.call('unapprove',Meteor.user().username,LiD, this.Contributor);
+			if(approvalGiven(this, Meteor.user()._id)){
+				Meteor.call('unapprove',Meteor.user()._id,LiD, this.Contributor);
 			}
-			Meteor.call('disapprove',Meteor.user().username,LiD, this.Contributor);
+			Meteor.call('disapprove',Meteor.user()._id,LiD, this.Contributor);
 		}
 	},
 	'click button[name=visitLang]':function(){
@@ -93,30 +93,30 @@ Template.langList.getPoints = function(){
 }
 
 Template.langList.getAlert = function(){
-	if(disapprovalGiven(this,Meteor.user().username)){
+	if(disapprovalGiven(this,Meteor.user()._id)){
 		return "alert-danger";
 	}
-	if(approvalGiven(this,Meteor.user().username)){
+	if(approvalGiven(this,Meteor.user()._id)){
 		return "alert-success";
 	}
 	return "";
 }
 
 Template.langList.getLikeStatus = function(){
-	if(disapprovalGiven(this,Meteor.user().username)){
+	if(disapprovalGiven(this,Meteor.user()._id)){
 		return "Like";
 	}
-	if(approvalGiven(this,Meteor.user().username)){
+	if(approvalGiven(this,Meteor.user()._id)){
 		return "Undo Like";
 	}
 	return "Like";
 }
 
 Template.langList.getDislikeStatus = function(){
-	if(disapprovalGiven(this,Meteor.user().username)){
+	if(disapprovalGiven(this,Meteor.user()._id)){
 		return "Undo Dislike";
 	}
-	if(approvalGiven(this,Meteor.user().username)){
+	if(approvalGiven(this,Meteor.user()._id)){
 		return "Dislike";
 	}
 	return "Dislike";
@@ -142,12 +142,12 @@ Template.langList.getCodeForLang = function(){
 	return LSIs.find({Language:lang.Name}).fetch();
 }
 
-Template.langList.getUsername = function(){
+Template.langList.getUserName = function(){
 	var user = Meteor.users.findOne({_id:this.Contributor});
 	if(user===undefined){
 		return "Nameless";
 	}
-	return user.username;
+	return user.profile.firstname+' '+user.profile.lastname;
 }
 
 Template.langList.isWarning = function(){
