@@ -25,3 +25,5 @@ Template.blockUserLarge.hasAwards = function(user){
 	}
 	return user.profile.awards.length;
 }
+
+

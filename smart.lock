@@ -7,7 +7,8 @@
       "moment": {},
       "bootstrap-3": {},
       "underscore-string-latest": {},
-      "pagedown-bootstrap": {}
+      "pagedown-bootstrap": {},
+      "accounts-ui-bootstrap-3": {}
     },
     "packages": {
       "iron-router": {
@@ -39,6 +40,11 @@
         "git": "https://github.com/Blahah/meteor-pagedown-bootstrap.git",
         "tag": "v0.0.4",
         "commit": "1ebc5c2b374da9362ab92cd485642e32e70b9369"
+      },
+      "accounts-ui-bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
+        "tag": "v0.3.3",
+        "commit": "2e50b605d8d5ed68e48c4529a65f13552d8af3f9"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
