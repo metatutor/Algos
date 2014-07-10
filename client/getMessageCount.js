@@ -1,7 +1,7 @@
 Template.getMessageCount.getMessages = function(){
-	return Meteor.user().inbox.length;
+	return Meteor.user().profile.inbox.length;
 }
 
 Template.getMessageCount.canGet = function(){
-	return Meteor.user().hasOwnProperty('inbox');
+	return Meteor.user().profile.hasOwnProperty('inbox');
 }
