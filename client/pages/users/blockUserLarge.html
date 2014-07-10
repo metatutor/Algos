@@ -2,15 +2,19 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="thumbnail">
-				<img data-src="{{getPicture}}" alt="no picture">
+				<img data-src="{{getPicture}}" alt="...">
 				<div class="caption">
 					<h3>{{ > getUsersName this}}</h3>
 					<h5>{{ > getUsersEmail this }}</h5>
 					<h5>{{getPoints this}}</h5>
 					<h4>Awards</h4>
+					{{#if hasAwards this}}
 					{{#each awards this}}
 					<h6>{{this}}</h6>
 					{{/each}}
+					{{else}}
+					<h6>None, yet.</h6>
+					{{/if}}
 				</div>
 			</div>
 		</div>

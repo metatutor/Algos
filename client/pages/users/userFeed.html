@@ -1,11 +1,11 @@
 <template name="userFeed">
 	{{#if hasContributions}}
 	<div class="row">
-		<div class="col-md-7 thumbnail">
+		<div class="col-md-6 col-md-offset-1">
 		<h5 style="text-align:center">Code</h5>
 		{{#each code}}
 		{{#with getCode this}}
-			<div class="row">
+			<div class="row langCode">
 				<div class="col-md-12">
 					<div class="row">
 						<div class="col-md-12">
@@ -27,17 +27,19 @@
 		{{/with}}
 		{{/each}}
 		</div>
-		<div class="col-md-5 thumbnail">
+		<div class="col-md-3 col-md-offset-1">
 		<h5 style="text-align:center">Algorithms</h5>
 		{{#each algo}}
 		{{#with getAlgo this}}
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12 smallBlock">
 				{{ > blockAlgoSmall this}}
 				</div>
 			</div>
 		{{/with}}
 		{{/each}}
+		</div>
+		<div class="col-md-1">
 		</div>
 	</div>
 	{{else}}
