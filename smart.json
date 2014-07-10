@@ -3,13 +3,8 @@
     "iron-router": {},
     "font-awesome": {},
     "moment": {},
-    "external-file-loader": {},
     "bootstrap-3": {},
     "underscore-string-latest": {},
-    "pagedown-bootstrap": {},
-    "typeahead": {},
-    "natural": {},
-    "accounts-ui-bootstrap-dropdown": {},
-    "accounts-ui-bs3-and-blaze": {}
+    "pagedown-bootstrap": {}
   }
 }
