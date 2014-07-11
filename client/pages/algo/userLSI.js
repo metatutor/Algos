@@ -42,9 +42,10 @@ Template.userLSI.events = {
 			Contributor: author
 		};
 		template.find('textarea[name=comment]').value="";
+		var aid = Session.get('lastAlgoSearch');
 		Meteor.call('logComment',obj);
 		var message = {
-			Text: 'Somebody has commented on your submission: '+context,
+			Text: 'Somebody has commented on your submission: <a href="http://algos.io/pedia/'+aid.AiD+'/showAll/'+context+'">here</a>',
 			Sender: 'Comment on your code!'
 		}
 		Meteor.call('sendNotification',this.Contributor,message);

@@ -13,7 +13,7 @@ Meteor.methods({
 			Meteor.users.update({
 				_id:userid
 			},{
-				$push:{
+				$addToSet:{
 					'profile.awards':"Hyper-Active Citizen"
 				}
 			});
@@ -28,7 +28,7 @@ Meteor.methods({
 				Meteor.users.update({
 					_id:userid
 				},{
-					$push:{
+					$addToSet:{
 						'profile.awards':"Super-Active Citizen"
 					}
 				});
@@ -43,7 +43,7 @@ Meteor.methods({
 					Meteor.users.update({
 						_id:userid
 					},{
-						$push:{
+						$addToSet:{
 							'profile.awards':"Active Citizen"
 						}
 					});

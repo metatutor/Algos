@@ -21,7 +21,7 @@ Meteor.methods({
 			Meteor.users.update({
 				_id:uid
 			},{
-				$push:{
+				$addToSet:{
 					"profile.awards":"Scholar"
 				}
 			});
@@ -36,7 +36,7 @@ Meteor.methods({
 				Meteor.users.update({
 					_id:uid
 				},{
-					$push:{
+					$addToSet:{
 						"profile.awards":"Author"
 					}
 				});
@@ -51,7 +51,7 @@ Meteor.methods({
 					Meteor.users.update({
 						_id:uid
 					},{
-						$push:{
+						$addToSet:{
 							"profile.awards":"Bookworm"
 						}
 					});
