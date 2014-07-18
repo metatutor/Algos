@@ -5,33 +5,24 @@ Meteor.startup(function(){
 Template.contributeAlgo.events = {
 	'click button[name=submitAlgo]': function(event,template){
 		event.preventDefault();
-		var name = template.find("input[name=algoName]").value;
+		var name = template.find("input[name=algoName]");
+		var wLink = name.value;
 		var keywords = getKWarray(template.find("input[name=keywords]").value);
-		var aid = _.slugify(name);
-		var Short = template.find("textarea[name=description]").value;
-		if(!(Match.test(name,String))){
-			return;
-		}
-		if(!(Match.test(Short,String))){
-			return;
-		}
-		if(!(Match.test(keywords,[String]))){
-			return;
-		}
-		var dupes = getDuplications(name,aid,keywords,Short);
+		var aid = _.slugify(name.value);
+		var dupes = getDuplications(name.value,aid,keywords);
 		Session.set("duplicationWarning",dupes);
 		if(dupes>0){
 			return;
 		}
+		console.log(wLink);
 		var algoObject = {
+			WikiName: encodeURIComponent(wLink),
 			AiD: aid,
-			Name: escapeHTML(name),
-			Short: escapeHTML(Short),
+			Name: _.escapeHTML(name.value),
 			KeyWords: keywords
 		}
 		template.find("input[name=algoName]").value="";
 		template.find("input[name=keywords]").value="";
-		template.find("textarea[name=description]").value="";
 		Meteor.call('uploadDoc',algoObject,Meteor.user()._id);
 		var message = {
 			Sender: "Thanks for the submission!",
@@ -56,41 +47,27 @@ Template.contributeAlgo.getWarning = function(){
 	switch(warning){
 		case 1:
 			return "Name already exists. Please check for duplicates in database.";
-		case 2:
-			return "AiD already exists. Please check for duplicates in database.";
-		case 3:
-			return "AiD and Name match another algorithm. Please check for duplicates in database.";
 		case 4:
 			return "Please enter a valid name.";
 		case 5: 
 			return "Please enter at least 3 key words. These help find the algorithm later.";
-		case 6:
-			return "Please write a short description. This helps identify algorithm entries!";
-		case 7: 
-			return "Please limit the 'Short' to 200 characters.";
 		case 8: 
 			return "That name is too long!";
 		case 9:
 			return "Please use fewer keywords.";
 		default:
-			return "Something went horribly wrong. Notifying proper authority.";
+			return "Something went horribly wrong. Notifying robot handyman.";
 	}
 }
 
-var getDuplications = function(name,aid,keywords,Short){
+var getDuplications = function(name,aid,keywords){
 	if(keywords.length<3){
 		return 5;
 	}
 	if(_.isBlank(name)){
 		return 4;
 	}
-	if(_.isBlank(Short)){
-		return 6;
-	}
-	if(Short.length>200){
-		return 7;
-	}
-	if(name.length>30){
+	if(name.length>80){
 		return 8;
 	}
 	if(keywords.length>15){
@@ -99,23 +76,16 @@ var getDuplications = function(name,aid,keywords,Short){
 	var nameCount = AlgoPedia.find({Name:name}).count();
 	var aidCount = AlgoPedia.find({AiD:aid}).count();
 	if(nameCount>0){
-		if(aidCount>0){
-			return 3;
-		}
 		return 1;
 	}
 	if(aidCount>0){
-		return 2;
+		return 1;
 	}
 	return 0;
 }
 
 var getKWarray = function(list){
-	list = escapeHTML(list);
+	list = _.escapeHTML(list);
 	list = list.toLowerCase();
 	return list.replace(/\s+/g, '').split(',');
-}
-
-function escapeHTML(s) { 
-return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }

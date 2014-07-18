@@ -1,13 +1,14 @@
 Meteor.methods({
 	uploadDoc:function(docObject,uid){
+		var str = docObject.WikiName;
+		var res = EJSON.parse(HTTP.get('http://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exlimit=1&indexpageids=&titles='+str).content);
 		AlgoPedia.insert({
 			AiD: docObject.AiD,
 			Name: docObject.Name,
-			Short: docObject.Short,
 			Contributor: uid,
 			KeyWords: docObject.KeyWords,
 			When: moment().unix(),
-			Description:""
+			Description:res.query.pages[res.query.pageids[0]].extract
 		});
 		Meteor.users.update({
 			_id:uid

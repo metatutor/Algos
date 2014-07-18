@@ -1,6 +1,6 @@
 Template.algoWikiBare.getWiki = function(){
-	if(_.isBlank(this.Wiki)){
+	if(_.isBlank(this.Description)){
 		return "No information provided yet for this algorithm.";
 	}
-	return this.Wiki;
+	return this.Description;
 }
