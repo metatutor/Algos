@@ -12,7 +12,7 @@ Router.map(function(){
 		path:'/guidelines',
 		template:'guidelines'
 	});
-	this.route('pedia',{
+	this.route('pediaHome',{
 		path: '/pedia',
 		template:'pedia',
 		onBeforeAction: function(pause){
