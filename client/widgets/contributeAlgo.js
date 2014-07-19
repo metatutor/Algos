@@ -6,16 +6,17 @@ Template.contributeAlgo.events = {
 	'click button[name=submitAlgo]': function(event,template){
 		event.preventDefault();
 		var name = template.find("input[name=algoName]");
+		var Short = template.find("textarea[name=shortenter]").value;
 		var wLink = name.value;
 		var keywords = getKWarray(template.find("input[name=keywords]").value);
 		var aid = _.slugify(name.value);
-		var dupes = getDuplications(name.value,aid,keywords);
+		var dupes = getDuplications(name.value,aid,keywords,Short);
 		Session.set("duplicationWarning",dupes);
 		if(dupes>0){
 			return;
 		}
-		console.log(wLink);
 		var algoObject = {
+			Short: Short,
 			WikiName: encodeURIComponent(wLink),
 			AiD: aid,
 			Name: _.escapeHTML(name.value),
@@ -23,6 +24,7 @@ Template.contributeAlgo.events = {
 		}
 		template.find("input[name=algoName]").value="";
 		template.find("input[name=keywords]").value="";
+		template.find("textarea[name=shortenter]").value="";
 		Meteor.call('uploadDoc',algoObject,Meteor.user()._id);
 		var message = {
 			Sender: "Thanks for the submission!",
@@ -47,6 +49,10 @@ Template.contributeAlgo.getWarning = function(){
 	switch(warning){
 		case 1:
 			return "Name already exists. Please check for duplicates in database.";
+		case 2:
+			return "Please enter a short description. You may copy this from Wikipedia.";
+		case 3:
+			return "Please use fewer than 200 characters in the description.";
 		case 4:
 			return "Please enter a valid name.";
 		case 5: 
@@ -60,7 +66,13 @@ Template.contributeAlgo.getWarning = function(){
 	}
 }
 
-var getDuplications = function(name,aid,keywords){
+var getDuplications = function(name,aid,keywords,Short){
+	if(_.isBlank(Short)){
+		return 2;
+	}
+	if(Short.length>200){
+		return 3;
+	}
 	if(keywords.length<3){
 		return 5;
 	}

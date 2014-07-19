@@ -57,3 +57,7 @@ Meteor.publish('getAlgosByName',function(query){
 	var queryMod = new RegExp(query);
 	return AlgoPedia.find({Name: { $regex: queryMod}});
 });
+
+Meteor.publish('getAllAlgos',function(){
+	return AlgoPedia.find();
+});

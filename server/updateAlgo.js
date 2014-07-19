@@ -3,6 +3,7 @@ Meteor.methods({
 		var str = docObject.WikiName;
 		var res = EJSON.parse(HTTP.get('http://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&exlimit=1&indexpageids=&titles='+str).content);
 		AlgoPedia.insert({
+			Short: docObject.Short,
 			AiD: docObject.AiD,
 			Name: docObject.Name,
 			Contributor: uid,

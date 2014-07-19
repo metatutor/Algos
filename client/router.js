@@ -12,8 +12,24 @@ Router.map(function(){
 		path:'/guidelines',
 		template:'guidelines'
 	});
+	this.route('pedia',{
+		path: '/pedia',
+		template:'pedia',
+		onBeforeAction: function(pause){
+			this.subscribe('getAllAlgos');
+			Session.set('pediaAiD',"");
+		}
+	});
+	this.route('pediaSpecific',{
+		path: '/pedia/:_id',
+		template:'pedia',
+		onBeforeAction: function(pause){
+			this.subscribe('getAllAlgos');
+			this.subscribe('codeByAlgo',this.params._id);
+			Session.set('pediaAiD',this.params._id);
+		}
+	});
 	this.route('langs',{
-		path: '/langs',
 		template: 'langList',
 		onBeforeAction: function(pause){
 			Session.set('langPageLang',"");
