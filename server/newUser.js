@@ -13,7 +13,7 @@ Accounts.onCreateUser(function(options,user){
 	}
 	if(user.services.github){
 		user.profile = {
-			name: user.services.github.name,
+			name: options.profile.name,
 			email: user.services.github.email,
 			picture: null,
 			inbox: [],

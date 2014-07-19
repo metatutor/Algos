@@ -7,25 +7,21 @@ Template.nav.events = {
 		event.preventDefault();
 		Meteor.call('deleteInbox',Meteor.user()._id);
 	},
-	'click button[name=github]':function(event,template){
+	'click a[name=github]':function(event,template){
 		event.preventDefault();
-		if(Meteor.user()){
-			Meteor.logout();
-			return;
-		}
 		Meteor.loginWithGithub(function(err){
 			console.log(err);
 		});
 	},
-	'click button[name=google]':function(event,template){
+	'click a[name=google]':function(event,template){
 		event.preventDefault();
-		if(Meteor.user()){
-			Meteor.logout();
-			return;
-		}
 		Meteor.loginWithGoogle(function(err){
 			console.log(err);
 		});
+	},
+	'click a[name=logout]':function(event,template){
+		event.preventDefault();
+		Meteor.logout();
 	}
 }
 
@@ -41,5 +37,5 @@ Template.nav.getName = function(){
 	if(user===undefined){
 		return;
 	}
-	return user.profile.firstname+' '+user.profile.lastname;
+	return user.profile.name;
 }

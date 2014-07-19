@@ -28,12 +28,18 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{#if currentUser}}<span class="badge">{{ > getMessageCount}}</span> {{getName}}{{else}}Sign in/up{{/if}}<span class="caret"></span></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{#if currentUser}}<span class="badge">{{ > getMessageCount}}</span> {{getName}}{{else}}Log in/Sign up{{/if}}<span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
+						{{#if currentUser}}
+						{{#with userID}}
 						<li><a href="{{pathFor 'users'}}">Profile</a></li>
+						{{/with}}
 						<li><a href="#" data-toggle="modal" data-target="#inboxModal">Notifications <span class="badge">{{ > getMessageCount}}</span></a></li>
-						<li><button class="navbar-btn loginPad" name="github">Github</button></li>
-						<li><button class="navbar-btn loginPad" name="google">Google</button></li>
+						<li><a href="#" name="logout">Log out</a></li>
+						{{else}}
+						<li><a href="#" name="github">Login with Github</a></li>
+						<li><a href="#" name="google">Login with Google</a></li>
+						{{/if}}
 					</ul>
 				</li>
 			</ul>
