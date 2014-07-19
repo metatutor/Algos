@@ -3,5 +3,8 @@ Template.getMessageCount.getMessages = function(){
 }
 
 Template.getMessageCount.canGet = function(){
-	return Meteor.user().hasOwnProperty('inbox');
+	if(Meteor.user()){
+		return Meteor.user().hasOwnProperty('inbox');
+	}
+	return;
 }

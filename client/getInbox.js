@@ -7,5 +7,8 @@ Template.getInbox.message = function(){
 }
 
 Template.getInbox.canGet = function(){
-	return Meteor.user().hasOwnProperty('inbox');
+	if(Meteor.user()!=null){
+		return Meteor.user().hasOwnProperty('inbox');
+	}
+	return;
 }

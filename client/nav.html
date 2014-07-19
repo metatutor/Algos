@@ -26,24 +26,17 @@
 					</ul>
 				</li>
 			</ul>
-			{{#if currentUser}}
-			{{#with userID}}
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{#if currentUser}}<span class="badge">{{ > getMessageCount}}</span> {{getName}}{{else}}Sign in/up{{/if}}<span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="{{pathFor 'users'}}">Profile</a></li>
 						<li><a href="#" data-toggle="modal" data-target="#inboxModal">Notifications <span class="badge">{{ > getMessageCount}}</span></a></li>
-						<li><div class="navbar-btn loginPad">{{ > loginButtons}}</div></li>
+						<li><button class="navbar-btn loginPad" name="github">Github</button></li>
+						<li><button class="navbar-btn loginPad" name="google">Google</button></li>
 					</ul>
 				</li>
 			</ul>
-			{{/with}}
-			{{else}}
-			<ul class="nav navbar-nav navbar-right">
-				<div class="navbar-btn">{{ > loginButtons}}</div>
-			</ul>
-			{{/if}}
 		</div>
 	</div>
 </nav>
