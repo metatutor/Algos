@@ -5,6 +5,7 @@
     "moment": {},
     "bootstrap-3": {},
     "underscore-string-latest": {},
-    "pagedown-bootstrap": {}
+    "pagedown-bootstrap": {},
+    "crypto-md5": {}
   }
 }

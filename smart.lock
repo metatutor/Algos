@@ -7,7 +7,8 @@
       "moment": {},
       "bootstrap-3": {},
       "underscore-string-latest": {},
-      "pagedown-bootstrap": {}
+      "pagedown-bootstrap": {},
+      "crypto-md5": {}
     },
     "packages": {
       "iron-router": {
@@ -40,6 +41,11 @@
         "tag": "v0.0.4",
         "commit": "1ebc5c2b374da9362ab92cd485642e32e70b9369"
       },
+      "crypto-md5": {
+        "git": "https://github.com/oortcloud/meteor-crypto-md5.git",
+        "tag": "v3.1.2.2",
+        "commit": "75bbb3eeace302122d3554a6212a6fe92553fa18"
+      },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
         "tag": "v0.2.4",
@@ -49,6 +55,11 @@
         "git": "https://github.com/chuangbo/meteor-marked.git",
         "tag": "v0.3.2",
         "commit": "850f63135cdeb05344c420bd586fd8af9cab75df"
+      },
+      "crypto-base": {
+        "git": "https://github.com/oortcloud/meteor-crypto-base.git",
+        "tag": "v3.1.2.1",
+        "commit": "5df8d82a0595553415bbfae2930c6ecbeece5794"
       }
     }
   }

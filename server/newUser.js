@@ -12,10 +12,12 @@ Accounts.onCreateUser(function(options,user){
 		}
 	}
 	if(user.services.github){
+		var hash = CryptoJS.MD5(user.services.github.email);
+		var img = 'http://www.gravatar.com/avatar/'+hash+'?s=500&d=retro';
 		user.profile = {
 			name: options.profile.name,
 			email: user.services.github.email,
-			picture: null,
+			picture: img,
 			inbox: [],
 			algorithmContributions: [],
 			codeContributions: [],
