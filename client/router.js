@@ -13,7 +13,7 @@ Router.map(function(){
 		template:'guidelines'
 	});
 	this.route('pediaHome',{
-		path: '/pedia',
+		path: '/algos',
 		template:'pedia',
 		onBeforeAction: function(pause){
 			this.subscribe('getAllAlgos');
@@ -21,7 +21,7 @@ Router.map(function(){
 		}
 	});
 	this.route('pediaSpecific',{
-		path: '/pedia/:_id',
+		path: '/algos/:_id',
 		template:'pedia',
 		onBeforeAction: function(pause){
 			this.subscribe('getAllAlgos');
