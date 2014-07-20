@@ -14,7 +14,7 @@ Accounts.onCreateUser(function(options,user){
 	}
 	if(user.services.github){
 		var hash = CryptoJS.MD5(user.services.github.email);
-		var img = 'http://www.gravatar.com/avatar/'+hash+'?s=500&d=retro';
+		var img = 'http://www.gravatar.com/avatar/'+hash+'.jpg?s=500&d=retro';
 		user.profile = {
 			firstname: options.profile.name,
 			lastname: "",

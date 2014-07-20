@@ -16,5 +16,14 @@ Meteor.methods({
 				inbox:[]
 			}
 		});
+	},
+	kill:function(uid,pic){
+		Meteor.users.update({
+			_id:uid
+		},{
+			$set:{
+				'profile.picture':pic
+			}
+		});
 	}
 });

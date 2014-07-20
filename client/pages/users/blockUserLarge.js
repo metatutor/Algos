@@ -16,6 +16,7 @@ Template.blockUserLarge.getPicture = function(user){
 	if(user===undefined){
 		return;
 	}
+	console.log(user.profile.picture);
 	return user.profile.picture;
 }
 
