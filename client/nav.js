@@ -37,5 +37,5 @@ Template.nav.getName = function(){
 	if(user===undefined){
 		return;
 	}
-	return user.profile.name;
+	return user.profile.firstname+' '+user.profile.lastname;
 }
