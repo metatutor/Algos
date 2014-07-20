@@ -105,5 +105,14 @@ Meteor.methods({
 				KeyWords:text
 			}
 		});
+	},
+	wikify:function(aid,wiki){
+		AlgoPedia.update({
+			AiD:aid
+		},{
+			$set:{
+				Description:wiki
+			}
+		});
 	}
 });
