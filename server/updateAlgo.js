@@ -105,5 +105,15 @@ Meteor.methods({
 				KeyWords:text
 			}
 		});
+	},
+	changeName: function(aid,naid,nname){
+		AlgoPedia.update({
+			AiD:aid
+		},{
+			$set:{
+				AiD:naid,
+				Name:nname
+			}
+		});
 	}
 });
