@@ -19,7 +19,7 @@ Meteor.methods({
 			}
 		});
 		var user = Meteor.users.findOne({_id:uid});
-		if(user.profile.algorithmContributions.length>50){
+		if(user.profile.algorithmContributions.length==50){
 			Meteor.users.update({
 				_id:uid
 			},{
@@ -34,7 +34,7 @@ Meteor.methods({
 			Meteor.call('sendNotification',uid,message);
 		}
 		else{
-			if(user.profile.algorithmContributions.length>20){
+			if(user.profile.algorithmContributions.length==20){
 				Meteor.users.update({
 					_id:uid
 				},{
@@ -49,7 +49,7 @@ Meteor.methods({
 				Meteor.call('sendNotification',uid,message);
 			}
 			else{
-				if(user.profile.algorithmContributions.length>5){
+				if(user.profile.algorithmContributions.length==5){
 					Meteor.users.update({
 						_id:uid
 					},{
