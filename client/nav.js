@@ -19,10 +19,6 @@ Template.nav.events = {
 			console.log(err);
 		});
 	},
-	//TODO
-	'click a[name=password]':function(event,template){
-		console.log("Please fix me");
-	},
 	'click a[name=logout]':function(event,template){
 		event.preventDefault();
 		Meteor.logout();
