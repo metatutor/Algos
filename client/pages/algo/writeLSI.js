@@ -18,7 +18,8 @@ Template.contributeLSI.events = {
 		event.preventDefault();
 		var algo = Session.get('lastAlgoSearch');
 		var aid = algo.AiD;
-		var code = template.find('textarea[name=lsi]').value;
+		var editor = ace.edit("editor");
+		var code = editor.getSession().getValue();
 		var language = Session.get('submitLanguage');
 		if(!(Match.test(code,String))){
 			return;

@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-iron-router
 coffeescript
 less
 font-awesome
@@ -17,3 +16,6 @@ showdown
 accounts-google
 accounts-github
 crypto-md5
+sharejs
+iron-router
+

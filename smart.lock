@@ -8,7 +8,8 @@
       "bootstrap-3": {},
       "underscore-string-latest": {},
       "pagedown-bootstrap": {},
-      "crypto-md5": {}
+      "crypto-md5": {},
+      "sharejs": {}
     },
     "packages": {
       "iron-router": {
@@ -23,8 +24,8 @@
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
-        "tag": "v2.6.0",
-        "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
+        "tag": "v2.8.1",
+        "commit": "722ea63783d594341023836b7d418ab2567dab8c"
       },
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
@@ -45,6 +46,11 @@
         "git": "https://github.com/oortcloud/meteor-crypto-md5.git",
         "tag": "v3.1.2.2",
         "commit": "75bbb3eeace302122d3554a6212a6fe92553fa18"
+      },
+      "sharejs": {
+        "git": "https://github.com/mizzao/meteor-sharejs.git",
+        "tag": "v0.6.0",
+        "commit": "5b601e2435248466f50e80fc235afb30f06b835f"
       },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",
