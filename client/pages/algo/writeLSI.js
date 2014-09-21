@@ -18,7 +18,7 @@ Template.contributeLSI.events = {
 		event.preventDefault();
 		var algo = Session.get('lastAlgoSearch');
 		var aid = algo.AiD;
-		//var code = MandrillAce.getInstance().value();
+		var code = MandrillAce.getInstance().value();
 		var language = Session.get('submitLanguage');
 		if(!(Match.test(code,String))){
 			return;
