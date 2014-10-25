@@ -28,7 +28,7 @@ Template.lsiPage.events = {
 			return;
 		}
 		query = escapeHTML(query);
-		if(_.isBlank(query)){
+		if(_.isBlank(query)||!_.contains(_.pluck(Languages.find().fetch(),'Name'),query)){
 			Router.go('pediaSearch',{algo:aid,search:"showAll"});
 		}else{
 			Router.go('pediaSearch',{algo:aid,search:_.slugify(query)});

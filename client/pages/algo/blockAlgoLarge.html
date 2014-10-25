@@ -1,23 +1,21 @@
 <template name="blockAlgoLarge">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="thumbnail">
-				<h3>{{ > algoName this}}</h3>
-				{{#markdown}}{{ > algoShortBare this }}{{/markdown}}
-				<div class="row">
-					<div class="col-md-12">
-						<h4>Keywords</h4>
-						{{ > algoKWfront this}}
-						<br/>
-						{{#if currentUser}}
-						{{#with getUserInfo}}
-						<div class="btn-group">
-							{{ > getUserLink this}}
-							<button data-toggle="modal" data-target="#editShortModal" title="Edit Description/Keywords" class="btn btn-info btn-sm">Edit <span class="glyphicon glyphicon-pencil"></span></button>
-							</div>
-						{{/with}}
-						{{/if}}
-					</div>
+			<h3>{{ > algoName this}}</h3>
+			{{#markdown}}{{ > algoShortBare this }}{{/markdown}}
+			<div class="row">
+				<div class="col-md-12">
+					<h4>Keywords</h4>
+					{{ > algoKWfront this}}
+					<br/>
+					{{#if currentUser}}
+					{{#with getUserInfo}}
+					<div class="btn-group">
+						{{ > getUserLink this}}
+						<button data-toggle="modal" data-target="#editShortModal" title="Edit Description/Keywords" class="btn btn-info btn-sm">Edit <span class="glyphicon glyphicon-pencil"></span></button>
+						</div>
+					{{/with}}
+					{{/if}}
 				</div>
 			</div>
 		</div>
