@@ -24,7 +24,7 @@ Template.userLSI.events = {
 			return;
 		}
 		text=escapeHTML(text);
-		if(_.isBlank(text)){
+		if(s.isBlank(text)){
 			Session.set('commentWarning',2);
 			event.preventDefault();
 			return;

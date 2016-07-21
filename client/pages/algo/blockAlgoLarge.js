@@ -14,7 +14,7 @@ Template.blockAlgoLarge.events = {
 	'click button[name=shortupdate]': function(event,template){
 		event.preventDefault();
 		var text = template.find('textarea[name=shortupdater]').value;
-		if(_.isBlank(template.find('input[name=keyupdater]').value)){
+		if(s.isBlank(template.find('input[name=keyupdater]').value)){
 			Session.set('algoChangeWarning',1);
 			return;
 		}
@@ -27,7 +27,7 @@ Template.blockAlgoLarge.events = {
 			Session.set('algoChangeWarning',3);
 			return;
 		}
-		if(_.isBlank(text)){
+		if(s.isBlank(text)){
 			Session.set('algoChangeWarning',4);
 			return;
 		}

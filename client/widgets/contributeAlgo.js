@@ -67,7 +67,7 @@ Template.contributeAlgo.getWarning = function(){
 }
 
 var getDuplications = function(name,aid,keywords,Short){
-	if(_.isBlank(Short)){
+	if(s.isBlank(Short)){
 		return 2;
 	}
 	if(Short.length>200){
@@ -76,7 +76,7 @@ var getDuplications = function(name,aid,keywords,Short){
 	if(keywords.length<3){
 		return 5;
 	}
-	if(_.isBlank(name)){
+	if(s.isBlank(name)){
 		return 4;
 	}
 	if(name.length>80){

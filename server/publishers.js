@@ -30,7 +30,7 @@ Meteor.publish('getAlgosByReg',function(query){
 });
 
 Meteor.publish('getAlgosByKeyWord',function(query){
-	if(_.isBlank(query)){
+	if(s.isBlank(query)){
 		return;
 	}
 	query = query.toLowerCase();
