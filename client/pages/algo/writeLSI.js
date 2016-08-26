@@ -23,11 +23,11 @@ Template.contributeLSI.events = {
 		if(!(Match.test(code,String))){
 			return;
 		}
-		if(_.isBlank(language)){
+		if(s.isBlank(language)){
 			Session.set('lsiSuccess',1);
 			return;
 		}
-		if(_.isBlank(code)){
+		if(s.isBlank(code)){
 			Session.set('lsiSuccess',3);
 			return;
 		}

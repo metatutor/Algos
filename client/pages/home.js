@@ -8,7 +8,7 @@ Template.home.events = {
 }
 
 Template.home.fieldNotBlank = function() {
-	return !(_.isBlank(Session.get('mainQuery')));
+	return !(s.isBlank(Session.get('mainQuery')));
 }
 
 Template.home.containsQuery = function(){

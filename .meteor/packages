@@ -3,18 +3,20 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-standard-app-packages
-coffeescript
-less
-random
-http
-showdown
-accounts-google
-accounts-github
+standard-minifier-css@1.1.8
+standard-minifier-js@1.1.8
+webapp@1.3.10
+random@1.0.10
+http@1.2.8
+markdown@1.0.10
+accounts-google@1.0.10
+accounts-github@1.0.10
 iron:router
 jparker:crypto-md5
-mrt:underscore-string-latest
-mrt:moment
-pinglamb:bootstrap3
-natestrauser:font-awesome
+underscorestring:underscore.string
+momentjs:moment
+matb33:bootstrap-full
+fortawesome:fontawesome
 mandrill:ace
+mongo@1.1.10
+standard-app-packages@1.0.9

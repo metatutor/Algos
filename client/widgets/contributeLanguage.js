@@ -70,10 +70,10 @@ Template.contributeLang.getWarning = function(){
 }
 
 var getDuplications = function(name,desc,slug){
-	if(_.isBlank(desc)){
+	if(s.isBlank(desc)){
 		return 1;
 	}
-	if(_.isBlank(name)){
+	if(s.isBlank(name)){
 		return 2;
 	}
 	if(name.length>30){
